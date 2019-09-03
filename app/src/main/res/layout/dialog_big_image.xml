@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="center_vertical"
+    android:gravity="center"
+    android:background="@drawable/background"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageexitgame"
+        android:layout_width="20dp"
+        android:layout_height="34dp"
+        android:layout_gravity="left"
+        android:layout_marginEnd="20dp"
+        app:srcCompat="@drawable/ic_close_black" />
+    <ImageView
+        android:id="@+id/bigImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/returant_image"
+   />
+
+
+</LinearLayout>

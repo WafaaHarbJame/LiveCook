@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_personal_profile"
+            android:icon="@drawable/follower"
+            android:title="@string/persona" />
+        <item
+            android:id="@+id/nav_search_cook"
+            android:icon="@drawable/chef"
+            android:title="@string/search_cook" />
+        <item
+            android:id="@+id/nav_search_resturant"
+            android:icon="@drawable/coffee_shop"
+            android:title="@string/search_rest" />
+        <item
+            android:id="@+id/menu_favaoirite"
+            android:icon="@drawable/ic_favorite_black"
+            android:title="@string/menu_favaoirite" />
+        <item
+            android:id="@+id/menu_police"
+            android:icon="@drawable/check_list"
+            android:title="@string/menu_police" />
+        <item
+            android:id="@+id/menu_about"
+            android:icon="@drawable/resume"
+            android:title="@string/menu_about" />
+        <item
+            android:id="@+id/menu_accountseeting"
+            android:icon="@drawable/preference"
+            android:title="@string/menu_accountseeting" />
+        <item
+            android:id="@+id/menu_contact"
+            android:icon="@drawable/chat"
+            android:title="@string/menu_contact" />
+        <item
+            android:id="@+id/menu_exist"
+            android:icon="@drawable/door_key"
+            android:title="@string/menu_enter" />
+    </group>
+
+
+
+</menu>

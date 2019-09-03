@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+     android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layoutDirection="rtl"
+    android:background="@drawable/raduislive"
+
+    android:layout_gravity="center"
+
+
+
+    android:layout_height="wrap_content">
+
+
+
+            <ImageView
+                android:id="@+id/resturantimage"
+                android:layout_width="170dp"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:background="@drawable/raduislive"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/all_image" />
+
+            <TextView
+                android:id="@+id/livetitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp"
+                android:gravity="right"
+                android:text=""
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/resturantimage"
+                app:layout_constraintHorizontal_bias="0.251"
+                app:layout_constraintStart_toStartOf="@+id/resturantimage"
+                app:layout_constraintTop_toTopOf="@+id/resturantimage"
+                app:layout_constraintVertical_bias="0.115" />
+
+            <ImageView
+                android:id="@+id/refersh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/refersh"
+                app:layout_constraintBottom_toBottomOf="@+id/resturantimage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/resturantimage" />
+
+    <TextView
+        android:id="@+id/livetime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:text=" "
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/resturantimage"
+        tools:layout_editor_absoluteX="30
+" />
+
+            <TextView
+                android:id="@+id/livestuatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="70dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/livetime"
+                app:layout_constraintEnd_toEndOf="@+id/resturantimage"
+                app:layout_constraintHorizontal_bias="0.89"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/live_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="100dp"
+                android:drawableRight="@drawable/livecircle"
+                android:drawablePadding="16dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.749"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/liveword"
+                tools:visibility="visible" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

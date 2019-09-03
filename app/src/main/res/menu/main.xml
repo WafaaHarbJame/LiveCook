@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/action_notification"
+        android:orderInCategory="150"
+        android:title="@string/notfiy"
+        android:icon="@drawable/notify"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/actionregister"
+        android:orderInCategory="120"
+        android:title="@string/register"
+        app:actionLayout="@layout/register2"
+        android:visible="true"
+        app:showAsAction="always" />
+
+
+</menu>

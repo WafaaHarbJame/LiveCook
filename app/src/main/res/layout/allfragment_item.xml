@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="#fff"
+    app:cardCornerRadius="3dp"
+    card_view:cardElevation="4sp"
+    card_view:cardPreventCornerOverlap="false"
+    card_view:cardUseCompatPadding="true">
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/allimage"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="75dp"
+        android:gravity="right"
+        app:srcCompat="@drawable/test" />
+
+    <ImageView
+        android:id="@+id/liii"
+        android:layout_width="40dp"
+        android:layout_height="32dp"
+        android:layout_alignStart="@+id/allimage"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+
+        app:srcCompat="@drawable/livwword" />
+
+    <TextView
+        android:id="@+id/countall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/liii"
+        android:layout_marginTop="-30dp"
+        android:layout_marginRight="50dp"
+        android:layout_toLeftOf="@id/liii"
+        android:background="@drawable/countsequre"
+        android:backgroundTintMode="screen"
+        android:drawableRight="@drawable/visible_icon"
+        android:drawablePadding="16dp"
+        android:gravity="right"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="10"
+        android:textColor="@color/white"
+        android:textDirection="rtl"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/livetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="-1dp"
+        android:background="@drawable/live_title_stylr"
+        android:fontFamily="@font/a_jannat_lt_bold"
+        android:gravity="right"
+        android:padding="3dp"
+        android:text="@string/live_title"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/allname"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/livetitle"
+        android:layout_alignBottom="@+id/allimage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="-40dp"
+        android:text="@string/namecookres"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/type"
+        android:visibility="gone"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="155dp"
+        android:layout_marginRight="8dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/contactwhats"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+
+            app:srcCompat="@drawable/contactwhats" />
+
+        <ImageView
+            android:id="@+id/follow"
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:layout_marginRight="4dp"
+            android:src="@drawable/followtab"
+
+            />
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+</androidx.cardview.widget.CardView>

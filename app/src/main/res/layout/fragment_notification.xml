@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+
+    android:background="@drawable/background"
+
+    tools:context=".Fragment.NotificationFragment">
+
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:layout_width="match_parent"
+    android:id="@+id/nOtificationreswip"
+
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/nOtificationrecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

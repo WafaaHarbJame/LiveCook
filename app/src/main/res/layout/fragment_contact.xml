@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    android:padding="8dp"
+    android:textDirection="rtl"
+    android:background="@drawable/background"
+    android:layoutDirection="rtl"
+    tools:context=".Fragment.ContactFragment">
+
+    <include
+        android:id="@+id/lyt_failed_home"
+        layout="@layout/include_failed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@color/black"
+        android:id="@+id/ednametv"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="@string/namee" />
+
+    <EditText
+        android:id="@+id/edname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/des"
+
+        android:ems="10"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:inputType="textPersonName"
+       />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:id="@+id/emailtv"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:text="@string/email" />
+    <!--android:backgroundTint="@color/gray"-->
+
+
+    <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textSize="14sp"
+            android:background="@drawable/des"
+
+            android:textStyle="bold"
+
+            android:layout_marginTop="8dp"
+            />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:id="@+id/subjexttexttv"
+        android:layout_marginTop="8dp"
+
+        android:text="@string/sub" />
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/subjexttext"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:lines="5"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:background="@drawable/des"
+        android:hint="@string/sub"
+        android:layout_marginTop="8dp"
+        android:inputType="text"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:id="@+id/eddesctv"
+        android:layout_marginTop="8dp"
+
+        android:text="@string/message" />
+    <EditText
+        android:id="@+id/eddesc"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:lines="10"
+        android:textSize="14sp"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:textStyle="bold"
+        android:background="@drawable/des"
+        android:hint="@string/write_hinit"
+        android:layout_marginTop="8dp"
+        android:textDirection="rtl"
+        android:inputType="text"
+         />
+
+
+
+
+
+    <Button
+        android:id="@+id/sendbut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/sendbutton" />
+
+</LinearLayout>

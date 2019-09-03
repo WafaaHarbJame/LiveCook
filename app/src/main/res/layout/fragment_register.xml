@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    android:textDirection="rtl"
+    tools:context=".Fragment.RegisterFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="-20dp"
+
+        android:src="@drawable/livecookk" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/registercook"
+        android:layout_marginBottom="-30dp"
+
+        android:layout_height="wrap_content"
+        android:src="@drawable/registercook" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/registerresturant"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-30dp"
+        android:src="@drawable/registerrest" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerclient"
+        android:src="@drawable/registersclient" />
+
+
+</LinearLayout>

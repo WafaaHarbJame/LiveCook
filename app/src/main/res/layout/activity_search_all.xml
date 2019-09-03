@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+
+    tools:context=".Fragment.AllFragment">
+
+
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/textView_noresult"
+        android:text="@string/no_result"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:src="@drawable/no_data"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitCenter"
+        android:layout_height="wrap_content" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+
+        android:id="@+id/allswip"
+
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/allrecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

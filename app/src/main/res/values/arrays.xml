@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="country_into" >
+        <item >+999</item>
+        <item >+972</item>
+        <item >+971</item>
+
+    </string-array>
+
+</resources>

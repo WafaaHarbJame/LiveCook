@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:background="#ECEAEA"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ECEAEA"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:titleTextAppearance="@style/Toolbar.TiltleText"
+            app:titleTextAppearance="@style/Toolbar.TiltleText"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:textDirection="rtl"
+            android:layout_gravity="right"
+            android:paddingLeft="8dp"
+            android:paddingRight="16dp"
+            android:layout_marginTop="-16dp"
+            android:background="#ECEAEA"
+            android:padding="8dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/simpleSearchView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:background="@drawable/edittextstyle"
+                android:drawableLeft="@drawable/ic_search"
+                app:defaultQueryHint="البحث"
+                app:searchIcon="@drawable/ic_search"
+                android:hint="البحث"
+                android:layoutDirection="rtl"
+                android:textDirection="rtl"
+                android:theme="@style/SearchViewTheme"
+                android:queryHint="@string/serachhinit"
+                app:queryHint="@string/serachhinit"
+                app:iconifiedByDefault="false"
+
+                android:textColorHint="@android:color/darker_gray"
+
+                />
+
+            <ImageView
+                android:id="@+id/filter"
+                android:layout_width="100dp"
+                android:layout_weight="3"
+                app:srcCompat="@drawable/ic_filter"
+                android:layout_marginRight="4dp"
+                android:layout_gravity="right"
+                android:layoutDirection="rtl"
+                android:textDirection="rtl"
+                android:background="@drawable/edittextstyle"
+                android:layout_height="50dp"
+                />
+
+        </LinearLayout>
+
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+
+
+
+    <!-- set query string of an search view -->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

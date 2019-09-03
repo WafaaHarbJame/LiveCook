@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="rtl"
+        android:orientation="vertical"
+        android:textDirection="rtl"
+
+        android:padding="16dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/followingbut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:textDirection="rtl"
+            android:layoutDirection="rtl"
+            android:layout_gravity="right"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textDirection="rtl"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="50dp"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:title="@string/search_rest"
+                app:titleTextColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/bacck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/toolbar"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="20dp"
+
+                app:srcCompat="@drawable/ic_arrow_back_black" />
+
+        </RelativeLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/tvname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/restname"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/gray"
+            android:lines="1"
+            android:maxLines="1"
+            android:minLines="1"
+            android:singleLine="true"
+
+            android:ems="10"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/country"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/countryname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:prompt="@string/spinner_title" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/cityname"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/cityname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:prompt="@string/cityname" />
+
+        <EditText
+            android:id="@+id/mRegion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:maxLines="1"
+            android:minLines="1"
+            android:singleLine="true"
+
+            android:hint="@string/state"
+      />
+        <Button
+            android:id="@+id/restfilte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/search_" />
+
+
+
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:id="@+id/cookswip"
+
+            android:layout_height="match_parent">
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/cookrecycler"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:layout_height="match_parent" >
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+        <include
+            android:id="@+id/lyt_failed_home"
+            layout="@layout/include_failed"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+
+
+
+

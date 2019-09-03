@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView2"
+    android:layout_width="match_parent"
+    android:layout_marginTop="40dp"
+
+
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        android:layoutDirection="rtl"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:textDirection="rtl">
+
+
+
+        <TextView
+            android:id="@+id/tvname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/cook_name"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/gray"
+
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/country"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/countryname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="16dp"
+            android:prompt="@string/spinner_title" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/cityname"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/cityname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="16dp"
+            android:prompt="@string/cityname" />
+        <TextView
+            android:id="@+id/region"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/state"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/mRegion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/cityname" />
+
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="نوع الطباخ"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+
+            android:layout_centerHorizontal="true" >
+
+            <RadioButton
+                android:id="@+id/cooktype1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/type1" />
+
+            <RadioButton
+                android:id="@+id/cooktype2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/type2" />
+
+
+        </RadioGroup>
+        <Button
+            android:id="@+id/restfilte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/search" />
+    </LinearLayout>
+</ScrollView>
+
+
+
+

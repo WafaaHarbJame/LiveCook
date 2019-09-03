@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "645011310345",
+    "firebase_url": "https://livecook-b8bbc.firebaseio.com",
+    "project_id": "livecook-b8bbc",
+    "storage_bucket": "livecook-b8bbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645011310345:android:02201f37da6ebe3a",
+        "android_client_info": {
+          "package_name": "com.livecook.livecookapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "645011310345-lj2euj9fm9vkml2a4134jvp8824i4e7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9v_wcG48-68JaamXSANVFU6o1GvnlJ9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "645011310345-lj2euj9fm9vkml2a4134jvp8824i4e7n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "645011310345-hsf8j3dkg64u1dshsf8u5t7okp3diiud.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sariDev.cooker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

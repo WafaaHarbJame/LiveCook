@@ -1,0 +1,137 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="drawerArrowStyle">@style/DrawerIconStyle</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:fontFamily">@font/a_jannat_lt_bold</item>
+        <item name="actionBarSize">65dip</item>
+
+
+
+
+
+    </style>
+
+    <style name="MyActionBarWidgetTheme" parent="@android:style/Theme.Holo">
+        <item name="android:textStyle" >bold</item>
+        <item name="android:textColorHint">@color/gray</item>
+
+    </style>
+    
+    <style name="font_type_bold">
+        <item name="android:fontFamily">@font/a_jannat_lt_bold</item>
+
+
+    </style>
+    <style name="font_type_regualar">
+        <item name="android:fontFamily">@font/a_jannat_lt_bold</item>
+
+
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor" >@color/colorPrimaryDark</item>
+
+
+    </style>
+
+
+    <style name="SearchViewTheme" parent="Widget.AppCompat.Light.SearchView">
+        <item name="android:maxWidth">10000dp</item>
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:searchIcon" tools:ignore="NewApi">@drawable/ic_search_black_24dp</item>
+
+    </style>
+
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+
+
+    </style>
+
+    <style name="textstyleforitem">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle"></style>
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/green</item>
+
+    </style>
+
+
+
+        <style name="myActionButtonStyle" parent="Widget.AppCompat.ActionButton">
+            <item name="android:minWidth">200dp</item>
+            <item name="android:maxWidth">200dp</item>
+            <item name="android:width">200dp</item>
+        </style>
+    <style name="MenuTheme" parent="android:Theme">
+        <item name="android:panelFullBackground">@drawable/register2</item>
+        <item name="android:padding">1dip</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:height">100dp</item>
+
+        <item name="android:drawablePadding">1dip</item>
+    </style>
+
+    <style name="Toolbar.TiltleText" >
+
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="Toolbar"></style>
+    <style name="WallSearchView" parent="Widget.AppCompat.SearchView">
+        ...
+        <item name="iconifiedByDefault">false</item>
+        <item name="colorControlActivated">#FFffffff</item>
+    </style>
+
+
+    <style name="WhiteCursorSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="colorControlActivated">#FFFFFF</item>
+        <item name="android:textColorHint">#FFFFFF</item>
+
+    </style>
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:textDirection">rtl</item>
+        <item name="android:fontFamily">@font/a_jannat_lt_bold</item>
+        <item name="controlBackground">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:headerDividersEnabled">true</item>
+        <item name="android:typeface">normal</item>
+
+    </style>
+</resources>

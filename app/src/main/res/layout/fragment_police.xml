@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView2"
+    android:layout_width="match_parent"
+    android:textDirection="rtl"
+
+    android:layoutDirection="rtl"
+
+    android:layout_height="match_parent">
+    <!--android:layout_marginTop="40dp"-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    android:padding="8dp"
+    android:textDirection="rtl"
+
+    android:layoutDirection="rtl"
+    tools:context=".Fragment.PoliceFragment">
+    <include
+        android:id="@+id/lyt_failed_home"
+        layout="@layout/include_failed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+
+    <ImageView
+        android:id="@+id/police"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center"
+        android:src="@drawable/check_listprivacy" />
+
+
+
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layoutDirection="rtl"
+        android:layout_gravity="right"
+        android:layout_marginTop="16dp"
+        android:textDirection="rtl"
+        android:background="@android:color/transparent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+</ScrollView>
