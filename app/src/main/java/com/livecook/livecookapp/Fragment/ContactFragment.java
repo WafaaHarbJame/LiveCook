@@ -54,6 +54,7 @@ public class ContactFragment extends Fragment {
     private TextView mEddesctv;
 
 
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
