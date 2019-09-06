@@ -23,10 +23,12 @@ import com.livecook.livecookapp.MainActivity;
 import com.livecook.livecookapp.Model.MyInterface;
 import com.livecook.livecookapp.R;
 
+import klogi.com.RtlViewPager;
+
 public class HomeFragment extends Fragment implements MyInterface {
 
 
-    ViewPager viewPager;
+    RtlViewPager viewPager;
     TabLayout tabs;
     SectionsPagerAdapter sectionsPagerAdapter;
     String CURRENT;
@@ -50,7 +52,7 @@ public class HomeFragment extends Fragment implements MyInterface {
 
          sectionsPagerAdapter = new SectionsPagerAdapter(getContext(),
                 getActivity().getSupportFragmentManager());
-         viewPager = root.findViewById(R.id.view_pager);
+         viewPager = (RtlViewPager)root.findViewById(R.id.view_pager);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override

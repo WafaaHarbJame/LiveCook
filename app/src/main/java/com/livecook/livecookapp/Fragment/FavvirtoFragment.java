@@ -13,10 +13,13 @@ import android.view.ViewGroup;
 import com.livecook.livecookapp.Adapter.FavoritetabAdapter;
 import com.livecook.livecookapp.R;
 
+import klogi.com.RtlViewPager;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FavvirtoFragment extends Fragment {
+    RtlViewPager viewPager;
 
 
     public FavvirtoFragment() {
@@ -31,7 +34,7 @@ public class FavvirtoFragment extends Fragment {
 
         FavoritetabAdapter sectionsPagerAdapter = new FavoritetabAdapter(getContext(),
                 getActivity().getSupportFragmentManager());
-        ViewPager viewPager = root.findViewById(R.id.view_pager);
+         viewPager =  (RtlViewPager)root.findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = root.findViewById(R.id.tabs);
         tabs.setSelectedTabIndicatorColor(R.color.white); // here

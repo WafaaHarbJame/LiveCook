@@ -12,7 +12,12 @@
 
     tools:context=".Fragment.NotificationFragment">
 
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/textView_noresult"
+        android:src="@drawable/no_data"
+        android:visibility="gone"
+        android:layout_height="wrap_content" />
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     android:layout_width="match_parent"
     android:id="@+id/nOtificationreswip"
@@ -23,6 +28,7 @@
         android:id="@+id/nOtificationrecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>
