@@ -141,13 +141,25 @@ public class ClientRegisterActivity extends AppCompatActivity {
                     Toast.makeText(ClientRegisterActivity.this, getString(R.string.enter_passward), Toast.LENGTH_SHORT).show();
                 }
 
-
-
-                else {
+                else if (edrepatepassward.getText().toString().matches("")) {
+                    Toast.makeText(ClientRegisterActivity.this, getString(R.string.repeatpasswward)
+                            , Toast.LENGTH_SHORT).show();
+                }
+                else  if ((edpassward.getText().toString()).matches(edrepatepassward.getText().toString()) ) {
                     registeruser(edname.getText().toString(),  edmobileNumber.getText().toString(), countrycode_reg, edpassward.getText().toString(), edpassward.getText().toString());
 
 
                 }
+                else{
+                    Toast.makeText(ClientRegisterActivity.this, getString(R.string.not_match_passward), Toast.LENGTH_SHORT).show();
+
+                }
+
+
+
+
+
+
 
 
             }

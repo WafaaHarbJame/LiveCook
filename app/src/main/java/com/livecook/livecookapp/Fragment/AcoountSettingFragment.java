@@ -76,6 +76,7 @@ import com.vikktorn.picker.CountryPicker;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -120,7 +121,7 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
     private EditText mEddesc;
     private EditText mEdmobileNumber;
     private Spinner mCountrycode;
-    private EditText mEdpassward;
+    private TextView mEdpassward;
     private Switch mSwitch1;
     String encodedImage;
     private Button mSave;

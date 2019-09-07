@@ -157,7 +157,7 @@ public class ContactFragment extends Fragment {
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(getActivity(), "تم ارسال البيانات بنجاح " + status, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "تم ارسال البيانات بنجاح " , Toast.LENGTH_SHORT).show();
                     mEdname.setText("");
                     memail.setText("");
                     mSubjexttext.setText("");

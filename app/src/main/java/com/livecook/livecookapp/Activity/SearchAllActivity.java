@@ -207,25 +207,19 @@ public class SearchAllActivity extends AppCompatActivity implements AllFirebaseR
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+
         if (item.getItemId() == android.R.id.home) {
-
-            InputMethodManager inputManager = (InputMethodManager)
-                    getSystemService(Context.INPUT_METHOD_SERVICE);
-
-            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                    InputMethodManager.HIDE_NOT_ALWAYS);
-            finish();
-            Intent intent=new Intent(SearchAllActivity.this,MainActivity.class);
+            Intent intent=new Intent(SearchAllActivity.this, MainActivity.class);
             startActivity(intent);
-
-
+           finish();
             return true;
-
         }
+
 
         if (item.getItemId() == R.id.nav_home) {
             Intent intent=new Intent(SearchAllActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();
             return true;
 
         }

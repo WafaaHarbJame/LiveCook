@@ -133,9 +133,10 @@ public class CookFilterrActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+
                 Intent intent=new Intent(CookFilterrActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -230,10 +231,6 @@ public class CookFilterrActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (mEdname.getText().toString().matches("") ) {
-                    Toast.makeText(CookFilterrActivity.this, "الرجاء ادخال اسم الطباخ لبدء البحث ", Toast.LENGTH_SHORT).show();
-                } else {
-
                         if (!mEdname.getText().toString().isEmpty()) {
                             Intent intent = new Intent(CookFilterrActivity.this, FilterResultActivity.class);
                             intent.putExtra(Constants.filtertype_id, type_id);
@@ -242,6 +239,7 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filtercountry_id, "");
                             intent.putExtra(Constants.filterregion, "");
                             startActivity(intent);
+                            finish();
                             //getCooker(type_id,"","","",mEdname.getText().toString()+"");
 
 
@@ -253,6 +251,7 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filterregion, "");
                             intent.putExtra(Constants.filtercountry_id, country_id + "");
                             startActivity(intent);
+                            finish();
                             //getCooker(type_id,country_id+"","","","");
 
 
@@ -265,6 +264,7 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filterregion, "");
                             intent.putExtra(Constants.filtercountry_id, "");
                             startActivity(intent);
+                            finish();
                             // getCooker(type_id,"",city_id+"","","");
 
 
@@ -277,6 +277,7 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                             intent.putExtra(Constants.filtercountry_id, "");
                             startActivity(intent);
+                            finish();
 
 
                             // getCooker(type_id,"",city_id+"",mRegion.getText().toString(),"");
@@ -291,6 +292,7 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                             intent.putExtra(Constants.filtercountry_id, country_id + "");
                             startActivity(intent);
+                            finish();
                             //getCooker(0,country_id+"",city_id+"",mRegion.getText().toString()+"",
                             //  mEdname.getText().toString()+"");
 
@@ -305,6 +307,7 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                             intent.putExtra(Constants.filtercountry_id, country_id + "");
                             startActivity(intent);
+                            finish();
 
                             // getCooker(type_id,country_id+"",city_id+"",
                             //    mRegion.getText().toString()+"",mEdname.getText().toString()+"");
@@ -318,6 +321,7 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                             intent.putExtra(Constants.filtercountry_id, country_id + "");
                             startActivity(intent);
+                            finish();
 
 
                             //getCooker(type_id,"","",mRegion.getText().toString()+"",mEdname.getText().toString()+"");
@@ -332,6 +336,7 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                             intent.putExtra(Constants.filtercountry_id, country_id + "");
                             startActivity(intent);
+                            finish();
 
                             //getCooker(type_id,country_id+"", "",mRegion.getText().toString()+"",mEdname.getText().toString()+"");
 
@@ -345,6 +350,7 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                             intent.putExtra(Constants.filtercountry_id, "");
                             startActivity(intent);
+                            finish();
 
                             // getCooker(type_id,"","",mRegion.getText().toString()+"",mEdname.getText().toString()+"");
 
@@ -358,6 +364,8 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                             intent.putExtra(Constants.filtercountry_id, "");
                             startActivity(intent);
+                            finish();
+
 
                             //getCooker(type_id,"","",mRegion.getText().toString()+"",mEdname.getText().toString());
 
@@ -372,12 +380,13 @@ public class CookFilterrActivity extends AppCompatActivity {
                             intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                             intent.putExtra(Constants.filtercountry_id, "");
                             startActivity(intent);
+                            finish();
 
                             // getCooker(type_id,"","",mRegion.getText().toString()+"","");
 
 
                         }
-                    }
+
 
                 }
 

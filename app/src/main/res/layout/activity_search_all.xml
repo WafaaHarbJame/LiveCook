@@ -29,7 +29,7 @@
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:scaleType="fitCenter"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"

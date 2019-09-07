@@ -28,7 +28,7 @@
         android:layout_marginTop="20dp"
         android:visibility="gone"
         android:scaleType="fitCenter"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
     <include
         android:id="@+id/lyt_failed_home"
         layout="@layout/include_failed"

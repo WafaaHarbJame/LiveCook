@@ -321,6 +321,8 @@ public class SearchAllFirebaseResturantCookAdapter extends RecyclerView.Adapter<
 
                     Intent intent=new Intent(activity, LoginActivity.class);
                     activity.startActivity(intent);
+                    activity.finish();
+
 
                 }
             }
@@ -372,8 +374,9 @@ public class SearchAllFirebaseResturantCookAdapter extends RecyclerView.Adapter<
                 intent.putExtra(Constants.RecordPath, dataFiltered.get(i).getRecordPath());
                 intent.putExtra(Constants.status, dataFiltered.get(i).isStatus());
 
-
                 activity.startActivity(intent);
+                activity.finish();
+
 
 
 

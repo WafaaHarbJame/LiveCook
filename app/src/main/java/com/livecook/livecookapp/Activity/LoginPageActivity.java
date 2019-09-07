@@ -103,7 +103,7 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
 
         if(prefs!=null) {
 
-            typnumer = prefs.getString(Constants.TYPE, "user");
+            typnumer = prefs.getString(Constants.TYPE, "-1");
             tokenfromlogin = prefs.getString(Constants.access_token1, "default value");
             saveLogin = prefs.getBoolean(Constants.ISLOGIN, false);
 
@@ -186,6 +186,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
 
                     Intent intent = new Intent(LoginPageActivity.this, SearchAllActivity.class);
                     startActivity(intent);
+                    finish();
+
 
                     // Do something here
                 } else if (homeFragment.getCurrentf() instanceof AllcookFragment) {
@@ -197,6 +199,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
                     searchView.setFocusable(false);
                     Intent intent = new Intent(LoginPageActivity.this, SearchActivity.class);
                     startActivity(intent);
+                    finish();
+
 
                 } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                     searchView.setVisibility(View.VISIBLE);
@@ -207,6 +211,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
                     searchView.setFocusable(false);
                     Intent intent = new Intent(LoginPageActivity.this, SearchResturant.class);
                     startActivity(intent);
+                    finish();
+
 
 
                 }
@@ -223,11 +229,15 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
                 if (homeFragment.getCurrentf() instanceof AllcookFragment) {
                     Intent intent = new Intent(LoginPageActivity.this, CookFilterrActivity.class);
                     startActivity(intent);
+                    finish();
+
 
 
                 } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                     Intent intent = new Intent(LoginPageActivity.this, ResturantFiltertActivity.class);
                     startActivity(intent);
+                    finish();
+
 
 
                 }
@@ -304,13 +314,16 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        menu.findItem(R.id.action_notification).setVisible(false);
 
 
-        if(saveLogin){
-            menu.findItem(R.id.action_notification).setVisible(true);
+        if (typnumer.matches("user")) {
+            if(saveLogin){
+
+                menu.findItem(R.id.action_notification).setVisible(true);
 
 
-
+            }
         }
         else{
 
@@ -393,6 +406,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
 
                         Intent intent = new Intent(LoginPageActivity.this, SearchAllActivity.class);
                         startActivity(intent);
+                        finish();
+
 
                         // Do something here
                     } else if (homeFragment.getCurrentf() instanceof AllcookFragment) {
@@ -404,6 +419,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
                         searchView.setFocusable(false);
                         Intent intent = new Intent(LoginPageActivity.this, SearchActivity.class);
                         startActivity(intent);
+                        finish();
+
 
                     } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                         searchView.setVisibility(View.VISIBLE);
@@ -414,6 +431,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
                         searchView.setFocusable(false);
                         Intent intent = new Intent(LoginPageActivity.this, SearchResturant.class);
                         startActivity(intent);
+                        finish();
+
 
 
                     }
@@ -430,11 +449,15 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
                     if (homeFragment.getCurrentf() instanceof AllcookFragment) {
                         Intent intent = new Intent(LoginPageActivity.this, CookFilterrActivity.class);
                         startActivity(intent);
+                        finish();
+
 
 
                     } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                         Intent intent = new Intent(LoginPageActivity.this, ResturantFiltertActivity.class);
                         startActivity(intent);
+                        finish();
+
 
 
                     }
@@ -488,6 +511,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
                 public void onClick(View v) {
                     Intent intent = new Intent(LoginPageActivity.this, SearchActivity.class);
                     startActivity(intent);
+                    finish();
+
                 }
             });
 
@@ -497,6 +522,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
 
                     Intent intent = new Intent(LoginPageActivity.this, CookFilterrActivity.class);
                     startActivity(intent);
+                    finish();
+
                 }
             });
 
@@ -515,6 +542,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
                 public void onClick(View v) {
                     Intent intent = new Intent(LoginPageActivity.this, SearchResturant.class);
                     startActivity(intent);
+                    finish();
+
 
                 }
             });
@@ -525,6 +554,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
 
                     Intent intent = new Intent(LoginPageActivity.this, ResturantFiltertActivity.class);
                     startActivity(intent);
+                    finish();
+
                 }
             });
 

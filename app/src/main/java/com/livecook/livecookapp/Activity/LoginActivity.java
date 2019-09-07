@@ -130,6 +130,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent gotologin = new Intent(LoginActivity.this, ChangePasswardActivity.class);
                 startActivity(gotologin);
+                finish();
 
             }
         });

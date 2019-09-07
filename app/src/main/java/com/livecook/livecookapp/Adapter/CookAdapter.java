@@ -567,7 +567,7 @@ public class CookAdapter extends RecyclerView.Adapter<CookAdapter.MovieHolder> {
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت المتابعة  " , Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(activity, "تمت المتابعة  " , Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -618,7 +618,7 @@ public class CookAdapter extends RecyclerView.Adapter<CookAdapter.MovieHolder> {
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت المتابعة  " , Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(activity, "تمت المتابعة  " , Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -666,7 +666,8 @@ public class CookAdapter extends RecyclerView.Adapter<CookAdapter.MovieHolder> {
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت الاضافة الى المفضلة  " , Toast.LENGTH_SHORT).show();
+                   //
+                    // Toast.makeText(activity, "تمت الاضافة الى المفضلة  " , Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -713,7 +714,7 @@ public class CookAdapter extends RecyclerView.Adapter<CookAdapter.MovieHolder> {
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت الازالة من المفضلة  " , Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(activity, "تمت الازالة من المفضلة  " , Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {

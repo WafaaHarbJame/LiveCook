@@ -412,7 +412,7 @@ public class PersonalCookerFragment extends Fragment {
                     mCookName.setText(name);
                     mAblePhoneLogin.setText(mobile);
                     mCityCook.setText( "المدينة  : "+ " "+cityName);
-                    mCountryCook.setText("الدولة :"+""+countryName);
+                    mCountryCook.setText("الدولة :"+" "+countryName);
                     mCityState.setText("الحي   : "+"  "+region);
 
                     Picasso.with(getContext()).load(avatarURL)

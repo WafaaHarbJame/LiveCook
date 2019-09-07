@@ -457,7 +457,7 @@ public class PersonalResurantFragment extends Fragment {
                             mAblePhoneLogin.setText(mobile);
 
                             mCityCook.setText( "المدينة  : "+ " "+cityName);
-                            mCountryCook.setText("الدولة :"+""+countryName);
+                            mCountryCook.setText("الدولة :"+" "+countryName);
                             mCityState.setText("الحي   : "+"  "+region);
                             if(avatarURL.matches("") || !avatarURL.startsWith("http"))
                             {////https://image.flaticon.com/icons/svg/1055/1055672.svg

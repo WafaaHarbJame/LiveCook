@@ -650,6 +650,15 @@ public class CookPageActivity extends AppCompatActivity {
             return true;
 
         }
+
+        else {
+            Intent intent=new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+
+
+        }
+
         if (item.getItemId() == R.id.nav_home) {
             Intent intent=new Intent(this, MainActivity.class);
             startActivity(intent);

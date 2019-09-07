@@ -90,20 +90,9 @@ public class NotificationFragment extends Fragment {
 
 
         if (prefs != null) {
-            typnumer = prefs.getString(Constants.TYPE, "-1");
+            typnumer = prefs.getString(Constants.TYPE, "user");
 
-           // Toast.makeText(getActivity(), "type " + typnumer, Toast.LENGTH_SHORT).show();
-
-            if (typnumer.matches("cooker")) {
-                getUserNotification(Constants.cooker_notification,tokenfromlogin);
-
-
-            } else if (typnumer.matches("restaurant")) {
-                getUserNotification(Constants.restaurant_notification,tokenfromlogin);
-
-
-
-            } else if (typnumer.matches("user")) {
+             if (typnumer.matches("user")) {
                 getUserNotification(Constants.user_notification,tokenfromlogin);
 
 

@@ -304,7 +304,7 @@ public class ResturantFaairiteAdapter extends RecyclerView.Adapter<ResturantFaai
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت المتابعة  " , Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(activity, "تمت المتابعة  " , Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -352,7 +352,7 @@ public class ResturantFaairiteAdapter extends RecyclerView.Adapter<ResturantFaai
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت المتابعة  " , Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(activity, "تمت المتابعة  " , Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -400,7 +400,7 @@ public class ResturantFaairiteAdapter extends RecyclerView.Adapter<ResturantFaai
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت الاضافة الى المفضلة  ", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(activity, "تمت الاضافة الى المفضلة  ", Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -447,7 +447,7 @@ public class ResturantFaairiteAdapter extends RecyclerView.Adapter<ResturantFaai
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت ازالة من المفضلة  " , Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(activity, "تمت ازالة من المفضلة  " , Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {

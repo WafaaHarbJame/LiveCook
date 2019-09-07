@@ -98,6 +98,7 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
         toolbar.setTitleTextColor(Color.BLACK);
         toolbar.setTitle(getString(R.string.choose_account));
 
+
         prefs = getSharedPreferences(Constants.PREF_FILE_CONFIG, MODE_PRIVATE);
 
 
@@ -185,6 +186,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
 
                     Intent intent = new Intent(RegisterActivity.this, SearchAllActivity.class);
                     startActivity(intent);
+                    finish();
+
 
                     // Do something here
                 } else if (homeFragment.getCurrentf() instanceof AllcookFragment) {
@@ -196,6 +199,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
                     searchView.setFocusable(false);
                     Intent intent = new Intent(RegisterActivity.this, SearchActivity.class);
                     startActivity(intent);
+                    finish();
+
 
                 } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                     searchView.setVisibility(View.VISIBLE);
@@ -206,6 +211,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
                     searchView.setFocusable(false);
                     Intent intent = new Intent(RegisterActivity.this, SearchResturant.class);
                     startActivity(intent);
+                    finish();
+
 
 
                 }
@@ -222,11 +229,15 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
                 if (homeFragment.getCurrentf() instanceof AllcookFragment) {
                     Intent intent = new Intent(RegisterActivity.this, CookFilterrActivity.class);
                     startActivity(intent);
+                    finish();
+
 
 
                 } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                     Intent intent = new Intent(RegisterActivity.this, ResturantFiltertActivity.class);
                     startActivity(intent);
+                    finish();
+
 
 
                 }
@@ -309,19 +320,22 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        menu.findItem(R.id.action_notification).setVisible(false);
+
+        if (typnumer.matches("user")) {
+            if(saveLogin){
+
+                menu.findItem(R.id.action_notification).setVisible(true);
 
 
-        if(saveLogin){
-            menu.findItem(R.id.action_notification).setVisible(true);
-
-
-
+            }
         }
         else{
 
             menu.findItem(R.id.action_notification).setVisible(false);
 
         }
+
 
         //  final MenuItem alertMenuItem = menu.findItem(R.id.actionregister);
         // rootView = (FrameLayout) alertMenuItem.getActionView();
@@ -397,6 +411,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
 
                         Intent intent = new Intent(RegisterActivity.this, SearchAllActivity.class);
                         startActivity(intent);
+                        finish();
+
 
                         // Do something here
                     } else if (homeFragment.getCurrentf() instanceof AllcookFragment) {
@@ -408,6 +424,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
                         searchView.setFocusable(false);
                         Intent intent = new Intent(RegisterActivity.this, SearchActivity.class);
                         startActivity(intent);
+                        finish();
+
 
                     } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                         searchView.setVisibility(View.VISIBLE);
@@ -418,6 +436,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
                         searchView.setFocusable(false);
                         Intent intent = new Intent(RegisterActivity.this, SearchResturant.class);
                         startActivity(intent);
+                        finish();
+
 
 
                     }
@@ -434,11 +454,15 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
                     if (homeFragment.getCurrentf() instanceof AllcookFragment) {
                         Intent intent = new Intent(RegisterActivity.this, CookFilterrActivity.class);
                         startActivity(intent);
+                        finish();
+
 
 
                     } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                         Intent intent = new Intent(RegisterActivity.this, ResturantFiltertActivity.class);
                         startActivity(intent);
+                        finish();
+
 
 
                     }
@@ -492,6 +516,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
                 public void onClick(View v) {
                     Intent intent = new Intent(RegisterActivity.this, SearchActivity.class);
                     startActivity(intent);
+                    finish();
+
                 }
             });
 
@@ -501,6 +527,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
 
                     Intent intent = new Intent(RegisterActivity.this, CookFilterrActivity.class);
                     startActivity(intent);
+                    finish();
+
                 }
             });
 
@@ -519,6 +547,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
                 public void onClick(View v) {
                     Intent intent = new Intent(RegisterActivity.this, SearchResturant.class);
                     startActivity(intent);
+                    finish();
+
 
                 }
             });
@@ -529,6 +559,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
 
                     Intent intent = new Intent(RegisterActivity.this, ResturantFiltertActivity.class);
                     startActivity(intent);
+                    finish();
+
                 }
             });
 
@@ -967,13 +999,9 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
         custmregister_but = rootView.findViewById(R.id.registerbut);
 
 
-        if (saveLogin) {
+
             register.setVisible(false);
-        } else {
-            register.setVisible(true);
 
-
-        }
 
 
         rootView.setOnClickListener(new View.OnClickListener() {

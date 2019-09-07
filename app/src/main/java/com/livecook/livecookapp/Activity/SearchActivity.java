@@ -629,24 +629,18 @@ public class SearchActivity extends AppCompatActivity implements SearchCookAdapt
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == android.R.id.home) {
-            InputMethodManager inputManager = (InputMethodManager)
-                    getSystemService(Context.INPUT_METHOD_SERVICE);
-
-            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                    InputMethodManager.HIDE_NOT_ALWAYS);
-            finish();
-            Intent intent=new Intent(SearchActivity.this,MainActivity.class);
+            Intent intent=new Intent(SearchActivity.this, MainActivity.class);
             startActivity(intent);
-
-
             return true;
 
 
         }
 
+
         if (item.getItemId() == R.id.nav_home) {
             Intent intent=new Intent(SearchActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();
             return true;
 
         }
@@ -667,6 +661,7 @@ public class SearchActivity extends AppCompatActivity implements SearchCookAdapt
         intent.putExtra(Constants.cookimage,contact.getAvatar_url());
         intent.putExtra(Constants.countfollow,contact.getFollowers_no());
         startActivity(intent);
+
 
     }
 

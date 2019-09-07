@@ -426,7 +426,7 @@ public class SearchCookAdapter extends RecyclerView.Adapter<SearchCookAdapter.Mo
                     // send selected contact in callback
                     listener.onContactSelected(dataFiltered.get(getAdapterPosition()));
 
-                    Intent intent=new Intent(activity, CookPageActivity.class);
+                 /*   Intent intent=new Intent(activity, CookPageActivity.class);
                     intent.putExtra(Constants.cook_name,dataFiltered.get(getAdapterPosition()).getName());
                     intent.putExtra(Constants.cook_address,dataFiltered.get(getAdapterPosition()).getCity_name());
                     intent.putExtra(Constants.cook_desc,dataFiltered.get(getAdapterPosition()).getType_name());
@@ -442,8 +442,8 @@ public class SearchCookAdapter extends RecyclerView.Adapter<SearchCookAdapter.Mo
                     intent.putExtra(Constants.cook_region,dataFiltered.get(getAdapterPosition()).getRegion());
                     intent.putExtra(Constants.cookimage,dataFiltered.get(getAdapterPosition()).getAvatar_url());
                     intent.putExtra(Constants.countfollow,dataFiltered.get(getAdapterPosition()).getFollowers_no());
+                    activity.startActivity(intent);*/
 
-                    activity.startActivity(intent);
 
 
 
@@ -467,7 +467,7 @@ public class SearchCookAdapter extends RecyclerView.Adapter<SearchCookAdapter.Mo
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت المتابعة  " + message+""+status, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(activity, "تمت المتابعة  " + message+""+status, Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -518,7 +518,7 @@ public class SearchCookAdapter extends RecyclerView.Adapter<SearchCookAdapter.Mo
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت المتابعة  " + message+""+status, Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(activity, "تمت المتابعة  " + message+""+status, Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -566,7 +566,7 @@ public class SearchCookAdapter extends RecyclerView.Adapter<SearchCookAdapter.Mo
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت الاضافة الى المفضلة  " + message+""+status, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(activity, "تمت الاضافة الى المفضلة  " + message+""+status, Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -613,7 +613,7 @@ public class SearchCookAdapter extends RecyclerView.Adapter<SearchCookAdapter.Mo
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(activity, "تمت ازالة من المفضلة  " + message+""+status, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(activity, "تمت ازالة من المفضلة  " + message+""+status, Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {

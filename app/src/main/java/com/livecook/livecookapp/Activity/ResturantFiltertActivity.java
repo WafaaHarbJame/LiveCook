@@ -126,9 +126,10 @@ public class ResturantFiltertActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
                 Intent intent=new Intent(ResturantFiltertActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
+
 
             }
         });
@@ -195,10 +196,6 @@ public class ResturantFiltertActivity extends AppCompatActivity {
         restfilte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mEdname.getText().toString().matches("") ) {
-                    Toast.makeText(ResturantFiltertActivity.this, "الرجاء ادخال اسم المطعم لبدء البحث ", Toast.LENGTH_SHORT).show();
-                }
-                else {
 
                     if (!mEdname.getText().toString().isEmpty()) {
                         Intent intent = new Intent(ResturantFiltertActivity.this, FukterResturantActivity.class);
@@ -208,6 +205,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filtercountry_id, "");
                         intent.putExtra(Constants.filterregion, "");
                         startActivity(intent);
+                        finish();
+
                         //getCooker(type_id,"","","",mEdname.getText().toString()+"");
 
 
@@ -221,6 +220,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filterregion, "");
                         intent.putExtra(Constants.filtercountry_id, country_id + "");
                         startActivity(intent);
+                        finish();
+
                         //getCooker(type_id,country_id+"","","","");
 
 
@@ -235,6 +236,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filterregion, "");
                         intent.putExtra(Constants.filtercountry_id, "");
                         startActivity(intent);
+                        finish();
+
                         // getCooker(type_id,"",city_id+"","","");
 
 
@@ -248,6 +251,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                         intent.putExtra(Constants.filtercountry_id, "");
                         startActivity(intent);
+                        finish();
+
 
 
                         // getCooker(type_id,"",city_id+"",mRegion.getText().toString(),"");
@@ -265,6 +270,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                         intent.putExtra(Constants.filtercountry_id, country_id + "");
                         startActivity(intent);
+                        finish();
+
                         //getCooker(0,country_id+"",city_id+"",mRegion.getText().toString()+"",
                         //  mEdname.getText().toString()+"");
 
@@ -282,6 +289,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                         intent.putExtra(Constants.filtercountry_id, country_id + "");
                         startActivity(intent);
+                        finish();
+
 
                         // getCooker(type_id,country_id+"",city_id+"",
                         //    mRegion.getText().toString()+"",mEdname.getText().toString()+"");
@@ -295,6 +304,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                         intent.putExtra(Constants.filtercountry_id, country_id + "");
                         startActivity(intent);
+                        finish();
+
 
 
                         //getCooker(type_id,"","",mRegion.getText().toString()+"",mEdname.getText().toString()+"");
@@ -309,6 +320,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                         intent.putExtra(Constants.filtercountry_id, country_id + "");
                         startActivity(intent);
+                        finish();
+
 
                         //getCooker(type_id,country_id+"", "",mRegion.getText().toString()+"",mEdname.getText().toString()+"");
 
@@ -322,6 +335,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                         intent.putExtra(Constants.filtercountry_id, "");
                         startActivity(intent);
+                        finish();
+
 
                         // getCooker(type_id,"","",mRegion.getText().toString()+"",mEdname.getText().toString()+"");
 
@@ -335,6 +350,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                         intent.putExtra(Constants.filtercountry_id, "");
                         startActivity(intent);
+                        finish();
+
 
                         //getCooker(type_id,"","",mRegion.getText().toString()+"",mEdname.getText().toString());
 
@@ -349,6 +366,8 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         intent.putExtra(Constants.filterregion, mRegion.getText().toString());
                         intent.putExtra(Constants.filtercountry_id, "");
                         startActivity(intent);
+                        finish();
+
 
                         // getCooker(type_id,"","",mRegion.getText().toString()+"","");
 
@@ -364,7 +383,7 @@ public class ResturantFiltertActivity extends AppCompatActivity {
 
 
 
-            }
+
         });
 
 

@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if(prefs!=null) {
 
-            typnumer = prefs.getString(Constants.TYPE, "user");
+            typnumer = prefs.getString(Constants.TYPE, "-1");
             tokenfromlogin = prefs.getString(Constants.access_token1, "default value");
             saveLogin = prefs.getBoolean(Constants.ISLOGIN, false);
 
@@ -213,6 +213,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Intent intent = new Intent(MainActivity.this, SearchAllActivity.class);
                     startActivity(intent);
+                    finish();
+
 
                     // Do something here
                 } else if (homeFragment.getCurrentf() instanceof AllcookFragment) {
@@ -224,6 +226,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     searchView.setFocusable(false);
                     Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                     startActivity(intent);
+                    finish();
+
 
                 } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                     searchView.setVisibility(View.VISIBLE);
@@ -234,6 +238,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     searchView.setFocusable(false);
                     Intent intent = new Intent(MainActivity.this, SearchResturant.class);
                     startActivity(intent);
+                    finish();
 
 
                 }
@@ -250,11 +255,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (homeFragment.getCurrentf() instanceof AllcookFragment) {
                     Intent intent = new Intent(MainActivity.this, CookFilterrActivity.class);
                     startActivity(intent);
+                    finish();
+
 
 
                 } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                     Intent intent = new Intent(MainActivity.this, ResturantFiltertActivity.class);
                     startActivity(intent);
+                    finish();
+
 
 
                 }
@@ -325,13 +334,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-
-
-        if(saveLogin){
-            menu.findItem(R.id.action_notification).setVisible(true);
+        menu.findItem(R.id.action_notification).setVisible(false);
 
 
 
+        if (typnumer.matches("user")) {
+                if(saveLogin){
+
+                menu.findItem(R.id.action_notification).setVisible(true);
+
+
+            }
         }
         else{
 
@@ -414,6 +427,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         Intent intent = new Intent(MainActivity.this, SearchAllActivity.class);
                         startActivity(intent);
+                        finish();
+
 
                         // Do something here
                     } else if (homeFragment.getCurrentf() instanceof AllcookFragment) {
@@ -425,6 +440,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         searchView.setFocusable(false);
                         Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                         startActivity(intent);
+                        finish();
+
 
                     } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                         searchView.setVisibility(View.VISIBLE);
@@ -435,6 +452,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         searchView.setFocusable(false);
                         Intent intent = new Intent(MainActivity.this, SearchResturant.class);
                         startActivity(intent);
+                        finish();
+
 
 
                     }
@@ -451,11 +470,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     if (homeFragment.getCurrentf() instanceof AllcookFragment) {
                         Intent intent = new Intent(MainActivity.this, CookFilterrActivity.class);
                         startActivity(intent);
+                        finish();
+
 
 
                     } else if (homeFragment.getCurrentf() instanceof AllResturant_Fragment) {
                         Intent intent = new Intent(MainActivity.this, ResturantFiltertActivity.class);
                         startActivity(intent);
+                        finish();
+
 
 
                     }
@@ -513,6 +536,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 public void onClick(View v) {
                     Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                     startActivity(intent);
+                    finish();
+
                 }
             });
 
@@ -522,6 +547,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Intent intent = new Intent(MainActivity.this, CookFilterrActivity.class);
                     startActivity(intent);
+                    finish();
+
                 }
             });
 
@@ -540,6 +567,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 public void onClick(View v) {
                     Intent intent = new Intent(MainActivity.this, SearchResturant.class);
                     startActivity(intent);
+                    finish();
+
 
                 }
             });
@@ -550,6 +579,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Intent intent = new Intent(MainActivity.this, ResturantFiltertActivity.class);
                     startActivity(intent);
+                    finish();
+
                 }
             });
 

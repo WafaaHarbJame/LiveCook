@@ -14,7 +14,6 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="@color/colortoolbar"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +39,8 @@
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:scaleType="fitCenter"
-        android:layout_height="wrap_content" />
+        android:visibility="gone"
+        android:layout_height="match_parent" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
