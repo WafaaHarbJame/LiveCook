@@ -137,6 +137,8 @@
     <string name="registeraccountuser">انشاء حساب زبون</string>
     <string name="loginword">تسجيل الدخول</string>
     <string name="create_acccount">انشاء حساب </string>
+    <string name="mostaql">مستقل</string>
+    <string name="dabaha">ذبائح</string>
 
 
 </resources>

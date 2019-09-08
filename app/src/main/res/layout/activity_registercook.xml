@@ -119,7 +119,20 @@
 
         </LinearLayout>
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/typetext"
+            android:text="نوع الطباخ "
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/spinnertype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_marginTop="16dp"
+            />
         <TextView
             android:id="@+id/txpassward"
             android:layout_width="match_parent"

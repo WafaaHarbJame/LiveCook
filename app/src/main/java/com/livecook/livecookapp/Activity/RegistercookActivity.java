@@ -91,6 +91,9 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
     String country_mobile_codee;
     public String access_token;
     SharedPreferences prefs;
+    Spinner spinnertype;
+    int type_id=6;
+
 
 
 
@@ -106,6 +109,7 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
     File f;
     private SessionManager mSessionManager;
     private LinearLayout mContainer;
+    String[] COOKER_TYPE = { "مستقل",  "ذبائح "};
 
 
 
@@ -123,8 +127,34 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
         String token = FirebaseInstanceId.getInstance().getToken();
         prefs = getSharedPreferences(Constants.PREF_FILE_CONFIG, Context.MODE_PRIVATE);
         progressDialog = new ProgressDialog(RegistercookActivity.this);
+        spinnertype=findViewById(R.id.spinnertype);
+        //Creating the ArrayAdapter instance having the country list
+        ArrayAdapter aa = new ArrayAdapter(RegistercookActivity.this,android.R.layout.simple_spinner_item,COOKER_TYPE);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spinnertype.setAdapter(aa);
+
+        spinnertype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(COOKER_TYPE[position].matches(getString(R.string.mostaql))){
+                    type_id=6;
+
+                }
+                else {
+                    type_id=7;
 
 
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                type_id=6;
+
+            }
+        });
         mContainer = findViewById(R.id.container);
 
 
@@ -190,11 +220,8 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
                 else  if ((edpassward.getText().toString()).matches(edrepatepassward.getText().toString()) ) {
              registeruser(edname.getText().toString(),
                          edmobileNumber.getText().toString(),
-                         country_id,edpassward.getText().toString(),edrepatepassward.getText().toString());
+                         country_id,edpassward.getText().toString(),edrepatepassward.getText().toString(),type_id);
 
-                    /*edmobileNumber.setText("");
-                    edpassward.setText("");
-                    edrepatepassward.setText("");*/
 
                 }
                 else{
@@ -553,7 +580,7 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
 
     }
     public void registeruser(final String  name,final  String mobile ,final int country_id,final String password,
-                             final String password_confirmation) {
+                             final String password_confirmation,final int type_id) {
         showDialog();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.cooker_register,
                 new Response.Listener<String>() {
@@ -621,6 +648,8 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
                 map.put("country_id",country_id+"");
                 map.put("password",password);
                 map.put("password_confirmation",password_confirmation);
+                map.put("type_id",type_id+"");
+
 
 
 

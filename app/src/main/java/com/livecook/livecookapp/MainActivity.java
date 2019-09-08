@@ -350,6 +350,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             menu.findItem(R.id.action_notification).setVisible(false);
 
+
         }
 
         //  final MenuItem alertMenuItem = menu.findItem(R.id.actionregister);
@@ -409,6 +410,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_home) {
             toolbar.setTitle(getString(R.string.menu_home));
             searchView.setVisibility(View.VISIBLE);
+
             getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, homeFragment).commit();
             filter.setVisibility(View.GONE);
             searchView.setOnClickListener(new View.OnClickListener() {
@@ -493,6 +495,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_personal_profile) {
 
 
+
+
             if (saveLogin) {
                 toolbar.setTitle(getString(R.string.persona));
                 searchView.setVisibility(View.GONE);
@@ -501,6 +505,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 //getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer,new PersonalCookerFragment()).commit();
                 if (typnumer.matches("cooker")) {
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new PersonalCookerFragment()).commit();
 
                 } else if (typnumer.matches("restaurant")) {

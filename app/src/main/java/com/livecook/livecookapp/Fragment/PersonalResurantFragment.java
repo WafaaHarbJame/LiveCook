@@ -17,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -188,6 +191,7 @@ public class PersonalResurantFragment extends Fragment {
         menuword=view.findViewById(R.id.menuword);
         view_line=view.findViewById(R.id.view_line);
 
+        setHasOptionsMenu(true);
 
         prefs = getActivity().getSharedPreferences(Constants.PREF_FILE_CONFIG, Context.MODE_PRIVATE);
         saveLogin = prefs.getBoolean(Constants.ISLOGIN, false);
@@ -705,7 +709,28 @@ hideDialog();
     public void hideDialog() {
         if (progressDialog.isShowing()) progressDialog.dismiss();
     }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        getActivity().getMenuInflater().inflate(R.menu.editmenu, menu);
+        menu.findItem(R.id.action_edit).setVisible(true);
 
+
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_edit) {
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new AcoountSettingFragment ()).commit();
+
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
 }

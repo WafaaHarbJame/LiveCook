@@ -127,7 +127,7 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
     private Button mSave;
     int country_id=191;
     int city_id;
-    String[] COOKER_TYPE = { "منفرد", "ذبائح"};
+    String[] COOKER_TYPE = { "مستقل",  "ذبائح "};
 
 
     String country_codee;
@@ -265,7 +265,7 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
        spinnertype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
            @Override
            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               if(COOKER_TYPE[position].matches("منفرد")){
+               if(COOKER_TYPE[position].matches(getString(R.string.mostaql))){
                    type_id=6;
 
                }

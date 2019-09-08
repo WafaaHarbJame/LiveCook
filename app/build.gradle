@@ -6,8 +6,8 @@ android {
         applicationId "com.livecook.livecookapp"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 21
-        versionName "21.1"
+        versionCode 22
+        versionName "22.1"
         multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

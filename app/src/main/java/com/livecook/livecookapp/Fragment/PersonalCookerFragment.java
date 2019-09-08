@@ -17,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -45,9 +48,11 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.livecook.livecookapp.Activity.CookPageActivity;
 import com.livecook.livecookapp.Activity.LiveKotlenActivity;
 import com.livecook.livecookapp.Activity.LogincookActivity;
+import com.livecook.livecookapp.Activity.RegisterActivity;
 import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter;
 import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter1;
 import com.livecook.livecookapp.Api.MyApplication;
+import com.livecook.livecookapp.MainActivity;
 import com.livecook.livecookapp.Model.AllFirebaseModel;
 import com.livecook.livecookapp.Model.Constants;
 import com.livecook.livecookapp.Model.ResturantImage;
@@ -161,6 +166,8 @@ public class PersonalCookerFragment extends Fragment {
         progressDialog = new ProgressDialog(getActivity());
         prefs = getActivity().getSharedPreferences(Constants.PREF_FILE_CONFIG, Context.MODE_PRIVATE);
         progressDialog = new ProgressDialog(getActivity());
+        setHasOptionsMenu(true);
+
 
         saveLogin = prefs.getBoolean(Constants.ISLOGIN, false);
         cook_id_profile_publish = prefs.getInt(Constants.cook_id_profile_publish, -1);
@@ -613,6 +620,26 @@ public class PersonalCookerFragment extends Fragment {
         if (progressDialog.isShowing()) progressDialog.dismiss();
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        getActivity().getMenuInflater().inflate(R.menu.editmenu, menu);
+        menu.findItem(R.id.action_edit).setVisible(true);
 
 
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_edit) {
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new AcoountSettingFragment ()).commit();
+
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
