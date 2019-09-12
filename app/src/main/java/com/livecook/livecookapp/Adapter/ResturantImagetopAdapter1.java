@@ -69,11 +69,11 @@ public class ResturantImagetopAdapter1 extends RecyclerView.Adapter<ResturantIma
 
 
         String url="";
-        Locale locale = new Locale( "ar" , "SA" ) ;  // Arabic language. Saudi Arabia cultural norms
+        Locale locale = new Locale("ar");
         String dateValue =data.get(i).getCreated_at();
         if(dateValue!=null) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",locale);
-            sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+            sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
             long time = 0;
             try {
 
@@ -136,8 +136,8 @@ public class ResturantImagetopAdapter1 extends RecyclerView.Adapter<ResturantIma
             movieHolder.livestuatus.setVisibility(View.GONE);
             movieHolder.livetitle.setText(data.get(i).getTitle());
             if(dateValue!=null) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",locale);
+                sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
                 long time = 0;
                 try {
 
@@ -287,7 +287,7 @@ public class ResturantImagetopAdapter1 extends RecyclerView.Adapter<ResturantIma
         try
         {
             Calendar cal = Calendar.getInstance(Locale.getDefault());
-            Locale locale = new Locale( "ar" , "SA" ) ;  // Arabic language. Saudi Arabia cultural norms.
+            Locale locale = new Locale("ar");
 
             cal.setTimeInMillis(timeStamp);
             String date = android.text.format.DateFormat.format("yyyy-MM-dd HH:mm:ss", cal).toString();

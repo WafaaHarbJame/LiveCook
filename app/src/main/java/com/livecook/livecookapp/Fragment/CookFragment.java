@@ -710,6 +710,10 @@ public class CookFragment extends Fragment implements FrgmentMethodInterface {
 
     }
 
+
+
+
+
     @Override
     public void filtersearch(String text) {
 

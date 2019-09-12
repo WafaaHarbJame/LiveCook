@@ -75,6 +75,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -688,12 +689,12 @@ hideDialog();
 
     }
 
-    public String formatDate(Date date)
-    {
-        Locale locale = new Locale( "ar" , "SA" ) ;  // Arabic language. Saudi Arabia cultural norms.
-
-        SimpleDateFormat customFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" , locale);
+    public String formatDate(Date date) {
+        // Locale locale = new Locale( "ar" , "SA" ) ;  // Arabic language. Saudi Arabia cultural norms.
+        SimpleDateFormat customFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
         customFormat.setLenient(false);
+        customFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
         return customFormat.format(date);
     }
 

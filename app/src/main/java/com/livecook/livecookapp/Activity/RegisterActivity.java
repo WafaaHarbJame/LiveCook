@@ -343,11 +343,15 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         menu.findItem(R.id.action_notification).setVisible(false);
+        menu.findItem(R.id.action_createlive).setVisible(false);
+
 
         if (typnumer.matches("user")) {
             if(saveLogin){
 
                 menu.findItem(R.id.action_notification).setVisible(true);
+                menu.findItem(R.id.action_createlive).setVisible(false);
+
 
 
             }
@@ -355,6 +359,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
         else{
 
             menu.findItem(R.id.action_notification).setVisible(false);
+            menu.findItem(R.id.action_createlive).setVisible(true);
+
 
         }
 

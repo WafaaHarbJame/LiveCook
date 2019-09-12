@@ -59,11 +59,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         movieHolder.notificaton_title.setText(data.get(i).getTitle());
 
-        Locale locale = new Locale( "ar" , "SA" ) ;  // Arabic language. Saudi Arabia cultural norms.
+        Locale locale = new Locale("ar");
 
         String dateValue =data.get(i).getCreated_at();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",locale);
-        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
 
         long time = 0;
         try {

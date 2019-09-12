@@ -128,6 +128,7 @@ public class RegisterResturantActivity extends AppCompatActivity {
     boolean country_spinner_click=false;
     boolean city_spinner_click=false;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -227,7 +228,7 @@ public class RegisterResturantActivity extends AppCompatActivity {
                 else  if ((edpassward.getText().toString()).matches(edrepatepassward.getText().toString()) ) {
                     //Toast.makeText(RegisterResturantActivity.this, ""+file_name, Toast.LENGTH_SHORT).show();
                     registeruser(edname.getText().toString(), edmobileNumber.getText().toString(), country_id,
-                            edpassward.getText().toString(), edrepatepassward.getText().toString(), file_name,city_id);
+                            edpassward.getText().toString(), edrepatepassward.getText().toString(), file_name,city_id,fcm_token);
 
                     /*edmobileNumber.setText("");
                     edpassward.setText("");
@@ -360,7 +361,7 @@ public class RegisterResturantActivity extends AppCompatActivity {
     }
 
 
-    public void registeruser(final String name, final String mobile, final int country_id, final String password, final String password_confirmation, final String municipal_license,final  int city_id) {
+    public void registeruser(final String name, final String mobile, final int country_id, final String password, final String password_confirmation, final String municipal_license,final  int city_id,final String fcm_token) {
         showDialog();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.restaurant_register, new Response.Listener<String>() {
             @Override
@@ -442,6 +443,8 @@ hideDialog();
                 map.put("password_confirmation", password_confirmation);
                 map.put("municipal_license", municipal_license+"");
                 map.put("city_id", city_id+"");
+                map.put("fcm_token", fcm_token);
+
 
 
 

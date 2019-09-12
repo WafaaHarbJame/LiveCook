@@ -295,7 +295,7 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
                 else  if ((edpassward.getText().toString()).matches(edrepatepassward.getText().toString()) ) {
              registeruser(edname.getText().toString(),
                          edmobileNumber.getText().toString(),
-                         country_id,edpassward.getText().toString(),edrepatepassward.getText().toString(),type_id,file_name,city_id);
+                         country_id,edpassward.getText().toString(),edrepatepassward.getText().toString(),type_id,file_name,city_id,fcm_token);
 
 
                 }
@@ -669,7 +669,7 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
 
     }
     public void registeruser(final String  name,final  String mobile ,final int country_id,final String password,
-                             final String password_confirmation,final int type_id,final String municipal_license,int city_id) {
+                             final String password_confirmation,final int type_id,final String municipal_license,int city_id ,final String fcm_token  ) {
         showDialog();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.cooker_register,
                 new Response.Listener<String>() {
@@ -740,6 +740,8 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
                 map.put("type_id",type_id+"");
                 map.put("municipal_license", municipal_license+"");
                 map.put("city_id", city_id+"");
+                map.put("fcm_token",fcm_token);
+
 
 
 

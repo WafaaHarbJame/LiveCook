@@ -103,7 +103,7 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
 
         if(prefs!=null) {
 
-            typnumer = prefs.getString(Constants.TYPE, "-1");
+            typnumer = prefs.getString(Constants.TYPE, "user");
             tokenfromlogin = prefs.getString(Constants.access_token1, "default value");
             saveLogin = prefs.getBoolean(Constants.ISLOGIN, false);
 
@@ -316,6 +316,9 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         menu.findItem(R.id.action_notification).setVisible(false);
+        menu.findItem(R.id.action_createlive).setVisible(false);
+
+
 
 
         if (typnumer.matches("user")) {
