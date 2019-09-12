@@ -152,11 +152,11 @@ public class AllResturant_Fragment extends Fragment {
 
 
                         AllFirebaseModel detilas = live1snapshot.getValue(AllFirebaseModel.class);
-                        if(detilas.isStatus()) {
+                        //if(detilas.isStatus()) {
                             if (detilas.getType() == 0) {
                                 firebasedata.add(detilas);
                             }
-                        }
+                        //}
 
                     }
 

@@ -22,6 +22,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -102,7 +103,7 @@ public class RegisterResturantActivity extends AppCompatActivity {
     String image_cook_path;
     String imageName;
     SharedPreferences.Editor editor;
-
+    int city_id;
 
     List<String> countrylist = new ArrayList<String>();
     List<String> citylist = new ArrayList<String>();
@@ -116,6 +117,7 @@ public class RegisterResturantActivity extends AppCompatActivity {
     Spinner spin;
     Spinner cityname;
     Spinner countrycode;
+    String fcm_token;
 
     ArrayAdapter<String> arrayAdapter;
     ArrayAdapter<String> cityadapter;
@@ -123,7 +125,8 @@ public class RegisterResturantActivity extends AppCompatActivity {
 
     SharedPreferences prefs;
     File f;
-
+    boolean country_spinner_click=false;
+    boolean city_spinner_click=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,7 +157,10 @@ public class RegisterResturantActivity extends AppCompatActivity {
         insertliscense=findViewById(R.id.camera_action);
         showimage=findViewById(R.id.showimage);
         showSoftKeyboard(edname);
-
+        fcm_token = FirebaseInstanceId.getInstance().getToken();
+        if(fcm_token!=null) {
+            Log.d("khtwotoken", fcm_token);
+        }
         insertliscense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,7 +188,7 @@ public class RegisterResturantActivity extends AppCompatActivity {
             }
         });
 
-        getCountries();
+      //  getCountries();
         getCountrycode();
         createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,8 +196,19 @@ public class RegisterResturantActivity extends AppCompatActivity {
                 if (edname.getText().toString().matches("")) {
                     Toast.makeText(RegisterResturantActivity.this, getString(R.string.enter_name), Toast.LENGTH_SHORT).show();
                 }
+
+
+                else if (edname.getText().toString().length()<3) {
+                    Toast.makeText(RegisterResturantActivity.this, getString(R.string.enter_name_lengh), Toast.LENGTH_SHORT).show();
+                }
+
+
                 else if (edmobileNumber.getText().toString().matches("")) {
                     Toast.makeText(RegisterResturantActivity.this, getString(R.string.enter_mobile), Toast.LENGTH_SHORT).show();
+                }
+
+                else if (edmobileNumber.getText().toString().length()<9) {
+                    Toast.makeText(RegisterResturantActivity.this, getString(R.string.enter_mobile_length), Toast.LENGTH_SHORT).show();
                 }
                 else if (edpassward.getText().toString().matches("")) {
                     Toast.makeText(RegisterResturantActivity.this, getString(R.string.enter_passward), Toast.LENGTH_SHORT).show();
@@ -200,10 +217,17 @@ public class RegisterResturantActivity extends AppCompatActivity {
                     Toast.makeText(RegisterResturantActivity.this, getString(R.string.repeatpasswward)
                             , Toast.LENGTH_SHORT).show();
                 }
+                else if (!country_spinner_click) {
+                    Toast.makeText(RegisterResturantActivity.this, getString(R.string.enter_country), Toast.LENGTH_SHORT).show();
+                }
+                else if (!city_spinner_click) {
+                    Toast.makeText(RegisterResturantActivity.this, getString(R.string.entercity), Toast.LENGTH_SHORT).show();
+                }
+
                 else  if ((edpassward.getText().toString()).matches(edrepatepassward.getText().toString()) ) {
                     //Toast.makeText(RegisterResturantActivity.this, ""+file_name, Toast.LENGTH_SHORT).show();
-                    registeruser(edname.getText().toString(), edmobileNumber.getText().toString(), country_codee,
-                            edpassward.getText().toString(), edrepatepassward.getText().toString(), file_name);
+                    registeruser(edname.getText().toString(), edmobileNumber.getText().toString(), country_id,
+                            edpassward.getText().toString(), edrepatepassward.getText().toString(), file_name,city_id);
 
                     /*edmobileNumber.setText("");
                     edpassward.setText("");
@@ -221,20 +245,62 @@ public class RegisterResturantActivity extends AppCompatActivity {
 
         //  getCities(country_id);
 
+        spin.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                 country_spinner_click=true;
+                getCountries();
+                return false;
+            }
+        });
+
+
+
+
+
+
+
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 country_id = data.get(position).getId();
-                country_codee=data.get(position).getId();
-                //Toast.makeText(ClientRegisterActivity.this, ""+data.get(position).getId(), Toast.LENGTH_SHORT).show();
-
-                getCities(country_id);
+                //country_codee=data.get(position).getCode();
+                //  getCities(country_id);
 
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                country_id= Integer.parseInt("");
+
+
+            }
+        });
+
+
+        cityname.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                city_spinner_click=true;
+                getCities(country_id);
+                return false;
+            }
+        });
+        cityname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                city_id = city.get(position).getId();
+                // Toast.makeText(getActivity(), ""+data.get(position).getId(), Toast.LENGTH_SHORT).show();
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                city_id = city.get(0).getId();
+
+
 
             }
         });
@@ -294,7 +360,7 @@ public class RegisterResturantActivity extends AppCompatActivity {
     }
 
 
-    public void registeruser(final String name, final String mobile, final int country_id, final String password, final String password_confirmation, final String municipal_license) {
+    public void registeruser(final String name, final String mobile, final int country_id, final String password, final String password_confirmation, final String municipal_license,final  int city_id) {
         showDialog();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.restaurant_register, new Response.Listener<String>() {
             @Override
@@ -332,7 +398,7 @@ public class RegisterResturantActivity extends AppCompatActivity {
                         editor.commit();
 
 
-                        loginuser(country_id,edmobileNumber.getText().toString(),edpassward.getText().toString(),0,access_token);
+                        loginuser(country_id,edmobileNumber.getText().toString(),edpassward.getText().toString(),0,fcm_token);
 
                           editor= prefs.edit();
                         editor.putString(Constants.mobile, edmobileNumber.getText().toString());
@@ -375,6 +441,8 @@ hideDialog();
                 map.put("password", password);
                 map.put("password_confirmation", password_confirmation);
                 map.put("municipal_license", municipal_license+"");
+                map.put("city_id", city_id+"");
+
 
 
                 return map;

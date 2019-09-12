@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -142,7 +143,9 @@ public class CookFilterrActivity extends AppCompatActivity {
         });
 
 
-        getCountries();
+
+
+
 
 
 
@@ -175,7 +178,7 @@ public class CookFilterrActivity extends AppCompatActivity {
                type_id=5;
                    // Toast.makeText(CookFilterrActivity.this, ""+type_id, Toast.LENGTH_SHORT).show();
                 }
-                else if(type.matches("منفرد")){
+                else if(type.matches("مستقل")){
                     type_id=6;
                    // Toast.makeText(CookFilterrActivity.this, ""+type_id, Toast.LENGTH_SHORT).show();
 
@@ -187,15 +190,32 @@ public class CookFilterrActivity extends AppCompatActivity {
             }
         });
 
-        mCountryname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+
+
+mCountryname.setOnTouchListener(new View.OnTouchListener() {
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        country_spinner_clicked=true;
+
+        getCountries();
+        return false;
+    }
+});
+
+
+
+
+
+   mCountryname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 country_spinner_clicked=true;
-                country_id = data.get(position).getId();
-                country_codee = Integer.parseInt(data.get(position).getCode());
-              //Toast.makeText(CookFilterrActivity.this, ""+country_id, Toast.LENGTH_SHORT).show();
+             country_id = data.get(position).getId();
+             country_codee = Integer.parseInt(data.get(position).getCode());
+            //  Toast.makeText(CookFilterrActivity.this, ""+country_id, Toast.LENGTH_SHORT).show();
 
-                getCities(country_id);
+             //getCities(country_id);
 
 
             }
@@ -207,7 +227,14 @@ public class CookFilterrActivity extends AppCompatActivity {
             }
         });
 
-
+        mCityname.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                city_spinner_clicked=true;
+                getCities(country_id);
+                return false;
+            }
+        });
 
         mCityname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -788,6 +815,20 @@ public class CookFilterrActivity extends AppCompatActivity {
         };
 
         MyApplication.getInstance().addToRequestQueue(jsonObjectRequest);
+    }
+
+
+
+    public void getEmptyCountries() {
+
+                countrylist.add(" ");
+
+                    arrayAdapter = new ArrayAdapter<String>(CookFilterrActivity.this,android.R.layout.simple_list_item_1, countrylist);
+                    mCountryname.setAdapter(arrayAdapter);
+
+                    arrayAdapter.notifyDataSetChanged();
+
+
     }
 
 

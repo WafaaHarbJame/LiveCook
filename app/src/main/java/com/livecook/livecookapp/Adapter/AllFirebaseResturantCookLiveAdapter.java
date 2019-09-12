@@ -125,35 +125,55 @@ public class AllFirebaseResturantCookLiveAdapter extends RecyclerView.Adapter<Al
 
         }
 
-        if(data.get(i).isStatus()) {
-            movieHolder.countall.setText(data.get(i).getCount()+"");
-            movieHolder.livetitle.setText(data.get(i).getTitle());
-            movieHolder.allname.setText(data.get(i).getName()+"");
-            String url=data.get(i).getWatchPath();
-            firebase_type= data.get(i).getType();
-            cooker_id=data.get(i).getId();
-            resturant_id=data.get(i).getId();
-            name=data.get(i).getName();
-            name1=movieHolder.allname.getText().toString();
-            full_mobile=data.get(i).getFull_mobile();
-            movieHolder.type.setText(data.get(i).getType()+"");
+
+
+        if(firebase_type==6 ||firebase_type==7){
+            firebase_type_str="cooker";
         }
-       /* else
+        else
+
         {
-            movieHolder.allimage.setVisibility(View.GONE);
-            movieHolder.allname.setVisibility(View.GONE);
-            movieHolder.follow.setVisibility(View.GONE);
-            movieHolder.cardView.setVisibility(View.GONE);
-            movieHolder.contactwhats.setVisibility(View.GONE);
-            movieHolder.countall.setVisibility(View.GONE);
-            movieHolder.liii.setVisibility(View.GONE);
-            movieHolder.type.setVisibility(View.GONE);
-            movieHolder.livetitle.setVisibility(View.GONE);
-            movieHolder.itemView.setVisibility(View.GONE);
-            movieHolder.itemView.setVisibility(View.GONE);
+
+            firebase_type_str="restaurant";
 
 
-        }*/
+        }
+
+
+
+        movieHolder.countall.setText(data.get(i).getCount()+"");
+        movieHolder.livetitle.setText(data.get(i).getTitle());
+        movieHolder.allname.setText(data.get(i).getName()+"");
+        String url=data.get(i).getWatchPath();
+
+        firebase_type= data.get(i).getType();
+        cooker_id=data.get(i).getId();
+        resturant_id=data.get(i).getId();
+        name=data.get(i).getName();
+        name1=movieHolder.allname.getText().toString();
+        full_mobile=data.get(i).getFull_mobile();
+        movieHolder.type.setText(data.get(i).getType()+"");
+        if(firebase_type==6 ||firebase_type==7){
+            firebase_type_str="cooker";
+        }
+        else
+
+        {
+
+            firebase_type_str="restaurant";
+
+
+        }
+
+        if(data.get(i).isStatus()) {
+            movieHolder.liii.setVisibility(View.VISIBLE);
+
+        }
+      else
+        { movieHolder.liii.setVisibility(View.GONE);
+
+
+        }
 
 
 
@@ -387,19 +407,8 @@ movieHolder.allname.setOnClickListener(new View.OnClickListener() {
 
 
 
-       /*
-        if(firebase_type==6 ||firebase_type==7){
-                firebase_type_str="cooker";
-            }
-            else
-
-            {
-
-                firebase_type_str="restaurant";
 
 
-            }
-        */
 
 
         /*MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

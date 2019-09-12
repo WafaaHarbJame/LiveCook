@@ -33,6 +33,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -51,6 +53,7 @@ import com.livecook.livecookapp.Activity.LogincookActivity;
 import com.livecook.livecookapp.Activity.RegisterActivity;
 import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter;
 import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter1;
+import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter1forprofile;
 import com.livecook.livecookapp.Api.MyApplication;
 import com.livecook.livecookapp.MainActivity;
 import com.livecook.livecookapp.Model.AllFirebaseModel;
@@ -126,17 +129,18 @@ public class PersonalCookerFragment extends Fragment {
     private Boolean saveLogin;
     public int cook_id_profile_publish;
     private DatabaseReference mFirebaseDatabase,mFirebaseDatabaseread;
-    int type_id = 6;
+    int type_id ;
     String name;
     String tokenfromlogin;
     String avatarURL;
+    int Cook_type_id;
     ArrayList<AllFirebaseModel> resturantImagestop = new ArrayList<>();
 
     public String live_title = "live_title";
     SharedPreferences.Editor editor;
 
 
-    ResturantImagetopAdapter1 resturantImagetopAdapter;
+    ResturantImagetopAdapter1forprofile resturantImagetopAdapter;
 
 
     public PersonalCookerFragment() {
@@ -167,11 +171,25 @@ public class PersonalCookerFragment extends Fragment {
         prefs = getActivity().getSharedPreferences(Constants.PREF_FILE_CONFIG, Context.MODE_PRIVATE);
         progressDialog = new ProgressDialog(getActivity());
         setHasOptionsMenu(true);
-
-
+        prefs = getActivity().getSharedPreferences(Constants.PREF_FILE_CONFIG, Context.MODE_PRIVATE);
         saveLogin = prefs.getBoolean(Constants.ISLOGIN, false);
-        cook_id_profile_publish = prefs.getInt(Constants.cook_id_profile_publish, -1);
+        tokenfromlogin = prefs.getString(Constants.access_token1, "default value");
+        saveLogin = prefs.getBoolean(Constants.ISLOGIN, false);
         currentTime = Calendar.getInstance().getTime();
+
+        if(prefs!=null){
+            cook_id_profile_publish = prefs.getInt(Constants.cook_id_profile_publish, -1);
+
+
+
+        }
+
+
+
+
+        getCookerprofile(tokenfromlogin);
+
+
 
 
         resturenimagerecyclertop = view.findViewById(R.id.resturenimagerecyclertop);
@@ -191,7 +209,6 @@ public class PersonalCookerFragment extends Fragment {
         tokenfromlogin = prefs.getString(Constants.access_token1, "default value");
 
 
-        getCookerprofile();
 
         getActivity().setTitle(getString(R.string.persona));
         resturenimagerecyclertop.setHasFixedSize(true);
@@ -204,12 +221,12 @@ public class PersonalCookerFragment extends Fragment {
                 counter = prefs.getInt("counter", 0);
 
 
-                Dexter.withActivity(getActivity()).withPermissions(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO).withListener(new MultiplePermissionsListener() {
+                Dexter.withActivity(getActivity()).withPermissions(Manifest.permission.CAMERA,
+                        Manifest.permission.RECORD_AUDIO).withListener(new MultiplePermissionsListener() {
                     @Override
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
                         //livefun();
-
-
+                        if(report.areAllPermissionsGranted()){
                         dialog = new Dialog(getActivity());
                         dialog.setContentView(R.layout.custome_dialog);
 
@@ -256,25 +273,21 @@ public class PersonalCookerFragment extends Fragment {
                         dialog.show();
 
 
+                    }
+
+                        else {
+                            Toast.makeText(getActivity(), "لا يمكنك عمل بث بدون الموافقة على هذه الصلاحيات ", Toast.LENGTH_SHORT).show();
+                        }
 
 
 
-
-
-
-
-
-
-
-
-
-
-                        /* ... */
+                     //end of    /* ... */
                     }
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
                         // Toast.makeText(getContext(), "token", Toast.LENGTH_SHORT).show();
+                        token.continuePermissionRequest();
 
                         /* ... */
                     }
@@ -286,9 +299,8 @@ public class PersonalCookerFragment extends Fragment {
 
 
 
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("Live");
 
-        mFirebaseDatabaseread = FirebaseDatabase.getInstance().getReference("Live").child(cook_id_profile_publish+"_"+type_id);
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("Live");
 
 
 
@@ -388,7 +400,7 @@ public class PersonalCookerFragment extends Fragment {
     }
 
 
-    public void getCookerprofile() {
+    public void getCookerprofile(String access_token) {
 
         showDialog();
 
@@ -400,7 +412,7 @@ public class PersonalCookerFragment extends Fragment {
                 try {
                     JSONObject task_respnse = new JSONObject(response);
                     JSONObject taskarray = task_respnse.getJSONObject("data");
-
+                    boolean status = task_respnse.getBoolean("status");
                     int id = taskarray.getInt("id");
                     name = taskarray.getString("name");
                     int countryId = taskarray.getInt("country_id");
@@ -413,20 +425,55 @@ public class PersonalCookerFragment extends Fragment {
                     String mobile = taskarray.getString("mobile");
                     type_id = taskarray.getInt("type_id");
                     String type_name = taskarray.getString("type_name");
+                    Cook_type_id=taskarray.getInt("type_id");
                     mCookDesc.setText(description);
                     cook_type_tv.setText(type_name);
                     mCountfollow.setText(followersNo + "");
                     mCookName.setText(name);
                     mAblePhoneLogin.setText(mobile);
-                    mCityCook.setText( "المدينة  : "+ " "+cityName);
                     mCountryCook.setText("الدولة :"+" "+countryName);
-                    mCityState.setText("الحي   : "+"  "+region);
+
+                    if(region.isEmpty() ||region.matches("") ||region.matches("غير محدد")  ){
+                        mCityState.setVisibility(View.GONE);
+                        setMargins(mAblePhoneLogin,0,70,0,0);
+                        setMargins(mImageView2,0,70,0,0);
+                        setMargins(mCookPhone,0,70,0,0);
+
+
+                    }
+                    else {
+                        mCityState.setVisibility(View.GONE);
+
+                    }
+
+                    // city
+                    if(cityName.isEmpty() ||cityName.matches("") ||cityName.matches("غير محدد")  ){
+                        mCityCook.setVisibility(View.GONE);
+                        setMargins(mAblePhoneLogin,0,70,0,0);
+                        setMargins(mImageView2,0,70,0,0);
+                        setMargins(mCookPhone,0,70,0,0);
+
+
+
+
+
+
+                    }
+                    else {
+                        mCityCook.setText(  "المدينة : "+"  "+cityName);
+
+                    }
 
                     Picasso.with(getContext()).load(avatarURL)
                             // .resize(100,100)
                             .error(R.drawable.ellipse)
 
                             .into(cookimagecir);
+
+                    YoYo.with(Techniques.SlideInDown)
+                            .duration(1000)
+
+                            .playOn(cookimagecir);
 
 
                     if (saveLogin) {
@@ -449,6 +496,10 @@ public class PersonalCookerFragment extends Fragment {
 
                     }
 
+                    if(status){
+                        read();
+
+                    }
 
 
                 } catch (JSONException e1) {
@@ -469,7 +520,27 @@ public class PersonalCookerFragment extends Fragment {
 
 
             }
-        });
+        })
+
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer" + "  " + access_token);
+
+                return headers;
+
+            }
+
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer" + "  " + access_token);
+
+                return headers;
+            };
+        };
 
         MyApplication.getInstance().addToRequestQueue(stringRequest);
 
@@ -567,8 +638,9 @@ public class PersonalCookerFragment extends Fragment {
         return customFormat.format(date);
     }
 
-    @Override
-    public void onStart() {
+    public void read(){
+        mFirebaseDatabaseread = FirebaseDatabase.getInstance().getReference("Live").child(cook_id_profile_publish+"_"+type_id);
+
 
         mFirebaseDatabaseread.addValueEventListener(new ValueEventListener() {
 
@@ -584,7 +656,7 @@ public class PersonalCookerFragment extends Fragment {
                         }
 
 
-                        resturantImagetopAdapter = new ResturantImagetopAdapter1(resturantImagestop, getActivity());
+                        resturantImagetopAdapter = new ResturantImagetopAdapter1forprofile(resturantImagestop, getActivity());
                         resturenimagerecyclertop.setAdapter(resturantImagetopAdapter);
                         resturantImagetopAdapter.notifyDataSetChanged();
 
@@ -606,9 +678,9 @@ public class PersonalCookerFragment extends Fragment {
 
             }
         });
-        super.onStart();
-    }
 
+
+    }
     public void showDialog() {
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage(getString(R.string.load));
@@ -641,5 +713,22 @@ public class PersonalCookerFragment extends Fragment {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private void setMargins (View view, int left, int top, int right, int bottom) {
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+
+            final float scale = getActivity().getResources().getDisplayMetrics().density;
+            // convert the DP into pixel
+            int l =  (int)(left * scale + 0.5f);
+            int r =  (int)(right * scale + 0.5f);
+            int t =  (int)(top * scale + 0.5f);
+            int b =  (int)(bottom * scale + 0.5f);
+
+            p.setMargins(l, t, r, b);
+            view.requestLayout();
+        }
     }
 }

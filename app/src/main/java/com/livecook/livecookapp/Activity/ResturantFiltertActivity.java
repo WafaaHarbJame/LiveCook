@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -121,7 +122,6 @@ public class ResturantFiltertActivity extends AppCompatActivity {
 
 
 
-        getCountries();
         back = findViewById(R.id.bacck);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +151,18 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                         android.R.color.holo_blue_dark);
 
 
+        mCountryname.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                country_spinner_clicked=true;
+
+                getCountries();
+                return false;
+            }
+        });
+
+
+
 
         mCountryname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -158,7 +170,7 @@ public class ResturantFiltertActivity extends AppCompatActivity {
                 country_id = data.get(position).getId();
                 country_codee = data.get(position).getId();
                  country_spinner_clicked=true;
-                getCities(country_id);
+                //getCities(country_id);
 
                // Toast.makeText(ResturantFiltertActivity.this, ""+country_id, Toast.LENGTH_SHORT).show();
 
@@ -174,7 +186,14 @@ public class ResturantFiltertActivity extends AppCompatActivity {
         });
 
 
-
+        mCityname.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                city_spinner_clicked=true;
+                getCities(country_id);
+                return false;
+            }
+        });
         mCityname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

@@ -297,6 +297,9 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                 uploaResturantiprofile_avatar.setVisibility(View.GONE);
                 spinnertype.setVisibility(View.VISIBLE);
                 typetext.setVisibility(View.VISIBLE);
+                mSwitch1.setVisibility(View.GONE);
+                mRegion.setVisibility(View.GONE);
+
                 getprofiledata(Constants.get_cooker_profile, tokenfromlogin);
 
 
@@ -311,6 +314,9 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                 typetext.setVisibility(View.GONE);
 
                 uploadcookerimage_avatar.setVisibility(View.GONE);
+
+                mSwitch1.setVisibility(View.GONE);
+                mRegion.setVisibility(View.GONE);
 
 
                 getprofilResturant(Constants.get_restaurant_profile, tokenfromlogin);
@@ -616,9 +622,7 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                         else if(mEdmobileNumber.getText().toString().matches("")){
                             Toast.makeText(getActivity(), getResources().getString(R.string.enter_mobile), Toast.LENGTH_SHORT).show();
                         }
-                        else if(mRegion.getText().toString().matches("")){
-                            Toast.makeText(getActivity(), getResources().getString(R.string.enter_region), Toast.LENGTH_SHORT).show();
-                        }
+
                         else if(mEddesc.getText().toString().matches("")){
                             Toast.makeText(getActivity(), getResources().getString(R.string.enter_desc), Toast.LENGTH_SHORT).show();
                         }
@@ -658,9 +662,7 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                         else if(mEdmobileNumber.getText().toString().matches("")){
                             Toast.makeText(getActivity(), getResources().getString(R.string.enter_mobile), Toast.LENGTH_SHORT).show();
                         }
-                        else if(mRegion.getText().toString().matches("")){
-                            Toast.makeText(getActivity(), getResources().getString(R.string.enter_region), Toast.LENGTH_SHORT).show();
-                        }
+
                         else if(mEddesc.getText().toString().matches("")){
                             Toast.makeText(getActivity(), getResources().getString(R.string.enter_desc), Toast.LENGTH_SHORT).show();
                         }

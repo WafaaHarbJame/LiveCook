@@ -15,7 +15,12 @@
     <ImageView
         android:layout_width="match_parent"
         android:id="@+id/textView_noresult"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
         android:src="@drawable/no_data"
+        android:layout_margin="16dp"
+        android:scaleType="centerInside"
         android:visibility="gone"
         android:layout_height="match_parent" />
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

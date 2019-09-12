@@ -305,8 +305,9 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
             drawer.closeDrawer(GravityCompat.START);
         } else {
 
+            Intent intent=new Intent(LoginPageActivity.this,MainActivity.class);
+            startActivity(intent);
 
-            finish();
         }
     }
 

@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -31,6 +32,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -259,6 +262,10 @@ public class ResturantPageActivity extends AppCompatActivity {
 
 
         }
+        YoYo.with(Techniques.SlideInDown)
+                .duration(1000)
+                .playOn(cookimagecir);
+
 
 
         resturenimagerecyclertop = findViewById(R.id.resturenimagerecyclertop);
@@ -406,10 +413,31 @@ public class ResturantPageActivity extends AppCompatActivity {
                     mCookDesc.setText(description);
                     mCountfollow.setText(followersNo + "");
                     mCookName.setText(name);
-                    mCityCook.setText(  "المدينة : "+"  "+cityName);
                     mAblePhoneLogin.setText(mobile);
                     mCountryCook.setText("الدولة :"+"  "+countryName);
-                    mCityState.setText("الحي  : "+"  "+region);
+                    if(region.isEmpty() ||region.matches("") ||region.matches("غير محدد")  ){
+                        mCityState.setVisibility(View.GONE);
+
+                    }
+                    else {
+                        mCityState.setVisibility(View.GONE);
+
+                    }
+
+                    // city
+                    if(cityName.isEmpty() ||cityName.matches("") ||cityName.matches("غير محدد")  ){
+                        mCityCook.setVisibility(View.GONE);
+                        setMargins(mAblePhoneLogin,0,70,0,0);
+                        setMargins(mImageView2,0,75,0,0);
+                        setMargins(mCookPhone,0,70,0,0);
+
+
+                    }
+                    else {
+                        mCityCook.setText(  "المدينة : "+"  "+cityName);
+
+                    }
+
 
 
                     if (avatarURL.matches("") || !avatarURL.startsWith("http")) {////https://image.flaticon.com/icons/svg/1055/1055672.svg
@@ -425,6 +453,11 @@ public class ResturantPageActivity extends AppCompatActivity {
 
 
                     }
+
+                    YoYo.with(Techniques.SlideInDown)
+                            .duration(1000)
+                            .playOn(findViewById(R.id.cookimage));
+
 
 
                     if (saveLogin) {
@@ -549,10 +582,32 @@ public class ResturantPageActivity extends AppCompatActivity {
                     mCookDesc.setText(description);
                     mCountfollow.setText(followersNo + "");
                     mCookName.setText(name);
-                    mCityCook.setText("المدينة : " + cityName);
                     mAblePhoneLogin.setText(mobile);
                     mCountryCook.setText("الدولة:" + countryName);
-                    mCityState.setText("الحي: " + region);
+                    if(region.isEmpty() ||region.matches("") ||region.matches("غير محدد")  ){
+                        mCityState.setVisibility(View.GONE);
+
+                    }
+                    else {
+                        mCityState.setVisibility(View.GONE);
+
+
+                    }
+
+                    // city
+                    if(cityName.isEmpty() ||cityName.matches("") ||cityName.matches("غير محدد")  ){
+                        mCityCook.setVisibility(View.GONE);
+                        setMargins(mAblePhoneLogin,0,70,0,0);
+                        setMargins(mImageView2,0,75,0,0);
+                        setMargins(mCookPhone,0,70,0,0);
+
+
+
+                    }
+                    else {
+                        mCityCook.setText(  "المدينة : "+"  "+cityName);
+
+                    }
                     if (avatarURL.matches("") || !avatarURL.startsWith("http")) {////https://image.flaticon.com/icons/svg/1055/1055672.svg
                         Picasso.with(ResturantPageActivity.this).load(avatarURL).error(R.drawable.ellipse)
                                 // .resize(100,100)
@@ -566,6 +621,12 @@ public class ResturantPageActivity extends AppCompatActivity {
 
 
                     }
+
+                    YoYo.with(Techniques.SlideInDown)
+                            .duration(1000)
+                            .playOn(cookimagecir);
+
+
 
 
                     mCookstar.setOnClickListener(new View.OnClickListener() {
@@ -687,11 +748,27 @@ public class ResturantPageActivity extends AppCompatActivity {
                     mCookDesc.setText(description);
                     mCountfollow.setText(followersNo + "");
                     mCookName.setText(name);
-                    mCityCook.setText(  "المدينة : "+"  "+cityName);
                     mAblePhoneLogin.setText(mobile);
                     mCountryCook.setText("الدولة : "+"   "+countryName);
-                    mCityState.setText("الحي  : "+"  "+region);
 
+                    if(region.isEmpty() ||region.matches("") ||region.matches("غير محدد")  ){
+                        mCityState.setVisibility(View.GONE);
+
+                    }
+                    else {
+                        mCityState.setText("الحي  : " + "  " + region);
+
+                    }
+
+                    // city
+                    if(cityName.isEmpty() ||cityName.matches("") ||cityName.matches("غير محدد")  ){
+                        mCityCook.setVisibility(View.GONE);
+
+                    }
+                    else {
+                        mCityCook.setText(  "المدينة : "+"  "+cityName);
+
+                    }
                     if (avatarURL.matches("") || !avatarURL.startsWith("http")) {////https://image.flaticon.com/icons/svg/1055/1055672.svg
                         Picasso.with(ResturantPageActivity.this).load(avatarURL).error(R.drawable.ellipse)
                                 // .resize(100,100)
@@ -705,6 +782,11 @@ public class ResturantPageActivity extends AppCompatActivity {
 
 
                     }
+
+                    YoYo.with(Techniques.SlideInDown)
+                            .duration(1000)
+                            .playOn(cookimagecir);
+
 
 
                     mCookstar.setVisibility(View.GONE);
@@ -879,7 +961,7 @@ public class ResturantPageActivity extends AppCompatActivity {
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(ResturantPageActivity.this, "تمت المتابعة  ", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ResturantPageActivity.this, "تمت المتابعة  ", Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -927,7 +1009,7 @@ public class ResturantPageActivity extends AppCompatActivity {
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(ResturantPageActivity.this, "تمت المتابعة  " , Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ResturantPageActivity.this, "تمت المتابعة  " , Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -975,7 +1057,7 @@ public class ResturantPageActivity extends AppCompatActivity {
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(ResturantPageActivity.this, "تمت الاضافة الى المفضلة  " , Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ResturantPageActivity.this, "تمت الاضافة الى المفضلة  " , Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -1022,7 +1104,7 @@ public class ResturantPageActivity extends AppCompatActivity {
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
-                    Toast.makeText(ResturantPageActivity.this, "تمت الازالة من المفضلة  " , Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ResturantPageActivity.this, "تمت الازالة من المفضلة  " , Toast.LENGTH_SHORT).show();
 
 
                 } catch (JSONException e) {
@@ -1076,7 +1158,21 @@ public class ResturantPageActivity extends AppCompatActivity {
             progressDialog.dismiss();
 
     }
+    private void setMargins (View view, int left, int top, int right, int bottom) {
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
 
+            final float scale = getResources().getDisplayMetrics().density;
+            // convert the DP into pixel
+            int l =  (int)(left * scale + 0.5f);
+            int r =  (int)(right * scale + 0.5f);
+            int t =  (int)(top * scale + 0.5f);
+            int b =  (int)(bottom * scale + 0.5f);
+
+            p.setMargins(l, t, r, b);
+            view.requestLayout();
+        }
+    }
 
 
 }

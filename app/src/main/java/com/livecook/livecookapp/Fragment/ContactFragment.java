@@ -22,6 +22,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.livecook.livecookapp.Activity.ClientRegisterActivity;
 import com.livecook.livecookapp.Api.MyApplication;
 import com.livecook.livecookapp.Model.Constants;
 import com.livecook.livecookapp.R;
@@ -101,7 +102,13 @@ public class ContactFragment extends Fragment {
 
                 if (mEdname.getText().toString().matches("")) {
                     Toast.makeText(getActivity(), getString(R.string.enter_name), Toast.LENGTH_SHORT).show();
-                } else if (memail.getText().toString().matches("")) {
+                }
+                else if (mEdname.getText().toString().length()<3) {
+                    Toast.makeText(getActivity(), getString(R.string.enter_name_lengh), Toast.LENGTH_SHORT).show();
+                }
+
+
+                else if (memail.getText().toString().matches("")) {
                     Toast.makeText(getActivity(), getString(R.string.enter_email), Toast.LENGTH_SHORT).show();
 
                 } else if (!isEmailValid(memail.getText().toString())) {

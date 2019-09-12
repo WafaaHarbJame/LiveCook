@@ -1,6 +1,8 @@
 package com.livecook.livecookapp;
 
 import android.app.Dialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,6 +19,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.os.Handler;
 import android.text.InputType;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -46,6 +49,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.livecook.livecookapp.Activity.CookFilterrActivity;
 import com.livecook.livecookapp.Activity.LoginActivity;
@@ -119,6 +123,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FrameLayout rootView;
     private Boolean saveLogin;
     ImageView custmregister_but;
+    String fcm_token;
+    private long exitTime = 0;
 
 
     @Override
@@ -130,7 +136,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitleTextColor(Color.BLACK);
         prefs = getSharedPreferences(Constants.PREF_FILE_CONFIG, MODE_PRIVATE);
 
-
+        fcm_token = FirebaseInstanceId.getInstance().getToken();
+        if(fcm_token!=null) {
+            Log.d("khtwotoken", fcm_token);
+        }
 
         if(prefs!=null) {
 
@@ -155,6 +164,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Create channel to show notifications.
+            String channelId  = getString(R.string.default_notification_channel_id);
+            String channelName = getString(R.string.default_notification_channel_name);
+            NotificationManager notificationManager =
+                    getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(new NotificationChannel(channelId,
+                    channelName, NotificationManager.IMPORTANCE_LOW));
+        }
+
+
+        if (getIntent().getExtras() != null) {
+            for (String key : getIntent().getExtras().keySet()) {
+                Object value = getIntent().getExtras().get(key);
+            }
+        }
+        // [END handle_data_extras]
 
 
 
@@ -326,7 +352,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            finish();
+            exitApp();
         }
     }
 
@@ -1072,6 +1098,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
+    public void exitApp() {
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(this, getString(R.string.press_again_to_exit), Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finish();
+        }
+    }
 
 }

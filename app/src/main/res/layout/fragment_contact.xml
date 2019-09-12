@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,8 +12,7 @@
     android:padding="8dp"
     android:textDirection="rtl"
     android:background="@drawable/background"
-    android:layoutDirection="rtl"
-    tools:context=".Fragment.ContactFragment">
+    android:layoutDirection="rtl">
 
     <include
         android:id="@+id/lyt_failed_home"
@@ -32,7 +34,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/des"
-
         android:ems="10"
         android:textSize="14sp"
         android:layout_marginTop="8dp"
@@ -49,6 +50,10 @@
         android:layout_marginTop="8dp"
         android:textStyle="bold"
         android:textSize="14sp"
+        android:lines="1"
+        android:maxLines="1"
+        android:minLines="1"
+        android:singleLine="true"
         android:text="@string/email" />
     <!--android:backgroundTint="@color/gray"-->
 
@@ -60,7 +65,10 @@
             android:ems="10"
             android:textSize="14sp"
             android:background="@drawable/des"
-
+        android:lines="1"
+        android:maxLines="1"
+        android:minLines="1"
+        android:singleLine="true"
             android:textStyle="bold"
 
             android:layout_marginTop="8dp"
@@ -102,9 +110,8 @@
     <EditText
         android:id="@+id/eddesc"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:ems="10"
-        android:lines="10"
         android:textSize="14sp"
         android:layout_gravity="right"
         android:gravity="right"
@@ -114,6 +121,9 @@
         android:layout_marginTop="8dp"
         android:textDirection="rtl"
         android:inputType="text"
+        android:lines="5"
+        android:maxLines="5"
+        android:minLines="2"
          />
 
 
@@ -131,3 +141,4 @@
         android:text="@string/sendbutton" />
 
 </LinearLayout>
+</ScrollView>

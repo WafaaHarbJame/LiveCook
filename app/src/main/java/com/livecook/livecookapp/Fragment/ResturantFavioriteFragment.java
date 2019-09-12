@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -122,6 +123,11 @@ public class ResturantFavioriteFragment extends Fragment {
             }
 
         });
+        RecyclerView.LayoutManager manager = new GridLayoutManager(getActivity(),1);
+        // RecyclerView.LayoutManager manager = new LinearLayoutManager(getActivity());
+
+
+        cookrecycler.setLayoutManager(manager);
         checkInternet();
 
         return view;

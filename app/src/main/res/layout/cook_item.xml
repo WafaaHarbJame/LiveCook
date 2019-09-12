@@ -44,14 +44,16 @@
 
             <ImageView
                 android:id="@+id/cookstar"
+                android:layout_marginLeft="30dp"
+                android:textStyle="bold"
+                android:visibility="visible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="16dp"
-                android:textStyle="bold"
-
-                android:visibility="visible"
+                android:layout_marginEnd="@dimen/margin_10"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/margin_10"
                 app:srcCompat="@drawable/ic_favorite_black" />
 
             <TextView
@@ -59,6 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/cook_name"
@@ -72,9 +76,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/cook_name"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="20dp"
-                android:layout_toLeftOf="@id/cookimage"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/cookimage"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="65dp"
                 android:text="@string/cook_desc"
                 android:textAlignment="gravity"
                 android:textColor="@color/notification_color"
@@ -86,19 +91,35 @@
                 android:id="@+id/cook_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/follower"
+                android:layout_below="@+id/cook_desc"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginStart="90dp"
+                android:layout_marginEnd="65dp"
                 android:text="@string/cook_address"
                 android:drawablePadding="8dp"
-                app:layout_constraintBottom_toBottomOf="@id/cook_name"
-                android:drawableRight="@drawable/pin"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/cook_desc"
+                android:drawableStart="@drawable/pin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cook_desc"
-             />
+                />
+
+            <ImageView
+                android:id="@+id/followingbut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cook_desc"
+                android:layout_alignParentEnd="true"
+                android:layout_toStartOf="@id/cook_address"
+                android:text="@string/cook_address"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/cook_desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cook_desc"
+                app:srcCompat="@drawable/folllowsearch" />
 
             <ImageView
                 android:id="@+id/follower"
@@ -108,33 +129,24 @@
                 android:layout_alignBottom="@+id/cookstar"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="16dp"
+                android:visibility="gone"
                 android:layout_marginBottom="-22dp"
                 app:srcCompat="@drawable/follower" />
+
 
             <TextView
                 android:id="@+id/countfollow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/cook_address"
-                android:layout_alignBottom="@+id/cookstar"
-                android:layout_marginLeft="50dp"
-                android:layout_marginBottom="-30dp"
-                android:text="20" />
-
-            <ImageView
-                android:id="@+id/followingbut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:visibility="visible"
-                android:layout_below="@+id/follower"
+                android:drawablePadding="8dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="30dp"
-                android:text="@string/cook_address"
-                app:layout_constraintTop_toBottomOf="@+id/cook_desc"
+                android:layout_marginEnd="@dimen/margin_10"
+                android:drawableLeft="@drawable/follower"
+                android:layout_below="@+id/cookstar"
+                android:layout_marginTop="@dimen/margin_10"
+                android:text="0" />
 
 
-                app:srcCompat="@drawable/folllowsearch" />
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Dialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
@@ -128,6 +131,23 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
 
 
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Create channel to show notifications.
+            String channelId  = getString(R.string.default_notification_channel_id);
+            String channelName = getString(R.string.default_notification_channel_name);
+            NotificationManager notificationManager =
+                    getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(new NotificationChannel(channelId,
+                    channelName, NotificationManager.IMPORTANCE_LOW));
+        }
+
+
+        if (getIntent().getExtras() != null) {
+            for (String key : getIntent().getExtras().keySet()) {
+                Object value = getIntent().getExtras().get(key);
+            }
+        }
+        // [END handle_data_extras]
 
         getSupportFragmentManager().beginTransaction().replace(R.id.mainContainer, new RegisterFragment(), "HomeFragment").addToBackStack(null).commit();
         Date currentTime = Calendar.getInstance().getTime();
@@ -300,7 +320,9 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            finish();
+
+            Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
+         startActivity(intent);
 
         }
     }
@@ -1038,6 +1060,8 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
                 getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
     }
+
+
 
 
 }

@@ -351,7 +351,7 @@ public class AllFirebaseResturantCookAdapter extends RecyclerView.Adapter<AllFir
 
 
 
-       /*
+
         if(firebase_type==6 ||firebase_type==7){
                 firebase_type_str="cooker";
             }
@@ -363,7 +363,7 @@ public class AllFirebaseResturantCookAdapter extends RecyclerView.Adapter<AllFir
 
 
             }
-        */
+
 
 
         /*MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
@@ -383,7 +383,6 @@ public class AllFirebaseResturantCookAdapter extends RecyclerView.Adapter<AllFir
                     Intent intent=new Intent(activity,LiveuserActivityy.class) ;
                     intent.putExtra(Constants.WatchPath,data.get(i).getWatchPath());
                     intent.putExtra(Constants.RecordPath,data.get(i).getRecordPath());
-
                     intent.putExtra(Constants.Steam_path,data.get(i).getLivePath());
                     intent.putExtra(Constants.firebase_name,data.get(i).getName());
                     intent.putExtra(Constants.firebase_title,data.get(i).getTitle());

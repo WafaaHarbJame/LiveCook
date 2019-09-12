@@ -12,7 +12,6 @@
         android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:padding="8dp"
-
         app:srcCompat="@drawable/register2" />
 </FrameLayout>
 

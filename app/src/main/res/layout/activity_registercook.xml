@@ -207,6 +207,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:prompt="@string/cityname" />
+
+        <ImageView
+            android:id="@+id/insertwatwork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="right"
+            android:src="@drawable/insertwatwork" />
+        <ImageView
+            android:id="@+id/showinsertwatwork"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_gravity="center"
+            />
+
         <ImageView
             android:id="@+id/camera_action"
             android:layout_width="wrap_content"
@@ -214,7 +231,6 @@
             android:layout_alignParentLeft="true"
             android:layout_gravity="right"
             android:visibility="gone"
-
             android:src="@drawable/inserlicen" />
 
 

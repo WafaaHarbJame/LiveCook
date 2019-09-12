@@ -83,6 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/state"
+            android:visibility="gone"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -91,7 +92,6 @@
             android:id="@+id/mRegion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:prompt="@string/cityname" />
 
 
@@ -108,17 +108,22 @@
         <EditText
             android:id="@+id/eddesc"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:ems="10"
-            android:lines="5"
+            android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:layout_gravity="right"
+            android:gravity="right"
             android:textStyle="bold"
             android:background="@drawable/des"
-            android:hint="@string/write_hinit"
-
+            android:hint="@string/dsc"
             android:layout_marginTop="8dp"
+            android:textDirection="rtl"
+            android:inputType="text"
+            android:lines="5"
+            android:maxLines="5"
+            android:minLines="1"
 
-            android:inputType="textPersonName"
+
+
             />
         <TextView
             android:layout_width="match_parent"
@@ -334,9 +339,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
-
             android:layout_gravity="center"
-
             android:src="@mipmap/ic_launcher"
             />
 

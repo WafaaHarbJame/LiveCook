@@ -106,10 +106,8 @@ int cooker_resturant_firebaseid;
             RecordPath = intent.getStringExtra(Constants.RecordPath);
             status=intent.getBooleanExtra(Constants.status,false);
 
-
-
-
         }
+
 
 
 
@@ -316,12 +314,12 @@ int cooker_resturant_firebaseid;
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String,String> map = new HashMap();
-                map.put("owner_id", 32+"");
+                map.put("owner_id", String.valueOf(owner_id));
                 map.put("owner_type",owner_type);
                 map.put("firebase_path",firebase_path+"");
                 map.put("livestream_path",livestream_path);
-                map.put("text", text);
                 map.put("Authorization", "Bearer" + "  " + access_token);
+                map.put("text", text);
 
 
 

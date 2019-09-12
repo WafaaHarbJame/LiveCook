@@ -1,19 +1,30 @@
 package com.livecook.livecookapp.Activity;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
+
+import android.os.Handler;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -46,6 +57,8 @@ import com.livecook.livecookapp.Model.SessionManager;
 import com.livecook.livecookapp.Model.VolleyMultipartRequest;
 import com.livecook.livecookapp.R;
 import com.squareup.picasso.Picasso;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 import com.vansuita.pickimage.bean.PickResult;
 import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
@@ -80,7 +93,10 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
     ArrayList<Datum> city = new ArrayList<>();
     String image_cook_path;
     String imageName;
+    private Uri mCropImageUri;
     ProgressDialog progressDialog;
+    boolean country_spinner_click=false;
+    boolean city_spinner_click=false;
 
     List<String> countrylist = new ArrayList<String>();
     List<String> citylist = new ArrayList<String>();
@@ -93,10 +109,7 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
     SharedPreferences prefs;
     Spinner spinnertype;
     int type_id=6;
-
-
-
-
+    private SessionManager mSessionManager;
 
     Spinner spin;
     Spinner cityname;
@@ -105,9 +118,17 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
     ArrayAdapter<String> arrayAdapter;
     ArrayAdapter<String> cityadapter;
     DatumecountryAdapter countrycodeadapter;
+    ImageView  showinsertwatwork;
+    ImageView insertwatwork;
+    String file_name;
+    int city_id;
+
+    String fcm_token;
+
+
+
 
     File f;
-    private SessionManager mSessionManager;
     private LinearLayout mContainer;
     String[] COOKER_TYPE = { "مستقل",  "ذبائح "};
 
@@ -124,6 +145,35 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
         initViews();
 
         setSupportActionBar(toolbar);
+        insertwatwork=findViewById(R.id.insertwatwork);
+
+        showinsertwatwork=findViewById(R.id.showinsertwatwork);
+
+        insertwatwork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectImage();
+
+
+            }
+        });
+        mSessionManager = new SessionManager(this);
+        if (!"hello".equalsIgnoreCase(mSessionManager.getUrl())) {
+
+            Picasso.with(RegistercookActivity.this)
+                    .load(mSessionManager.getUrl())
+                    .error(R.drawable.ellipse)
+                    // .resize(100,100)
+                    .into(showinsertwatwork);
+
+            //Picasso library to display images
+            // Picasso.get().load(mSessionManager.getUrl()).placeholder(R.drawable.lissa).into(mAvatar);
+        }
+
+        fcm_token = FirebaseInstanceId.getInstance().getToken();
+        if(fcm_token!=null) {
+            Log.d("khtwotoken", fcm_token);
+        }
         String token = FirebaseInstanceId.getInstance().getToken();
         prefs = getSharedPreferences(Constants.PREF_FILE_CONFIG, Context.MODE_PRIVATE);
         progressDialog = new ProgressDialog(RegistercookActivity.this);
@@ -196,10 +246,11 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
             }
         });
 
-        getCountries();
+        //getCountries();
         getCountrycode();
 
         showSoftKeyboard(edname);
+
 
         createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,9 +258,21 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
                 if (edname.getText().toString().matches("")) {
                     Toast.makeText(RegistercookActivity.this, getString(R.string.enter_name), Toast.LENGTH_SHORT).show();
                 }
+
+
+                else if (edname.getText().toString().length()<3) {
+                    Toast.makeText(RegistercookActivity.this, getString(R.string.enter_name_lengh), Toast.LENGTH_SHORT).show();
+                }
+
+
                 else if (edmobileNumber.getText().toString().matches("")) {
                     Toast.makeText(RegistercookActivity.this, getString(R.string.enter_mobile), Toast.LENGTH_SHORT).show();
                 }
+
+                else if (edmobileNumber.getText().toString().length()<9) {
+                    Toast.makeText(RegistercookActivity.this, getString(R.string.enter_mobile_length), Toast.LENGTH_SHORT).show();
+                }
+
                 else if (edpassward.getText().toString().matches("")) {
                     Toast.makeText(RegistercookActivity.this, getString(R.string.enter_passward), Toast.LENGTH_SHORT).show();
                 }
@@ -217,10 +280,22 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
                     Toast.makeText(RegistercookActivity.this, getString(R.string.repeatpasswward)
                             , Toast.LENGTH_SHORT).show();
                 }
+
+                else if (!country_spinner_click) {
+                    Toast.makeText(RegistercookActivity.this, getString(R.string.enter_country), Toast.LENGTH_SHORT).show();
+                }
+                else if (!city_spinner_click) {
+                    Toast.makeText(RegistercookActivity.this, getString(R.string.entercity), Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
+
                 else  if ((edpassward.getText().toString()).matches(edrepatepassward.getText().toString()) ) {
              registeruser(edname.getText().toString(),
                          edmobileNumber.getText().toString(),
-                         country_id,edpassward.getText().toString(),edrepatepassward.getText().toString(),type_id);
+                         country_id,edpassward.getText().toString(),edrepatepassward.getText().toString(),type_id,file_name,city_id);
 
 
                 }
@@ -235,36 +310,68 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
 
         //  getCities(country_id);
 
+
+        spin.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                country_spinner_click=true;
+                getCountries();
+                return false;
+            }
+        });
+
+
+
+
+
+
+
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 country_id = data.get(position).getId();
                 //country_codee=data.get(position).getCode();
-
-                getCities(country_id);
+              //  getCities(country_id);
 
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                country_id= Integer.parseInt("");
+
 
             }
         });
-        // spin.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) getContext());
-        //SpinnermobileAdapter customAdapter=new SpinnermobileAdapter(getActivity(),flags,countryNames);
-        // spin.setAdapter(customAdapter);
-      /*  new VolleyRequests().setiReceiveData(new VolleyRequests.IReceiveData() {
+
+
+        cityname.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onDataReceived(Object posts) {
-                //tvJSON.setText(((List<Post>)posts).get(0).getBody());
-                Toast.makeText(ClientRegisterActivity.this, ""+((Countries)posts).getData().get(0).getName(), Toast.LENGTH_SHORT).show();
+            public boolean onTouch(View v, MotionEvent event) {
+                city_spinner_click=true;
+
+                getCities(country_id);
+                return false;
+            }
+        });
+
+        cityname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                city_id = city.get(position).getId();
+                // Toast.makeText(getActivity(), ""+data.get(position).getId(), Toast.LENGTH_SHORT).show();
 
 
-        }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                city_id = city.get(0).getId();
 
 
-        }).getContacts();*/
+
+            }
+        });
 
 
     }
@@ -307,24 +414,6 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
                     e.printStackTrace();
                 }
 
-                //JSONArray taskarray=response.getJSONArray("task");
-                //for (int i = 0; i < taskarray.length(); i++) {
-
-
-
-                /*
-                try {
-                    JSONArray array = response.getJSONArray(AppConstants.CONTACTS_KEY);
-                    for(int i=0;i<array.length();i++){
-
-                      //JSONObject jsonObject =   array.getJSONObject(i);
-                      //jsonObject.get
-
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                */
             }
         }, new Response.ErrorListener() {
             @Override
@@ -580,7 +669,7 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
 
     }
     public void registeruser(final String  name,final  String mobile ,final int country_id,final String password,
-                             final String password_confirmation,final int type_id) {
+                             final String password_confirmation,final int type_id,final String municipal_license,int city_id) {
         showDialog();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.cooker_register,
                 new Response.Listener<String>() {
@@ -611,7 +700,7 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
                                 editor.putString(Constants.TYPE, "cooker");
                                 editor.apply();
                                 editor.commit();
-                                loginuser(country_id,mobile,edpassward.getText().toString(),0,access_token);
+                                loginuser(country_id,mobile,edpassward.getText().toString(),0,fcm_token);
 
                             }
                             else
@@ -649,6 +738,10 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
                 map.put("password",password);
                 map.put("password_confirmation",password_confirmation);
                 map.put("type_id",type_id+"");
+                map.put("municipal_license", municipal_license+"");
+                map.put("city_id", city_id+"");
+
+
 
 
 
@@ -696,12 +789,12 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
           r.getPath();
              f = new File(r.getPath());
              imageName = f.getName();
-            Toast.makeText(this, "the imageName"+imageName, Toast.LENGTH_LONG).show();
-            Toast.makeText(this, "the file"+f, Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "the imageName"+imageName, Toast.LENGTH_LONG).show();
+           // Toast.makeText(this, "the file"+f, Toast.LENGTH_LONG).show();
 
-            Toast.makeText(this, "the r"+r.getUri(), Toast.LENGTH_LONG).show();
+           // Toast.makeText(this, "the r"+r.getUri(), Toast.LENGTH_LONG).show();
 
-            Toast.makeText(this, ""+r.getPath()+""+r.getBitmap()+r.getUri(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, ""+r.getPath()+""+r.getBitmap()+r.getUri(), Toast.LENGTH_LONG).show();
 
             image_cook_path=r.getPath();
         } else {
@@ -736,7 +829,7 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
 
     private void uploadAvatar() {
         final ProgressDialog progressDialog = new ProgressDialog(RegistercookActivity.this);
-        progressDialog.setMessage("Uploading Avatar...");
+        progressDialog.setMessage("يتم تحميل الصورة الرجاء الانتظار ");
         progressDialog.show();
 
         final String id = "1";
@@ -746,21 +839,21 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
             public void onResponse(NetworkResponse response) {
                 progressDialog.dismiss();
                 String resultResponse = new String(response.data);
-               // Toast.makeText(RegistercookActivity.this, ""+resultResponse, Toast.LENGTH_SHORT).show();
+             //  Toast.makeText(RegistercookActivity.this, ""+resultResponse, Toast.LENGTH_SHORT).show();
                 try {
                     JSONObject obj = new JSONObject(resultResponse);
 
-                  //  Toast.makeText(RegistercookActivity.this, ""+obj.getString("file_name"), Toast.LENGTH_SHORT).show();
-                   // Toast.makeText(RegistercookActivity.this, ""+obj.getString("status"), Toast.LENGTH_SHORT).show();
+           //   Toast.makeText(RegistercookActivity.this, ""+obj.getString("file_name"), Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(RegistercookActivity.this, ""+obj.getString("status"), Toast.LENGTH_SHORT).show();
                     if (!obj.getBoolean("status")) {
-                        String file_name = obj.getString("file_name");
+                         file_name = obj.getString("file_name");
                         mSessionManager.setUrl(file_name);
 
                         Picasso.with(RegistercookActivity.this)
                                 .load(file_name)
                                 .error(R.drawable.ellipse)
                                 // .resize(100,100)
-                                .into((showimage));
+                                .into((showinsertwatwork));
 
                         // Picasso.get().load(avatar).placeholder(R.drawable.lissa).into(mAvatar);
                         //Toast.makeText(RegistercookActivity.this, "Avatar Changed", Toast.LENGTH_SHORT).show();
@@ -794,7 +887,7 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
                 if (showimage == null) {
                     Log.i("tag", "avatar null");
                 }
-                params.put("image", new DataPart("img_" + id + ".jpg", AppHelper.getFileDataFromDrawable(getApplicationContext(), showimage.getDrawable()), "image/jpg"));
+                params.put("image", new DataPart("img_" + id + ".jpg", AppHelper.getFileDataFromDrawable(getApplicationContext(), showinsertwatwork.getDrawable()), "image/jpg"));
                 return params;
             }
         };
@@ -922,7 +1015,102 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
 
 
 
+    private void selectImage() {
+        CropImage.startPickImageActivity(this);
+    }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        // handle result of pick image chooser
+        if (requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            Uri imageUri = CropImage.getPickImageResultUri(this, data);
+
+            // For API >= 23 we need to check specifically that we have permissions to read external storage.
+            if (CropImage.isReadExternalStoragePermissionsRequired(this, imageUri)) {
+                // request permissions and handle the result in onRequestPermissionsResult()
+                mCropImageUri = imageUri;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+                }
+            } else {
+                // no permissions required or already grunted, can start crop image activity
+                startCropImageActivity(imageUri);
+            }
+        }
+
+        // handle result of CropImageActivity
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                Uri uri = result.getUri();
+                try {
+                    //Uses https://github.com/zetbaitsu/Compressor library to compress selected image
+                    File file = new Compressor(this).compressToFile(new File(uri.getPath()));
+
+                    Picasso.with(RegistercookActivity.this)
+                            .load(file)
+                            .error(R.drawable.ellipse)
+                            // .resize(100,100)
+                            .into(showinsertwatwork);
+
+                    // Picasso.get().load(file).into(mAvatar);
+                    //Picasso
+                    // Toast.makeText(this, "Compressed", Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    //Toast.makeText(this, "Failed Compress", Toast.LENGTH_SHORT).show();
+                    //Picasso.get().load(uri).into(mAvatar);
+                    Picasso.with(RegistercookActivity.this)
+                            .load(uri)
+                            .error(R.drawable.ellipse)
+                            // .resize(100,100)
+                            .into(showinsertwatwork);
+
+                }
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        uploadAvatar();
+                    }
+                }, 1000);
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                //TODO handle cropping error
+                //Toast.makeText(this, "Cropping failed: " + result.getError(), Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (mCropImageUri != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            // required permissions granted, start crop image activity
+            startCropImageActivity(mCropImageUri);
+        } else {
+            Toast.makeText(this, "Cancelling, required permissions are not granted", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    /**
+     * Start crop image activity for the given image.
+     */
+    private void startCropImageActivity(Uri imageUri) {
+        CropImage.activity(imageUri)
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setAllowFlipping(false)
+                .setActivityTitle("Crop Image")
+                .setCropMenuCropButtonIcon(R.drawable.ic_check)
+                .setAllowRotation(true)
+                .setInitialCropWindowPaddingRatio(0)
+                .setFixAspectRatio(true)
+                .setAspectRatio(1, 1)
+                .setOutputCompressQuality(80)
+                .setOutputCompressFormat(Bitmap.CompressFormat.JPEG)
+                .setMultiTouchEnabled(true)
+                .start(this);
+    }
 
 
 }

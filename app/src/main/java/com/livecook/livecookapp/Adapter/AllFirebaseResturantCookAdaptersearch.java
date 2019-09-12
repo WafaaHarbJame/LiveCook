@@ -134,6 +134,20 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
         name=dataListFiltered.get(i).getName();
         name1=movieHolder.allname.getText().toString();
         full_mobile=dataListFiltered.get(i).getFull_mobile();
+        if(firebase_type==6 ||firebase_type==7){
+            firebase_type_str="cooker";
+        }
+        else
+
+        {
+
+            firebase_type_str="restaurant";
+
+
+        }
+
+
+
 
         movieHolder.type.setText(dataListFiltered.get(i).getType()+"");
 
@@ -352,19 +366,6 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
 
 
 
-       /*
-        if(firebase_type==6 ||firebase_type==7){
-                firebase_type_str="cooker";
-            }
-            else
-
-            {
-
-                firebase_type_str="restaurant";
-
-
-            }
-        */
 
 
         /*MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

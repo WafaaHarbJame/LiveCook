@@ -169,12 +169,17 @@ public class CookAdapter extends RecyclerView.Adapter<CookAdapter.MovieHolder> {
         final TransitionDrawable followDrawable = new TransitionDrawable(new Drawable[] { d1, d2 });
         final int transitionDuration = activity.getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-        if(data.get(i).getRegion().isEmpty() ||data.get(i).getRegion().matches("") ){
-            movieHolder.cook_address.setText(data.get(i).getCountry_name()+" - " +""+data.get(i).getCity_name());
+        if(data.get(i).getCity_name().isEmpty() ||data.get(i).getCity_name().matches("") ||data.get(i).getCity_name().matches("غير محدد")  ){
+            movieHolder.cook_address.setText(data.get(i).getCountry_name());
 
         }
-        else{
-            movieHolder.cook_address.setText(data.get(i).getCountry_name()+" - " +""+data.get(i).getCity_name()+" - "+""+data.get(i).getRegion());
+         else if(data.get(i).getRegion().isEmpty() ||data.get(i).getRegion().matches("") ||data.get(i).getRegion().matches("غير محدد")  ){
+            movieHolder.cook_address.setText(data.get(i).getCountry_name());
+
+        }
+
+         else {
+            movieHolder.cook_address.setText(data.get(i).getCountry_name()+" - " +""+data.get(i).getCity_name());
 
         }
 

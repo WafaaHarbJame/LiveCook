@@ -180,12 +180,12 @@ public class AllcookFragment extends Fragment {
 
                             AllFirebaseModel detilas = live1snapshot.getValue(AllFirebaseModel.class);
                             assert detilas != null;
-                            if (detilas.isStatus()) {
-                                if (detilas.getType() == 5 || detilas.getType() == 6) {
+                            //                           // if (detilas.isStatus()) {
+                                if (detilas.getType() == 7 || detilas.getType() == 6) {
                                     firebasedata.add(detilas);
                                 }
 
-                            }
+
                         }
 
 

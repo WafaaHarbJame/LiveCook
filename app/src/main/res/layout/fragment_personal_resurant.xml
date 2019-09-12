@@ -29,7 +29,6 @@
             android:scrollbars="vertical"
             android:layout_marginTop="8dp"
 
-
             android:id="@+id/resturenimagerecyclertop"
 
             android:layout_height="wrap_content" />
@@ -42,7 +41,7 @@
             android:layout_gravity="right"
             android:layoutDirection="rtl"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:padding="8dp"
             android:textDirection="rtl"
 
             tools:context=".Fragment.ResturantPageFragment">
@@ -81,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="150dp"
                 android:layout_marginTop="8dp"
-                android:text="الاسم"
+                android:text=""
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/cookimage"
@@ -97,7 +96,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="@id/cook_name"
-                android:text="النوع "
+                android:text=" "
                 android:textColor="@color/darkgray"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/cookimage"
@@ -107,20 +106,18 @@
 
             <TextView
                 android:id="@+id/cook_desc"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="150dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintBottom_toBottomOf="@id/cook_type"
-                android:text="الوصف "
-                android:textColor="@color/darkgray"
+                android:layout_marginTop="8dp"
+                android:text="الوصف"
+                android:textAlignment="gravity"
+                android:textColor="@color/notification_color"
+                android:textDirection="rtl"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/cookimage"
-                app:layout_constraintStart_toEndOf="@+id/cookimage"
-                app:layout_constraintEnd_toStartOf="@id/cookimage"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.341"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cookimage" />
 
             <ImageView
                 android:id="@+id/follower"
@@ -194,6 +191,7 @@
                 android:text="المنطقة"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -203,7 +201,7 @@
                 android:id="@+id/cook_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="110dp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/cook_phone"
                 android:textColor="@color/black"
@@ -215,28 +213,32 @@
 
             <ImageView
                 android:id="@+id/imageView2"
+                android:src="@drawable/ic_error_24px"
+                android:layout_marginTop="115dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="155dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/ic_error_24px"
-                android:visibility="gone"
-                app:layout_constraintEnd_toStartOf="@+id/cook_phone"
-                app:layout_constraintStart_toStartOf="@+id/able_phone_login"
+                android:text="@string/cook_phone"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/cook_phone"
                 app:layout_constraintTop_toBottomOf="@+id/cook_desc" />
 
             <TextView
                 android:id="@+id/able_phone_login"
+                android:layout_marginTop="110dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="150dp"
                 android:text=""
-                app:layout_constraintEnd_toEndOf="@id/cook_phone"
-                android:layout_marginRight="150dp"
-                app:layout_constraintStart_toStartOf="parent"
-
-                app:layout_constraintTop_toBottomOf="@+id/cook_desc" />
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/cook_desc"  />
 
 
             <ImageView

@@ -10,8 +10,10 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -30,6 +32,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.livecook.livecookapp.Adapter.DatumecountryAdapter;
 import com.livecook.livecookapp.Api.MyApplication;
@@ -84,6 +87,8 @@ public class ClientRegisterActivity extends AppCompatActivity {
     ArrayAdapter<String> cityadapter;
     DatumecountryAdapter  countrycodeadapter;
     SharedPreferences prefs;
+    String fcm_token;
+
 
 
 
@@ -100,6 +105,10 @@ public class ClientRegisterActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         toolbar.setTitle("");
+        fcm_token = FirebaseInstanceId.getInstance().getToken();
+        if(fcm_token!=null) {
+            Log.d("khtwotoken", fcm_token);
+        }
 
         spin = findViewById(R.id.countryname);
         cityname = findViewById(R.id.cityname);
@@ -126,8 +135,13 @@ public class ClientRegisterActivity extends AppCompatActivity {
             }
         });
 
-        getCountries();
+       // getCountries();
         getCountrycode();
+
+
+
+
+
 
          createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,9 +149,23 @@ public class ClientRegisterActivity extends AppCompatActivity {
               if (edname.getText().toString().matches("")) {
                     Toast.makeText(ClientRegisterActivity.this, getString(R.string.enter_name), Toast.LENGTH_SHORT).show();
                 }
-                if (edmobileNumber.getText().toString().matches("")) {
+
+
+               else if (edname.getText().toString().length()<3) {
+                    Toast.makeText(ClientRegisterActivity.this, getString(R.string.enter_name_lengh), Toast.LENGTH_SHORT).show();
+                }
+
+
+              else if (edmobileNumber.getText().toString().matches("")) {
                     Toast.makeText(ClientRegisterActivity.this, getString(R.string.enter_mobile), Toast.LENGTH_SHORT).show();
-                } else if (edpassward.getText().toString().matches("")) {
+                }
+
+                else if (edmobileNumber.getText().toString().length()<9) {
+                    Toast.makeText(ClientRegisterActivity.this, getString(R.string.enter_mobile_length), Toast.LENGTH_SHORT).show();
+                }
+
+
+                else if (edpassward.getText().toString().matches("")) {
                     Toast.makeText(ClientRegisterActivity.this, getString(R.string.enter_passward), Toast.LENGTH_SHORT).show();
                 }
 
@@ -146,7 +174,7 @@ public class ClientRegisterActivity extends AppCompatActivity {
                             , Toast.LENGTH_SHORT).show();
                 }
                 else  if ((edpassward.getText().toString()).matches(edrepatepassward.getText().toString()) ) {
-                    registeruser(edname.getText().toString(),  edmobileNumber.getText().toString(), countrycode_reg, edpassward.getText().toString(), edpassward.getText().toString());
+                    registeruser(edname.getText().toString(),  edmobileNumber.getText().toString(), countrycode_reg, edpassward.getText().toString(), edpassward.getText().toString(),fcm_token);
 
 
                 }
@@ -166,25 +194,46 @@ public class ClientRegisterActivity extends AppCompatActivity {
         });
 
 
+        spin.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                getCountries();
+                return false;
+            }
+        });
+
+
+
+
+
+
+
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 country_id = data.get(position).getId();
-                country_codee = data.get(position).getId();
-             Toast.makeText(ClientRegisterActivity.this, "" + data.get(position).getCode(), Toast.LENGTH_SHORT).show();
-               Toast.makeText(ClientRegisterActivity.this, "" + data.get(position).getId(), Toast.LENGTH_SHORT).show();
-
-                getCities(country_id);
+                //country_codee=data.get(position).getCode();
+                //  getCities(country_id);
 
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                country_id= Integer.parseInt("");
+
 
             }
         });
 
+
+        cityname.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                getCities(country_id);
+                return false;
+            }
+        });
 
 
     }
@@ -401,7 +450,7 @@ public class ClientRegisterActivity extends AppCompatActivity {
     }
 
 
-    public void registeruser(final String name, final String mobile, final int country_id, final String password, final String password_confirmation) {
+    public void registeruser(final String name, final String mobile, final int country_id, final String password, final String password_confirmation,final String fcm_token) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.user_register, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -415,8 +464,27 @@ public class ClientRegisterActivity extends AppCompatActivity {
                     access_token=register_response.getString("accessToken");
 
                     if (status) {
-                        Toast.makeText(ClientRegisterActivity.this, "تم التسجيل بنجاح", Toast.LENGTH_SHORT).show();
 
+                        loginuser(country_id,edmobileNumber.getText().toString(),edpassward.getText().toString(),0,access_token);
+                        Toast.makeText(ClientRegisterActivity.this, "تم التسجيل بنجاح", Toast.LENGTH_SHORT).show();
+                        Intent gotologin = new Intent(ClientRegisterActivity.this, MainActivity.class);
+                        editor = prefs.edit();
+                        editor.putString(Constants.access_token1, access_token);
+                        editor.putString(Constants.TYPE, "user");
+                        editor.putInt(Constants.user_id, user_id);
+                        editor.putString(Constants.mobile, edmobileNumber.getText().toString());
+                        editor.putString(Constants.password, edpassward.getText().toString());
+                        gotologin.putExtra(Constants.access_token1, access_token);
+                        editor.putString(Constants.TYPE, "user");
+                        editor.putInt(Constants.user_id, user_id);
+                        editor.putString(Constants.access_token1, access_token);
+                        editor.putString(Constants.TYPE, "user");
+                        editor.putBoolean(Constants.ISLOGIN, true);
+                        editor.putInt(Constants.user_id, user_id);
+                        editor.putString(Constants.mobile, edmobileNumber.getText().toString());
+                        editor.putString(Constants.password, edpassward.getText().toString());
+                        editor.apply();
+                        editor.commit();
                         editor = prefs.edit();
                         editor.putString(Constants.password,edpassward.getText().toString());
                         editor.putString(Constants.passwordintent,edpassward.getText().toString());
@@ -434,8 +502,9 @@ public class ClientRegisterActivity extends AppCompatActivity {
                         editor.putString(Constants.password, edpassward.getText().toString());
                         editor.apply();
                         editor.commit();
-
-                        loginuser(country_id,edmobileNumber.getText().toString(),edpassward.getText().toString(),0,access_token);
+                        gotologin.putExtra(Constants.access_token1,access_token);
+                        startActivity(gotologin);
+                        finish();
                         //startActivity(gotologin);
 
                     } else {
@@ -469,6 +538,9 @@ public class ClientRegisterActivity extends AppCompatActivity {
                 map.put("country_id", country_id + "");
                 map.put("password", password);
                 map.put("password_confirmation", password_confirmation);
+                map.put("fcm_token", fcm_token);
+
+
 
 
                 return map;
@@ -515,8 +587,10 @@ public class ClientRegisterActivity extends AppCompatActivity {
                         editor.putString(Constants.password, edpassward.getText().toString());
                         editor.apply();
                         editor.commit();
+                        gotologin.putExtra(Constants.access_token1,access_token);
                         startActivity(gotologin);
                         finish();
+
 
 
                     } else {

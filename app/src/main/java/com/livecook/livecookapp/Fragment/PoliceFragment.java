@@ -3,15 +3,19 @@ package com.livecook.livecookapp.Fragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
@@ -106,6 +110,9 @@ public class PoliceFragment extends Fragment {
                     // polictext.setText(text);
                     if(text!=null){
                       //  webView.loadData(text, "text/html", null);
+                        Typeface font =  ResourcesCompat.getFont(getActivity(), R.font.jannalt_regular);
+                        WebSettings webSettings = webView.getSettings();
+                        webSettings.setFixedFontFamily(String.valueOf(font));
                         webView.loadDataWithBaseURL("",text,"text/html",null,"\"<html dir=\\\"rtl\\\" lang=\\\"\\\"><body>\" + outhtml + \"</body></html>\"");
 
 

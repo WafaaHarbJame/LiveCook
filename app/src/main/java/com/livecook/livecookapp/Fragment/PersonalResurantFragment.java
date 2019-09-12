@@ -33,6 +33,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -50,6 +52,7 @@ import com.livecook.livecookapp.Activity.LoginResturantActivity;
 import com.livecook.livecookapp.Adapter.ResturantImageAdapter;
 import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter;
 import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter1;
+import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter1forprofile;
 import com.livecook.livecookapp.Adapter.ResturantmenuAdapterView;
 import com.livecook.livecookapp.Adapter.ResturantmenuAdapterforprofile;
 import com.livecook.livecookapp.Api.MyApplication;
@@ -108,7 +111,7 @@ public class PersonalResurantFragment extends Fragment {
     public Button contactwahts ;
     ArrayList<MenuResturantModel> menuimage = new ArrayList<>();
     int type_id;
-    ResturantImagetopAdapter1 resturantImagetopAdapter;
+    ResturantImagetopAdapter1forprofile resturantImagetopAdapter;
 
 
 
@@ -146,6 +149,7 @@ public class PersonalResurantFragment extends Fragment {
     String full_mobile;
     String name;
     String avatarURL;
+    View view;
 
 
 
@@ -158,7 +162,7 @@ public class PersonalResurantFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_personal_resurant, container, false);
+         view=inflater.inflate(R.layout.fragment_personal_resurant, container, false);
 
         mCookstar = view.findViewById(R.id.cookstar);
         mCookimage = view.findViewById(R.id.cookimage);
@@ -229,7 +233,9 @@ public class PersonalResurantFragment extends Fragment {
                                 Manifest.permission.RECORD_AUDIO
                         ).withListener(new MultiplePermissionsListener() {
                     @Override public void onPermissionsChecked(MultiplePermissionsReport report) {
-                        dialog=new Dialog(getActivity());
+                        if(report.areAllPermissionsGranted()){
+
+                            dialog=new Dialog(getActivity());
                         dialog.setContentView(R.layout.custome_dialog);
 
                         Button yes=dialog.findViewById(R.id.yes);
@@ -277,6 +283,11 @@ public class PersonalResurantFragment extends Fragment {
 
                         dialog.show();
 
+                    }
+
+                        else {
+                        Toast.makeText(getActivity(), "لا يمكنك عمل بث بدون الموافقة على هذه الصلاحيات ", Toast.LENGTH_SHORT).show();
+                    }
 
 
 
@@ -285,7 +296,8 @@ public class PersonalResurantFragment extends Fragment {
 
 
 
-                        /* ... */}
+
+                    /* ... */}
                     @Override public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
                 }).check();
 
@@ -460,10 +472,30 @@ public class PersonalResurantFragment extends Fragment {
 
                             mAblePhoneLogin.setText(mobile);
 
-                            mCityCook.setText( "المدينة  : "+ " "+cityName);
                             mCountryCook.setText("الدولة :"+" "+countryName);
-                            mCityState.setText("الحي   : "+"  "+region);
-                            if(avatarURL.matches("") || !avatarURL.startsWith("http"))
+                            if(region.isEmpty() ||region.matches("") ||region.matches("غير محدد")  ){
+                                mCityState.setVisibility(View.GONE);
+
+                            }
+                            else {
+                                mCityState.setVisibility(View.GONE);
+
+                            }
+
+                            // city
+                            if(cityName.isEmpty() ||cityName.matches("") ||cityName.matches("غير محدد")  ){
+                                mCityCook.setVisibility(View.GONE);
+                                setMargins(mAblePhoneLogin,0,70,0,0);
+                                setMargins(mImageView2,0,70,0,0);
+                                setMargins(mCookPhone,0,70,0,0);
+
+
+
+                            }
+                            else {
+                                mCityCook.setText(  "المدينة : "+"  "+cityName);
+
+                            }                            if(avatarURL.matches("") || !avatarURL.startsWith("http"))
                             {////https://image.flaticon.com/icons/svg/1055/1055672.svg
                                 Picasso.with(getContext())
                                         .load(avatarURL)
@@ -480,6 +512,13 @@ public class PersonalResurantFragment extends Fragment {
 
 
                             }
+
+                            YoYo.with(Techniques.SlideInDown)
+                                    .duration(1000)
+
+                                    .playOn(cookimagecir);
+
+
 
 
                             if(menuarray.getString(0).isEmpty()){
@@ -651,7 +690,9 @@ hideDialog();
 
     public String formatDate(Date date)
     {
-        SimpleDateFormat customFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" , Locale.ENGLISH);
+        Locale locale = new Locale( "ar" , "SA" ) ;  // Arabic language. Saudi Arabia cultural norms.
+
+        SimpleDateFormat customFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" , locale);
         customFormat.setLenient(false);
         return customFormat.format(date);
     }
@@ -674,8 +715,7 @@ hideDialog();
                             resturantImagestop.add(detilas);
                         }
 
-
-                        resturantImagetopAdapter = new ResturantImagetopAdapter1(resturantImagestop, getActivity());
+                        resturantImagetopAdapter = new ResturantImagetopAdapter1forprofile(resturantImagestop, getActivity());
                         resturenimagerecyclertop.setAdapter(resturantImagetopAdapter);
                         resturantImagetopAdapter.notifyDataSetChanged();
 
@@ -730,6 +770,24 @@ hideDialog();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+
+    private void setMargins (View view, int left, int top, int right, int bottom) {
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+
+            final float scale = getActivity().getResources().getDisplayMetrics().density;
+            // convert the DP into pixel
+            int l =  (int)(left * scale + 0.5f);
+            int r =  (int)(right * scale + 0.5f);
+            int t =  (int)(top * scale + 0.5f);
+            int b =  (int)(bottom * scale + 0.5f);
+
+            p.setMargins(l, t, r, b);
+            view.requestLayout();
+        }
     }
 
 

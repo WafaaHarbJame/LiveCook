@@ -9,14 +9,17 @@
     android:background="#ffffff"
     android:padding="16dp"
     android:layoutDirection="rtl"
+    android:textDirection="rtl"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/imageexitgame"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
         android:gravity="center"
         android:text="@string/livereport"
         android:textColor="@color/black"
@@ -25,33 +28,6 @@
 
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="140dp"
-        android:background="#ffffff"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/yes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:text="موافق"
-            android:scaleType="centerCrop" />
-
-
-        <Button
-            android:id="@+id/no"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="@string/cancle"
-            android:scaleType="centerCrop" />
-    </LinearLayout>
 
     <ImageView
         android:id="@+id/imageexitgame"
@@ -69,13 +45,50 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="96dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="55dp"
         android:ems="10"
         android:hint="@string/livereport"
-        android:inputType="textPersonName" />
+        android:inputType="textMultiLine"
+        android:layout_below="@id/textView"
+        android:lines="8"
+        android:maxLines="10"
+        android:minLines="3"
+        android:scrollbars="vertical" />
 
+
+    <LinearLayout
+        android:id="@+id/linare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="246dp"
+        android:layout_below="@id/livename"
+
+        android:background="#ffffff"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:scaleType="centerCrop"
+            android:text="@string/abllag" />
+
+        <Button
+            android:id="@+id/no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:scaleType="centerCrop"
+            android:text="@string/cancle" />
+
+
+
+
+    </LinearLayout>
 
 </RelativeLayout>
 

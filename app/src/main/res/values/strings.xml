@@ -11,7 +11,7 @@
     <string name="menu_search_cook">البحث عن طباخين</string>
     <string name="menu_search_resturant">البحث عن مطاعم</string>
     <string name="menu_favaoirite">المفضلة </string>
-    <string name="menu_police">سياسية الاستخدام</string>
+    <string name="menu_police">سياسة الاستخدام</string>
     <string name="menu_about">عن التطبيق</string>
     <string name="menu_accountseeting">اعدادات الحساب</string>
     <string name="menu_contact">تواصل معنا </string>
@@ -105,7 +105,7 @@
     <string name="persona">الملف الشخصي</string>
     <string name="live_nam">مباشر 00:00</string>
     <string name="type2">ذبائح</string>
-    <string name="type1">منفرد</string>
+    <string name="type1">مستقل</string>
     <string name="search_">بحث</string>
     <string name="search_rest">بحث عن مطاعم </string>
     <string name="search_cook"> بحث عن طباخين</string>
@@ -127,7 +127,7 @@
     <string name="no_result">لا يوجد نتائج</string>
     <string name="not_notofication">لا يوجد اشعارات</string>
     <string name="senddata">يتم الان ارسال البيانات</string>
-    <string name="enter__correct_email">اكتب بريداً صالحاً</string>
+    <string name="enter__correct_email">صيغة البريد الالكتروني غير صحيحةً</string>
     <string name="press_again_to_exit">اضغط مرة أخرى للخروج</string>
     <string name="filldate">الرجاء اكمال البيانات لتعديل البيانات</string>
     <string name="enter_region">ادخل اسم الحي</string>
@@ -139,6 +139,19 @@
     <string name="create_acccount">انشاء حساب </string>
     <string name="mostaql">مستقل</string>
     <string name="dabaha">ذبائح</string>
-
+    <string name="abllag">ابلاغ</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <!--
+        This is the name that users will see when interacting with this channel.
+        It should describe the category of notifications that will be sent through this channel
+     -->
+    <string name="default_notification_channel_name" translatable="true">Weather</string>
+    <string name="msg_subscribe_failed">Failed to subscribe to weather topic</string>
+    <string name="fcm_message">FCM Message</string>
+    <string name="enter_name_lengh">يجب أن يكون الاسم مكون على الاقل من ثلاثة حروف</string>
+    <string name="enter_mobile_length">يجب ان يكون رقم الجوال على الاقل مكون من 9 أرقام </string>
+    <string name="dsc">الوصف</string>
+    <string name="entercity">اختر المدينة</string>
+    <string name="enter_country">اختر الدولة</string>
 
 </resources>

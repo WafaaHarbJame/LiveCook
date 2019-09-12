@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.livecook.livecookapp.Activity.LiveuserActivityy;
 import com.livecook.livecookapp.Model.AllFirebaseModel;
 import com.livecook.livecookapp.Model.Constants;
@@ -70,7 +72,7 @@ public class ResturantImagetopAdapter1 extends RecyclerView.Adapter<ResturantIma
         Locale locale = new Locale( "ar" , "SA" ) ;  // Arabic language. Saudi Arabia cultural norms
         String dateValue =data.get(i).getCreated_at();
         if(dateValue!=null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",locale);
             sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
             long time = 0;
             try {
@@ -114,6 +116,15 @@ public class ResturantImagetopAdapter1 extends RecyclerView.Adapter<ResturantIma
 
 
         }
+
+
+        YoYo.with(Techniques.SlideInDown)
+                .duration(1000)
+
+                .playOn(movieHolder.resturantimage);
+
+
+
 
         movieHolder.livetitle.setText(data.get(i).getTitle());
         boolean status=data.get(i).isStatus();

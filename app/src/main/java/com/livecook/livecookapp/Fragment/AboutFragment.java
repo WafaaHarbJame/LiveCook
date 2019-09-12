@@ -4,11 +4,13 @@ package com.livecook.livecookapp.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -113,7 +115,11 @@ public class AboutFragment extends Fragment {
 
 
                     if(text!=null){
-                        webView.loadDataWithBaseURL("",text,"text/html",null,"\"<html dir=\\\"rtl\\\" lang=\\\"\\\"><body>\" + outhtml + \"</body></html>\"");
+                        Typeface font =  ResourcesCompat.getFont(getActivity(), R.font.jannalt_regular);
+                        WebSettings webSettings = webView.getSettings();
+                        webSettings.setFixedFontFamily(String.valueOf(font));
+                        webView.loadDataWithBaseURL("",text,"text/html",
+                                null,"\"<html dir=\\\"rtl\\\" lang=\\\"\\\"><body>\" + outhtml + \"</body></html>\"");
 
 
                     }

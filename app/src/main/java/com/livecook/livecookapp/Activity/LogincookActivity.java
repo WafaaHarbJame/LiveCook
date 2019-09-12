@@ -202,7 +202,13 @@ public class LogincookActivity extends AppCompatActivity {
 
                 if (mEdmobileNumber.getText().toString().matches("")) {
                     Toast.makeText(LogincookActivity.this, getString(R.string.enter_mobile), Toast.LENGTH_SHORT).show();
-                } else if (mEdpassward.getText().toString().matches("")) {
+                }
+                else if (mEdmobileNumber.getText().toString().length()<9) {
+                    Toast.makeText(LogincookActivity.this, getString(R.string.enter_mobile_length), Toast.LENGTH_SHORT).show();
+                }
+
+
+                else if (mEdpassward.getText().toString().matches("")) {
                     Toast.makeText(LogincookActivity.this, getString(R.string.enter_passward), Toast.LENGTH_SHORT).show();
                 }
 

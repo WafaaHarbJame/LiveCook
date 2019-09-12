@@ -112,14 +112,22 @@ public class SearchResturantAdapter extends RecyclerView.Adapter<SearchResturant
         final TransitionDrawable followDrawable = new TransitionDrawable(new Drawable[] { d1, d2 });
         final int transitionDuration = activity.getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-        if(dataFiltered.get(i).getRegion().isEmpty() ||dataFiltered.get(i).getRegion().matches("") ){
-            movieHolder.cook_address.setText(data.get(i).getCountry_name()+" - " +""+dataFiltered.get(i).getCity_name());
+        if(dataFiltered.get(i).getCity_name().isEmpty() ||dataFiltered.get(i).getCity_name().matches("") ||dataFiltered.get(i).getCity_name().matches("غير محدد")  ){
+            movieHolder.cook_address.setText(data.get(i).getCountry_name());
 
         }
-        else{
-            movieHolder.cook_address.setText(dataFiltered.get(i).getCountry_name()+" - " +""+dataFiltered.get(i).getCity_name()+" - "+""+dataFiltered.get(i).getRegion());
+        else if(dataFiltered.get(i).getRegion().isEmpty() ||dataFiltered.get(i).getRegion().matches("") ||dataFiltered.get(i).getRegion().matches("غير محدد")  ){
+            movieHolder.cook_address.setText(data.get(i).getCountry_name());
 
-        }        String url=data.get(i).getAvatar_url();
+        }
+
+        else {
+            movieHolder.cook_address.setText(data.get(i).getCountry_name()+" - " +""+data.get(i).getCity_name());
+
+        }
+
+
+        String url=data.get(i).getAvatar_url();
 
         Resturant_id=dataFiltered.get(i).getId();
         isFollowed=dataFiltered.get(i).isIs_followed();

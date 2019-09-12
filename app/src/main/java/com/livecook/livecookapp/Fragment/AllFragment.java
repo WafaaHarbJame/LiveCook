@@ -165,10 +165,14 @@ import java.util.ArrayList;
                     for(DataSnapshot live1snapshot:livenapshot.getChildren()) {
 
                         AllFirebaseModel detilas = live1snapshot.getValue(AllFirebaseModel.class);
-                        if(detilas.isStatus()) {
+
+
+                        firebasedata.add(detilas);
+
+                       /* if(detilas.isStatus()) {
                             firebasedata.add(detilas);
 
-                        }
+                        }*/
 
                     }
 

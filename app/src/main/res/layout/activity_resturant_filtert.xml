@@ -123,6 +123,7 @@
             android:maxLines="1"
             android:minLines="1"
             android:singleLine="true"
+            android:visibility="gone"
 
             android:hint="@string/state"
       />
