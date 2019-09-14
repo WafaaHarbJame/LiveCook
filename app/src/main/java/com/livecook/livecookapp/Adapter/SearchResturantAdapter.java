@@ -369,7 +369,7 @@ public class SearchResturantAdapter extends RecyclerView.Adapter<SearchResturant
                     View layout= LayoutInflater.from(activity).inflate(R.layout.toastmeaage,
                             (ViewGroup)activity.findViewById(R.id.lineaetoast));
 
-                    
+
                     ImageView image = (ImageView) layout.findViewById(R.id.textView_noresult);
                     image.setImageResource(R.drawable.no_data);
                     Toast toast = new Toast(activity);
