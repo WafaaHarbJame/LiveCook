@@ -366,18 +366,21 @@ public class SearchResturantAdapter extends RecyclerView.Adapter<SearchResturant
                    /* Toast toast = Toast.makeText(activity,"لا يوجد نتائج", Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();*/
-                    View layout = LayoutInflater.from(activity).inflate(R.layout.toastmeaage,
+                    View layout= LayoutInflater.from(activity).inflate(R.layout.toastmeaage,
                             (ViewGroup)activity.findViewById(R.id.lineaetoast));
 
+                    
                     ImageView image = (ImageView) layout.findViewById(R.id.textView_noresult);
                     image.setImageResource(R.drawable.no_data);
                     Toast toast = new Toast(activity);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.setDuration(Toast.LENGTH_SHORT);
                     toast.setView(layout);
                     toast.show();
 
                 }
+
+
             }
         };
     }
