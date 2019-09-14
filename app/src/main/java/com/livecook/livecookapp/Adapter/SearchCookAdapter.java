@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.text.Layout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -390,8 +391,24 @@ public class SearchCookAdapter extends RecyclerView.Adapter<SearchCookAdapter.Mo
                 dataFiltered = (ArrayList<AllcookModel.DataBean>) filterResults.values;
                 notifyDataSetChanged();
                 if(dataFiltered.isEmpty()){
+               /* Toast toast = Toast.makeText(activity,"عذر", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();*/
 
-                    Toast.makeText(activity, "لا يوجد نتائج ", Toast.LENGTH_SHORT).show();
+                   View layout = LayoutInflater.from(activity).inflate(R.layout.toastmeaage,
+                            (ViewGroup)activity.findViewById(R.id.lineaetoast));
+
+                    ImageView image = (ImageView) layout.findViewById(R.id.textView_noresult);
+                    image.setImageResource(R.drawable.no_data);
+                    Toast toast = new Toast(activity);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setView(layout);
+                    toast.show();
+
+
+
+
 
                 }
             }

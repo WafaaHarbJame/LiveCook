@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -362,7 +363,19 @@ public class SearchResturantAdapter extends RecyclerView.Adapter<SearchResturant
 
                 notifyDataSetChanged();
                 if(dataFiltered.isEmpty()){
-                    Toast.makeText(activity, "لا يوجد نتائج ", Toast.LENGTH_SHORT).show();
+                   /* Toast toast = Toast.makeText(activity,"لا يوجد نتائج", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();*/
+                    View layout = LayoutInflater.from(activity).inflate(R.layout.toastmeaage,
+                            (ViewGroup)activity.findViewById(R.id.lineaetoast));
+
+                    ImageView image = (ImageView) layout.findViewById(R.id.textView_noresult);
+                    image.setImageResource(R.drawable.no_data);
+                    Toast toast = new Toast(activity);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setView(layout);
+                    toast.show();
 
                 }
             }

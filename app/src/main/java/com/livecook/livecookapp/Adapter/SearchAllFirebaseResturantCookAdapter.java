@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Build;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -498,7 +499,19 @@ public class SearchAllFirebaseResturantCookAdapter extends RecyclerView.Adapter<
                 notifyDataSetChanged();
 
                 if(dataFiltered.isEmpty()){
-                    Toast.makeText(activity, "لا يوجد نتائج ", Toast.LENGTH_SHORT).show();
+                    /*Toast toast = Toast.makeText(activity,"لا يوجد نتائج", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();*/
+                    View layout = LayoutInflater.from(activity).inflate(R.layout.toastmeaage,
+                            (ViewGroup)activity.findViewById(R.id.lineaetoast));
+
+                    ImageView image = (ImageView) layout.findViewById(R.id.textView_noresult);
+                    image.setImageResource(R.drawable.no_data);
+                    Toast toast = new Toast(activity);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setView(layout);
+                    toast.show();
 
                 }
 
