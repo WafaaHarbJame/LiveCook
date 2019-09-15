@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -49,6 +50,7 @@ import com.livecook.livecookapp.Activity.ChangePasswardActivity;
 import com.livecook.livecookapp.Activity.ClientRegisterActivity;
 import com.livecook.livecookapp.Activity.CookPageActivity;
 import com.livecook.livecookapp.Activity.LiveuserActivityy;
+import com.livecook.livecookapp.Activity.RegistercookActivity;
 import com.livecook.livecookapp.Adapter.CustomSpinnerAdapter;
 import com.livecook.livecookapp.Adapter.DatumecountryAdapter;
 import com.livecook.livecookapp.Adapter.ResturantmenuAdapter;
@@ -201,7 +203,8 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
     TextView citytv;
     TextView typetext;
     Spinner spinnertype;
-
+    boolean country_spinner_click=false;
+    boolean city_spinner_click=false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -626,11 +629,28 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                         else if(mEddesc.getText().toString().matches("")){
                             Toast.makeText(getActivity(), getResources().getString(R.string.enter_desc), Toast.LENGTH_SHORT).show();
                         }
+
+                        else if (country_spinner_click) {
+
+                            if (!city_spinner_click) {
+                                Toast.makeText(getActivity(), getString(R.string.entercity), Toast.LENGTH_SHORT).show();
+                            }
+
+                            else{
+                                updatecookerprofiledata(Constants.update_cooker_profile, tokenfromlogin, mEdname.getText().toString(),
+                                        mEdmobileNumber.getText().toString(),country_id_1, seletedcity_id, mRegion.getText().toString(),
+                                        is_activaited_value, uploadcookimageename, mEddesc.getText().toString(),type_id);
+
+
+                        }
+
+
+
+
+                        }
+
+
                         else{
-
-
-
-
 
 
                         if (mSwitch1.isChecked()) {
@@ -646,6 +666,8 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
 
                             uploadcookimageename = imagecookernameforupdate.getText().toString();
                         }
+
+
                         updatecookerprofiledata(Constants.update_cooker_profile, tokenfromlogin, mEdname.getText().toString(),
                                 mEdmobileNumber.getText().toString(),country_id_1, seletedcity_id, mRegion.getText().toString(),
                                 is_activaited_value, uploadcookimageename, mEddesc.getText().toString(),type_id);}
@@ -666,6 +688,23 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                         else if(mEddesc.getText().toString().matches("")){
                             Toast.makeText(getActivity(), getResources().getString(R.string.enter_desc), Toast.LENGTH_SHORT).show();
                         }
+
+                        if (country_spinner_click) {
+
+                            if (!city_spinner_click) {
+                                Toast.makeText(getActivity(), getString(R.string.entercity), Toast.LENGTH_SHORT).show();
+                            }
+
+                            else {
+
+                                updateResturant(Constants.update_restaurant_profile, tokenfromlogin, mEdname.getText().toString(),
+                                        mEdmobileNumber.getText().toString(), country_id_1, seletedcity_id, mRegion.getText().toString(),
+                                        is_activaited_value, uploadprofileresturanrimageename, mEddesc.getText().toString(), list, liscen_avatar);
+
+                            }
+                        }
+
+
 
                         else {
 
@@ -749,6 +788,10 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                         }
 
 
+
+
+
+
                         else {
 
                             updateuserprofile(Constants.update_user_profile, tokenfromlogin, mEdname.getText().toString(), mEdmobileNumber.getText().toString(), country_id_1);
@@ -781,18 +824,24 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
 
 
 
+        mCountryname.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                country_spinner_click=true;
+                //getCountries();
+                return false;
+            }
+        });
 
 
-
-        mCountryname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+       mCountryname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 country_id_1 = data.get(position).getId();
-                country_codee = data.get(position).getCode();
-                // Toast.makeText(getActivity(), ""+data.get(position).getId(), Toast.LENGTH_SHORT).show();
 
-              getCities(country_id_1);
+                //country_spinner_click=true;
+                country_codee = data.get(position).getCode();
 
 
 
@@ -800,29 +849,42 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                getCities(0);
+                country_id_1= Integer.parseInt("");
+
+                // country_id_1= Integer.parseInt("");
+
+               // getCities(0);
 
 
 
 
             }
         });
+        mCityname.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                city_spinner_click=true;
 
+                getCities(country_id_1);
+                return false;
+            }
+        });
 
 
 
      mCityname.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-              seletedcity_id = city.get(position).getId();
-                // Toast.makeText(getActivity(), ""+data.get(position).getId(), Toast.LENGTH_SHORT).show();
+               // city_spinner_click=true;
+
+                seletedcity_id = city.get(position).getId();
 
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                seletedcity_id = city.get(0).getId();
+                seletedcity_id = Integer.parseInt("");;
 
 
 
@@ -943,11 +1005,13 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                     boolean is_notifications_activated = jsonObject.getBoolean("is_notifications_activated");
                     String countryName = jsonObject.getString("country_name");
                     city_name = jsonObject.getString("city_name");
+                    readCountries(countryName);
 
 
                     if(countryName!=null &&arrayAdapter!=null&countrylist.size()>0){
                          spinnerPosition = arrayAdapter.getPosition(countryName);
-                        mCountryname.setSelection(spinnerPosition);
+                     //   mCountryname.setSelection(spinnerPosition);
+                        getCountrycode(spinnerPosition);
 
 
                     }
@@ -1538,6 +1602,83 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
         MyApplication.getInstance().addToRequestQueue(jsonObjectRequest);
     }
 
+    public void readCountries(String country_name) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, "https://livecook.co/api/v1/constant/countries", null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+                    JSONArray jsonArray = response.getJSONArray("data");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        int id = jsonObject.getInt("id");
+                        String name = jsonObject.getString("name");
+                        String nationality = jsonObject.getString("nationality");
+                        String sort_name = jsonObject.getString("sort_name");
+                        String code = jsonObject.getString("code");
+                        datum = new Datum();
+                        datum.setId(id);
+                        datum.setName(name);
+                        datum.setCode(code);
+                        datum.setSortName(sort_name);
+                        datum.setNationality(nationality);
+                        data.add(datum);
+                        countrylist.add(name);
+
+
+                    }
+
+                         arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, countrylist);
+                    mCountryname.setAdapter(arrayAdapter);
+                    int spinnerPosition = arrayAdapter.getPosition(country_name);
+                    mCountryname.setSelection(spinnerPosition);
+
+
+
+                    arrayAdapter.notifyDataSetChanged();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                //JSONArray taskarray=response.getJSONArray("task");
+                //for (int i = 0; i < taskarray.length(); i++) {
+
+
+
+                /*
+                try {
+                    JSONArray array = response.getJSONArray(AppConstants.CONTACTS_KEY);
+                    for(int i=0;i<array.length();i++){
+
+                      //JSONObject jsonObject =   array.getJSONObject(i);
+                      //jsonObject.get
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                */
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return super.getHeaders();
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                return super.getParams();
+            }
+        };
+
+        MyApplication.getInstance().addToRequestQueue(jsonObjectRequest);
+    }
 
     public void getNotification(final String link, final String acces_token) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, link, null, new Response.Listener<JSONObject>() {
@@ -1875,9 +2016,16 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                     String code=country.getString("code");
                     String flag=country.getString("flag");
                     String country_name=country.getString("name");
-                    int spinnerPosition = arrayAdapter.getPosition(country_name);
-                    mCountryname.setSelection(spinnerPosition);
-                    getCountrycode(spinnerPosition);
+
+
+                    readCountries(country_name);
+
+                    if(country_name!=null &&arrayAdapter!=null&countrylist.size()>0){
+
+                        int spinnerPosition = arrayAdapter.getPosition(country_name);
+                        getCountrycode(spinnerPosition);
+
+                    }
 
 
 
@@ -1942,20 +2090,27 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                     city_name = jsonObject.getString("city_name");
                     type_id=jsonObject.getInt("type_id");
 
-
+                    readCountries(country_name);
 
                     if(country_name!=null &&arrayAdapter!=null&countrylist.size()>0){
-                        int spinnerPosition = arrayAdapter.getPosition(country_name);
-                        mCountryname.setSelection(spinnerPosition);
-                        getCountrycode(spinnerPosition);
-                    }
 
+                        int spinnerPosition = arrayAdapter.getPosition(country_name);
+
+
+                     //   mCountryname.setSelection(spinnerPosition);
+                        getCountrycode(spinnerPosition);
+
+                    }
 
 
                     if(country_id>0){
-                        getCitieswithsslect(country_id,city_name);
+                      getCitieswithsslect(country_id,city_name);
+
+
 
                     }
+
+
 
 
                     if(name.isEmpty()|| name.matches("")){
