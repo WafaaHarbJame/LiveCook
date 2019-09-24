@@ -387,6 +387,7 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                     @Override
                     public void onPickResult(PickResult r) {
 
+
                         try {
                             File file = new Compressor(Objects.requireNonNull(getActivity())).compressToFile(new File(r.getPath()));
 

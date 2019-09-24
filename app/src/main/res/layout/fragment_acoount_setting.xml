@@ -103,7 +103,6 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:layout_marginTop="8dp"
-
             android:text="@string/desc" />
         <EditText
             android:id="@+id/eddesc"
@@ -120,9 +119,7 @@
             android:inputType="text"
             android:lines="5"
             android:maxLines="5"
-            android:minLines="1"
-
-
+            android:minLines="2"
 
             />
         <TextView

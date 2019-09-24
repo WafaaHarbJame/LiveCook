@@ -2,6 +2,7 @@ package com.livecook.livecookapp.Activity
 
 import android.Manifest
 import android.content.Intent
+import android.graphics.Color
 import android.opengl.GLSurfaceView
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -213,7 +214,23 @@ class LiveResturantActivityy :AppCompatActivity(), PublisherListener {
     }
 
     private fun updateControls() {
-        publishButton.text = getString(if (publisher.isPublishing) R.string.stop_publishing else R.string.start_publishing)
+
+           if (publisher.isPublishing){
+            publishButton.setText( R.string.stop_publishing)
+            publishButton.setBackgroundColor(Color.RED)
+
+
+        }
+
+        else{
+            publishButton.setText( R.string.start_publishing)
+
+
+        }
+
+
+
+        //publishButton.text = getString(if (publisher.isPublishing) R.string.stop_publishing else R.string.start_publishing)
     }
 
     private fun startCounting() {

@@ -110,10 +110,12 @@ public class PoliceFragment extends Fragment {
                     // polictext.setText(text);
                     if(text!=null){
                       //  webView.loadData(text, "text/html", null);
-                        Typeface font =  ResourcesCompat.getFont(getActivity(), R.font.jannalt_regular);
+                        Typeface font =  ResourcesCompat.getFont(getActivity(), R.font.a_jannat_lt_bold);
                         WebSettings webSettings = webView.getSettings();
                         webSettings.setFixedFontFamily(String.valueOf(font));
-                        webView.loadDataWithBaseURL("",text,"text/html",null,"\"<html dir=\\\"rtl\\\" lang=\\\"\\\"><body>\" + outhtml + \"</body></html>\"");
+                        webSettings.setJavaScriptEnabled(true);
+                        webView.loadDataWithBaseURL("",text,"text/html","UTF-8",
+                                "\"<html dir=\\\"rtl\\\" lang=\\\"\\\"><body>\" + outhtml + \"</body></html>\"");
 
 
                     }

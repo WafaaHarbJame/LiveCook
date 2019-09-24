@@ -6,8 +6,8 @@ android {
         applicationId "com.livecook.livecookapp"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 28
-        versionName "28.1"
+        versionCode 29
+        versionName "29.1"
         multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,9 +20,7 @@ android {
         }
 
 
-
     }
-
 
 
     compileOptions {
@@ -113,7 +111,6 @@ dependencies {
     implementation 'android.arch.work:work-runtime:1.0.1'
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
-
 
 
 }

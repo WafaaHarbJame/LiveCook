@@ -21,8 +21,12 @@
         android:testOnly="false"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
-        <activity android:name=".Activity.LoginPageActivity" android:label="@string/loginword"></activity>
-        <activity android:name=".Activity.RegisterActivity" android:label="@string/choose_account" />
+        <activity
+            android:name=".Activity.LoginPageActivity"
+            android:label="@string/loginword" />
+        <activity
+            android:name=".Activity.RegisterActivity"
+            android:label="@string/choose_account" />
         <activity android:name=".Activity.FukterResturantActivity" />
         <activity android:name=".Activity.FilterResultActivity" />
         <activity android:name=".Activity.ResturantPageActivity" />
@@ -53,20 +57,21 @@
             android:name=".Activity.RegistercookActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_launcher_round" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent" />
-        <!-- [END fcm_default_icon] -->
+            android:resource="@color/colorAccent" /> <!-- [END fcm_default_icon] -->
         <!-- [START fcm_default_channel] -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/default_notification_channel_id" />
-        <!-- [END fcm_default_channel] -->
+            android:value="@string/default_notification_channel_id" /> <!-- [END fcm_default_channel] -->
         <activity
             android:name=".Activity.SplashActivity"
             android:screenOrientation="portrait"
@@ -98,6 +103,7 @@
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
+
         <service
             android:name=".fcm.MyFirebaseMessagingService"
             android:exported="false">

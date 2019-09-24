@@ -404,7 +404,9 @@ public class SearchCookAdapter extends RecyclerView.Adapter<SearchCookAdapter.Mo
                     toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.setDuration(Toast.LENGTH_SHORT);
                     toast.setView(layout);
+                    toast.setDuration(Toast.LENGTH_SHORT);
                     toast.show();
+
 
 
 

@@ -14,18 +14,17 @@
     android:layout_height="wrap_content">
 
 
-
-            <ImageView
-                android:id="@+id/resturantimage"
-                android:layout_width="170dp"
-                android:layout_height="140dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:background="@drawable/raduislive"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/all_image" />
+    <ImageView
+        android:id="@+id/resturantimage"
+        android:layout_width="170dp"
+        android:layout_height="140dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/raduislive"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/all_image" />
 
             <TextView
                 android:id="@+id/livetitle"
@@ -61,7 +60,6 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
-        android:text=" "
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -110,11 +108,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
         android:layout_marginTop="4dp"
+        android:layout_marginBottom="112dp"
         android:drawablePadding="16dp"
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/resturantimage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_close_black"
