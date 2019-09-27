@@ -152,6 +152,7 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
         insertwatwork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showinsertwatwork.setVisibility(View.VISIBLE);
                 selectImage();
 
 
@@ -594,6 +595,9 @@ public class RegistercookActivity extends AppCompatActivity implements IPickResu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.create_menu, menu);
+        menu.findItem(R.id.action_notification).setVisible(false);
+        menu.findItem(R.id.action_createlive).setVisible(false);
+
         return super.onCreateOptionsMenu(menu);
     }
 

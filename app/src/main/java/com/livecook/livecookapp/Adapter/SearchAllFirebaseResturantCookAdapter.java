@@ -50,7 +50,6 @@ public class SearchAllFirebaseResturantCookAdapter extends RecyclerView.Adapter<
     // ArrayList<TasksDTO> data;
     ArrayList<AllFirebaseModel> data;
     ArrayList<AllFirebaseModel> dataFiltered;
-
     Activity activity;
     SharedPreferences prefs;
     String typnumer;
@@ -84,6 +83,7 @@ public class SearchAllFirebaseResturantCookAdapter extends RecyclerView.Adapter<
         this.data = data;
         this.activity = activity;
         this.dataFiltered = data;
+        this.data = data;
 
     }
 
@@ -470,7 +470,7 @@ public class SearchAllFirebaseResturantCookAdapter extends RecyclerView.Adapter<
 
     @Override
     public Filter getFilter() {
-        return  new Filter() {
+        return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence charSequence) {
                 String charString = charSequence.toString();
@@ -480,11 +480,13 @@ public class SearchAllFirebaseResturantCookAdapter extends RecyclerView.Adapter<
                     ArrayList<AllFirebaseModel> filteredList  = new ArrayList<>();
                     for (AllFirebaseModel row : data) {
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        if (row.getTitle().toLowerCase().contains(charString.toLowerCase()) || row.getName().contains(charSequence)) {
+                        if (row.getName().toLowerCase().contains(charString.toLowerCase()) ||
+                                row.getTitle().contains(charSequence) ) {
                             filteredList.add(row);
                         }
+
+
+
                     }
 
                     dataFiltered = filteredList;
@@ -492,16 +494,14 @@ public class SearchAllFirebaseResturantCookAdapter extends RecyclerView.Adapter<
 
                 FilterResults filterResults = new FilterResults();
                 filterResults.values = dataFiltered;
-                return filterResults;            }
+                return filterResults;
+            }
 
             @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                dataFiltered = (ArrayList<AllFirebaseModel>) filterResults.values;
                 notifyDataSetChanged();
-
-                if(dataFiltered.isEmpty()){
-                    /*Toast toast = Toast.makeText(activity,"لا يوجد نتائج", Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();*/
+                if(dataFiltered.isEmpty()&& dataFiltered != null){
                     View layout = LayoutInflater.from(activity).inflate(R.layout.toastmeaage,
                             (ViewGroup)activity.findViewById(R.id.lineaetoast));
 
@@ -511,15 +511,17 @@ public class SearchAllFirebaseResturantCookAdapter extends RecyclerView.Adapter<
                     toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.setDuration(Toast.LENGTH_SHORT);
                     toast.setView(layout);
+                    toast.setDuration(Toast.LENGTH_SHORT);
                     toast.show();
 
-                }
 
+
+
+
+
+                }
             }
         };
-
-
-
     }
 
     public class MovieHolder extends RecyclerView.ViewHolder {

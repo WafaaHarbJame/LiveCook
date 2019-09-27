@@ -22,6 +22,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,7 +47,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.DexterError;
 import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.livecook.livecookapp.Activity.LiveResturantActivityy;
 import com.livecook.livecookapp.Activity.LoginResturantActivity;
@@ -181,6 +185,7 @@ public class PersonalResurantFragment extends Fragment {
         progressDialog = new ProgressDialog(getActivity());
 
         mAblePhoneLogin = view.findViewById(R.id.able_phone_login);
+
         currentTime = Calendar.getInstance().getTime();
         getActivity().setTitle(getString(R.string.persona));
         contactwahts=view.findViewById(R.id.contactwahts);
@@ -200,17 +205,19 @@ public class PersonalResurantFragment extends Fragment {
 
         prefs = getActivity().getSharedPreferences(Constants.PREF_FILE_CONFIG, Context.MODE_PRIVATE);
         saveLogin = prefs.getBoolean(Constants.ISLOGIN, false);
-        tokenfromlogin = prefs.getString(Constants.access_token1, "default value");
 
 
         if(prefs!=null){
+            tokenfromlogin = prefs.getString(Constants.access_token1, "default value");
+
 
             ressturant_id_profile_publish=prefs.getInt(Constants.ressturant_id_profile_publish,-1);
           // Toast.makeText(getContext(), "the id ressturant_id_profile_publish "+ressturant_id_profile_publish, Toast.LENGTH_SHORT).show();
-            getResturantprofile();
 
 
         }
+        getResturantprofile(tokenfromlogin);
+
 
         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("Live");
 
@@ -230,7 +237,6 @@ public class PersonalResurantFragment extends Fragment {
                 Dexter.withActivity(getActivity())
                         .withPermissions(
                                 Manifest.permission.CAMERA,
-                                Manifest.permission.READ_CONTACTS,
                                 Manifest.permission.RECORD_AUDIO
                         ).withListener(new MultiplePermissionsListener() {
                     @Override public void onPermissionsChecked(MultiplePermissionsReport report) {
@@ -257,6 +263,24 @@ public class PersonalResurantFragment extends Fragment {
                                 else {
 
                                     live_title=livename.getText().toString();
+                                    getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+                                    livename.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                                        @Override
+                                        public void onFocusChange(View v, boolean hasFocus) {
+                                            if (v == livename) {
+                                                if (hasFocus) {
+                                                    // Open keyboard
+                                                    ((InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(livename, InputMethodManager.SHOW_FORCED);
+                                                } else {
+                                                    // Close keyboard
+                                                    ((InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(livename.getWindowToken(), 0);
+                                                }
+                                            }
+                                        }
+                                    });
+
+
                                     livefun();
                                 }
 
@@ -286,21 +310,29 @@ public class PersonalResurantFragment extends Fragment {
 
                     }
 
-                        else {
-                        Toast.makeText(getActivity(), "لا يمكنك عمل بث بدون الموافقة على هذه الصلاحيات ", Toast.LENGTH_SHORT).show();
-                    }
+
+                        if(report.isAnyPermissionPermanentlyDenied()){
+                            Toast.makeText(getActivity(), "لا يمكنك عمل بث بدون الموافقة على هذه الصلاحيات ", Toast.LENGTH_SHORT).show();
 
 
-
-
-
-
+                        }
 
 
 
                     /* ... */}
-                    @Override public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
-                }).check();
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                }).
+                        withErrorListener(new PermissionRequestErrorListener() {
+                            @Override
+                            public void onError(DexterError error) {
+                                Toast.makeText(getActivity(), "Error occurred! ", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .onSameThread()
+                        .check();
 
 
 
@@ -439,7 +471,7 @@ public class PersonalResurantFragment extends Fragment {
 
     }
 
-    public void getResturantprofile() {
+    public void getResturantprofile(String access_token) {
 
         showDialog();
 
@@ -474,14 +506,6 @@ public class PersonalResurantFragment extends Fragment {
                             mAblePhoneLogin.setText(mobile);
 
                             mCountryCook.setText("الدولة :"+" "+countryName);
-                            if(region.isEmpty() ||region.matches("") ||region.matches("غير محدد")  ){
-                                mCityState.setVisibility(View.GONE);
-
-                            }
-                            else {
-                                mCityState.setVisibility(View.GONE);
-
-                            }
 
                             // city
                             if(cityName.isEmpty() ||cityName.matches("") ||cityName.matches("غير محدد")  ){
@@ -495,6 +519,8 @@ public class PersonalResurantFragment extends Fragment {
                             }
                             else {
                                 mCityCook.setText(  "المدينة : "+"  "+cityName);
+
+
 
                             }                            if(avatarURL.matches("") || !avatarURL.startsWith("http"))
                             {////https://image.flaticon.com/icons/svg/1055/1055672.svg
@@ -604,7 +630,26 @@ hideDialog();
 
 
             }
-        });
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer" + "  " + access_token);
+
+                return headers;
+
+            }
+
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer" + "  " + access_token);
+
+                return headers;
+            };
+        };
 
         MyApplication.getInstance().addToRequestQueue(stringRequest);
 
@@ -621,6 +666,7 @@ hideDialog();
                     JSONObject register_response = new JSONObject(response);
                     boolean status = register_response.getBoolean("status");
                     String message = register_response.getString("message");
+                    Log.e("WAFAARESPONSE",response);
 
                     if (status) {
                         int new_counter=counter-1;

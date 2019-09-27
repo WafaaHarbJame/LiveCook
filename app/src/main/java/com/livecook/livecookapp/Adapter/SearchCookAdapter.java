@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Layout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -405,8 +406,15 @@ public class SearchCookAdapter extends RecyclerView.Adapter<SearchCookAdapter.Mo
                     toast.setDuration(Toast.LENGTH_SHORT);
                     toast.setView(layout);
                     toast.setDuration(Toast.LENGTH_SHORT);
-                    toast.show();
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            toast.cancel();
+                        }
+                    }, 1000);// 5 sec
 
+                    toast.show();
 
 
 

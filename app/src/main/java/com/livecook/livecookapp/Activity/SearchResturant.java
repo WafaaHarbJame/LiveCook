@@ -517,6 +517,14 @@ public class SearchResturant extends AppCompatActivity implements SearchResturan
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item= menu.findItem(R.id.nav_home);
+        item.setVisible(false);
+        super.onPrepareOptionsMenu(menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
 
@@ -886,7 +894,12 @@ public class SearchResturant extends AppCompatActivity implements SearchResturan
         MyApplication.getInstance().addToRequestQueue(stringRequest);
 
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(SearchResturant.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
 
 

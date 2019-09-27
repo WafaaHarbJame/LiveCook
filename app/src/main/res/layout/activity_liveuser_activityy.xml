@@ -17,7 +17,6 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layoutDirection="ltr"
             app:layout_constraintBottom_toTopOf="@+id/cook_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,17 +35,16 @@
         <ImageView
             android:id="@+id/bacck"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="15dp"
-            app:srcCompat="@drawable/ic_arrowwhite"
-            app:layout_constraintBottom_toTopOf="@+id/toolbar"
-            app:layout_constraintEnd_toStartOf="@+id/cook_live"
-            app:layout_constraintHorizontal_bias="0.175"
-            app:layout_constraintStart_toEndOf="@+id/VideoView"
+            android:layoutDirection="ltr"
+            app:layout_constraintEnd_toStartOf="@+id/cook_name"
+            app:layout_constraintHorizontal_bias="0.009"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:srcCompat="@drawable/ic_arrowwhite" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/cookimage"

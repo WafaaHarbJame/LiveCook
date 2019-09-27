@@ -307,6 +307,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
 
             Intent intent=new Intent(LoginPageActivity.this,MainActivity.class);
             startActivity(intent);
+            finish();
+
 
         }
     }
@@ -999,13 +1001,8 @@ public class LoginPageActivity extends AppCompatActivity implements NavigationVi
         custmregister_but = rootView.findViewById(R.id.registerbut);
 
 
-        if (saveLogin) {
-            register.setVisible(false);
-        } else {
-            register.setVisible(true);
 
 
-        }
 
 
         rootView.setOnClickListener(new View.OnClickListener() {

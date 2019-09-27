@@ -1,6 +1,7 @@
 package com.livecook.livecookapp.Fragment;
 
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Typeface;
@@ -12,6 +13,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,6 +101,7 @@ public class PoliceFragment extends Fragment {
     public void getAboutapp(final String link) {
         showDialog();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, link, null, new Response.Listener<JSONObject>() {
+            @SuppressLint("SetJavaScriptEnabled")
             @Override
             public void onResponse(JSONObject response) {
 
@@ -107,22 +110,21 @@ public class PoliceFragment extends Fragment {
                     JSONObject jsonObject = response.getJSONObject("data");
                     String text = jsonObject.getString("text");
                     String title=jsonObject.getString("title");
-                    // polictext.setText(text);
                     if(text!=null){
-                      //  webView.loadData(text, "text/html", null);
-                        Typeface font =  ResourcesCompat.getFont(getActivity(), R.font.a_jannat_lt_bold);
                         WebSettings webSettings = webView.getSettings();
-                        webSettings.setFixedFontFamily(String.valueOf(font));
+                        webSettings.setDefaultTextEncodingName("utf-8");
                         webSettings.setJavaScriptEnabled(true);
-                        webView.loadDataWithBaseURL("",text,"text/html","UTF-8",
-                                "\"<html dir=\\\"rtl\\\" lang=\\\"\\\"><body>\" + outhtml + \"</body></html>\"");
+
+                        String dataa = "<html><head></head><body>" +
+                                text  + "</body></html>";
+                        Log.e("Wafaa", dataa);
+                        webView.loadData(dataa, "text/html", null);
 
 
                     }
 
                     hideDialog();
 
-//                    Toast.makeText(getActivity(), "nnnn"+jsonObject.getString("text"), Toast.LENGTH_SHORT).show();
 
 
 
@@ -130,25 +132,6 @@ public class PoliceFragment extends Fragment {
                     e.printStackTrace();
                     hideDialog();
                 }
-
-                //JSONArray taskarray=response.getJSONArray("task");
-                //for (int i = 0; i < taskarray.length(); i++) {
-
-
-
-                /*
-                try {
-                    JSONArray array = response.getJSONArray(AppConstants.CONTACTS_KEY);
-                    for(int i=0;i<array.length();i++){
-
-                      //JSONObject jsonObject =   array.getJSONObject(i);
-                      //jsonObject.get
-
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                */
             }
         }, new Response.ErrorListener() {
             @Override

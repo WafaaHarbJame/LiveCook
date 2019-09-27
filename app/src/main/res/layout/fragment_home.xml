@@ -35,18 +35,18 @@
                 app:tabTextAppearance="@style/TabLayoutTextStyle"
                 app:tabTextColor="@color/gray"
                 app:tabIndicatorColor="@android:color/white"
-            android:layoutDirection="rtl"
+                android:layoutDirection="rtl"
                 app:tabSelectedTextColor="@color/white"
                 />
         </com.google.android.material.appbar.AppBarLayout>
 
-       <!-- <androidx.viewpager.widget.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layoutDirection="rtl"
-            android:textDirection="rtl"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
+        <!-- <androidx.viewpager.widget.ViewPager
+             android:id="@+id/view_pager"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layoutDirection="rtl"
+             android:textDirection="rtl"
+             app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
 
         <klogi.com.RtlViewPager
             android:id="@+id/view_pager"

@@ -624,6 +624,14 @@ public class SearchActivity extends AppCompatActivity implements SearchCookAdapt
         getMenuInflater().inflate(R.menu.create_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item= menu.findItem(R.id.nav_home);
+        item.setVisible(false);
+        super.onPrepareOptionsMenu(menu);
+        return true;
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -875,6 +883,13 @@ public class SearchActivity extends AppCompatActivity implements SearchCookAdapt
 
         MyApplication.getInstance().addToRequestQueue(stringRequest);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(SearchActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
 

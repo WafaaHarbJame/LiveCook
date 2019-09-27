@@ -505,12 +505,12 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
                         try {
                             File inserlicenfile = new Compressor(getContext()).compressToFile(new File(r.getPath()));
 
-                            Picasso.with(getActivity()).load(inserlicenfile).error(R.drawable.ellipse)
+                            Picasso.with(getActivity()).load(inserlicenfile).error(R.drawable.no_image)
                                     // .resize(100,100)
                                     .into(licen_avatar);
                         } catch (IOException e) {
                             e.printStackTrace();
-                            Picasso.with(getActivity()).load(r.getUri()).error(R.drawable.ellipse)
+                            Picasso.with(getActivity()).load(r.getUri()).error(R.drawable.no_image)
                                     // .resize(100,100)
                                     .into(licen_avatar);
 
@@ -1030,7 +1030,7 @@ public class AcoountSettingFragment extends Fragment implements IPickResult {
 
                     Picasso.with(getContext()).load(municipal_license_url)
                             // .resize(100,100)
-                            .error(R.drawable.ellipse)
+                            .error(R.drawable.no_image)
 
                             .into(licen_avatar);
 

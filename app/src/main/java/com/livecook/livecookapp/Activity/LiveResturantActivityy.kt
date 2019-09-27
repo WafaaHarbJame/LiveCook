@@ -224,9 +224,11 @@ class LiveResturantActivityy :AppCompatActivity(), PublisherListener {
 
         else{
             publishButton.setText( R.string.start_publishing)
+               publishButton.setBackgroundColor(Color.GREEN)
 
 
-        }
+
+           }
 
 
 

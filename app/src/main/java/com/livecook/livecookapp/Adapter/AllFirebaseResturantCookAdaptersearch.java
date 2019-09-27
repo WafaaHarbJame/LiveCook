@@ -9,6 +9,9 @@ import android.graphics.drawable.Drawable;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Build;
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -122,7 +125,7 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
     public void onBindViewHolder(@NonNull AllFirebaseResturantCookAdaptersearch.MovieHolder movieHolder, final int i) {
 
 
-       movieHolder.countall.setText(dataListFiltered.get(i).getCount()+"");
+        movieHolder.countall.setText(dataListFiltered.get(i).getCount()+"");
         movieHolder.livetitle.setText(dataListFiltered.get(i).getTitle());
         movieHolder.allname.setText(dataListFiltered.get(i).getName()+"");
         //movieHolder.countall.setText(watch_counter+"");
@@ -182,7 +185,7 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
                         isFollowed = true;
 
                     } else {
-                      //  mFirebaseDatabase.child(user_id + "").child("following").child("cookers").child(cooker_id + "").child("name").setValue(name1);
+                        //  mFirebaseDatabase.child(user_id + "").child("following").child("cookers").child(cooker_id + "").child("name").setValue(name1);
 
                         movieHolder.follow.setImageDrawable(activity.getResources().getDrawable(R.drawable.followtab));
                         isFollowed = false;
@@ -238,38 +241,38 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
 
 
 
-            movieHolder.follow.setOnClickListener(new View.OnClickListener() {
+        movieHolder.follow.setOnClickListener(new View.OnClickListener() {
 
 
 
-                @Override
-                public void onClick(View v) {
-                        if (saveLogin) {
-                            firebase_type_1=movieHolder.type.getText().toString();
-                            //Toast.makeText(activity, ""+firebase_type_1, Toast.LENGTH_SHORT).show();
-                            if (firebase_type_1.matches("6")|| firebase_type_1.matches("7")) {
-                                firebase_type_str = "cooker";
+            @Override
+            public void onClick(View v) {
+                if (saveLogin) {
+                    firebase_type_1=movieHolder.type.getText().toString();
+                    //Toast.makeText(activity, ""+firebase_type_1, Toast.LENGTH_SHORT).show();
+                    if (firebase_type_1.matches("6")|| firebase_type_1.matches("7")) {
+                        firebase_type_str = "cooker";
 
-                                if(isFollowed){
-                                    movieHolder.follow.setImageDrawable(activity.getResources().getDrawable(R.drawable.followtab));
+                        if(isFollowed){
+                            movieHolder.follow.setImageDrawable(activity.getResources().getDrawable(R.drawable.followtab));
 
-                                    mFirebaseDatabase.child(user_id + "").child("following").child("cookers").child(data.get(i).getId() + "")
-                                            .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            isFollowed=false;
-
-                                        }
-                                    });
-
+                            mFirebaseDatabase.child(user_id + "").child("following").child("cookers").child(data.get(i).getId() + "")
+                                    .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    isFollowed=false;
 
                                 }
+                            });
 
-                                else{
+
+                        }
+
+                        else{
 
 
-                                    mFirebaseDatabase.child(user_id + "").child("following").child("cookers").child(data.get(i).getId() + "")
-                                            .addListenerForSingleValueEvent(new ValueEventListener() {
+                            mFirebaseDatabase.child(user_id + "").child("following").child("cookers").child(data.get(i).getId() + "")
+                                    .addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                             mFirebaseDatabase.child(user_id + "").child("following").child("cookers").child(data.get(i).getId() + "").child("name").setValue(name1).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -292,73 +295,73 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
                                     });
 
 
-                                }
+                        }
 
 
 
-                            }
+                    }
 
 
-                            else {
+                    else {
 
-                                if(isFollowed){
-                                    movieHolder.follow.setImageDrawable(activity.getResources().getDrawable(R.drawable.followtab));
-                                    mFirebaseDatabase.child(user_id + "").child("following").child("restaurants").child(data.get(i).getId() + "")
+                        if(isFollowed){
+                            movieHolder.follow.setImageDrawable(activity.getResources().getDrawable(R.drawable.followtab));
+                            mFirebaseDatabase.child(user_id + "").child("following").child("restaurants").child(data.get(i).getId() + "")
                                     .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            isFollowed=false;
-
-                                        }
-                                    });                                    isFollowed=false;
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    isFollowed=false;
 
                                 }
+                            });                                    isFollowed=false;
 
-                                else{
+                        }
+
+                        else{
 
 
-                                    mFirebaseDatabase.child(user_id + "").child("following").child("restaurants").child(cooker_id + "")
-                                            .addListenerForSingleValueEvent(new ValueEventListener() {
+                            mFirebaseDatabase.child(user_id + "").child("following").child("restaurants").child(cooker_id + "")
+                                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                            mFirebaseDatabase.child(user_id + "").child("following").child("restaurants").
+                                                    child(data.get(i).getId() + "").child("name").setValue(name1).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
-                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                    mFirebaseDatabase.child(user_id + "").child("following").child("restaurants").
-                                                            child(data.get(i).getId() + "").child("name").setValue(name1).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                        @Override
-                                                        public void onComplete(@NonNull Task<Void> task) {
-                                                            isFollowed=true;
-                                                            movieHolder.follow.setImageDrawable(activity.getResources().getDrawable(R.drawable.following));
-
-                                                        }
-                                                    });
-
-
-
-                                                }
-
-                                                @Override
-                                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    isFollowed=true;
+                                                    movieHolder.follow.setImageDrawable(activity.getResources().getDrawable(R.drawable.following));
 
                                                 }
                                             });
 
 
-                                }
 
+                                        }
 
-                            }
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                        }
+                                    });
 
 
                         }
 
-                        else {
 
-                            Intent intent=new Intent(activity, LoginActivity.class);
-                            activity.startActivity(intent);
-
-                        }
                     }
 
-            });
+
+                }
+
+                else {
+
+                    Intent intent=new Intent(activity, LoginActivity.class);
+                    activity.startActivity(intent);
+
+                }
+            }
+
+        });
 
 
 
@@ -369,7 +372,6 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
 
 
         /*MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-
         mediaMetadataRetriever .setDataSource("https://www.radiantmediaplayer.com/media/bbb-360p.mp4", new HashMap<String, String>());
         Bitmap bmFrame = mediaMetadataRetriever.getFrameAtTime(3000); //unit in microsecond
         movieHolder.allimage.setImageBitmap(bmFrame);/*/
@@ -378,7 +380,7 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
         movieHolder.livetitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Toast.makeText(activity, ""+status, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(activity, ""+status, Toast.LENGTH_SHORT).show();
 
 
                 if(status){
@@ -517,23 +519,22 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
             retriveVideoFrameFromVideo("http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8");
             movieHolder.allimage.setImageDrawable(movieHolder.allimage.getDrawable());
             movieHolder.allimage.setImageBitmap(retriveVideoFrameFromVideo(data.get(i).getLivePath()));
-
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }*/
 
         // LoadImageFromWebOperations(data.get(i).getLivePath());
-       // movieHolder.allimage.setImageDrawable( LoadImageFromWebOperations(data.get(i).getLivePath()));
+        // movieHolder.allimage.setImageDrawable( LoadImageFromWebOperations(data.get(i).getLivePath()));
 
 
 
 
 
-      Glide.with(activity)
+        Glide.with(activity)
                 .asBitmap()
                 .apply(myOptions)
                 .load(data.get(i).getLiveImage())
-              .error(R.drawable.test)
+                .error(R.drawable.test)
                 .into(movieHolder.allimage);
 
 
@@ -580,6 +581,30 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
                 dataListFiltered = (ArrayList<AllFirebaseModel>) filterResults.values;
                 notifyDataSetChanged();
+                if(dataListFiltered.isEmpty()){
+                   /* Toast toast = Toast.makeText(activity,"لا يوجد نتائج", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();*/
+                    View layout= LayoutInflater.from(activity).inflate(R.layout.toastmeaage,
+                            (ViewGroup)activity.findViewById(R.id.lineaetoast));
+                    ImageView image = (ImageView) layout.findViewById(R.id.textView_noresult);
+                    image.setImageResource(R.drawable.no_data);
+                    Toast toast = new Toast(activity);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
+                    toast.setView(layout);
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            toast.cancel();
+                        }
+                    }, 1000);// 5 sec
+
+                    toast.show();
+
+
+                }
             }
         };    }
 
@@ -673,5 +698,3 @@ public class AllFirebaseResturantCookAdaptersearch extends RecyclerView.Adapter<
 
 
 }
-
-

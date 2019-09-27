@@ -22,6 +22,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,12 +47,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.DexterError;
 import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.livecook.livecookapp.Activity.CookPageActivity;
 import com.livecook.livecookapp.Activity.LiveKotlenActivity;
 import com.livecook.livecookapp.Activity.LogincookActivity;
 import com.livecook.livecookapp.Activity.RegisterActivity;
+import com.livecook.livecookapp.Activity.TestPerActivity;
 import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter;
 import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter1;
 import com.livecook.livecookapp.Adapter.ResturantImagetopAdapter1forprofile;
@@ -245,9 +250,27 @@ public class PersonalCookerFragment extends Fragment {
                                 if (livename.getText().toString().isEmpty()) {
                                     Toast.makeText(getActivity(), "ادخل عنوان البث", Toast.LENGTH_SHORT).show();
 
-                                } else {
+                                }  else {
 
-                                    live_title = livename.getText().toString();
+                                    live_title=livename.getText().toString();
+                                    getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+                                    livename.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                                        @Override
+                                        public void onFocusChange(View v, boolean hasFocus) {
+                                            if (v == livename) {
+                                                if (hasFocus) {
+                                                    // Open keyboard
+                                                    ((InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(livename, InputMethodManager.SHOW_FORCED);
+                                                } else {
+                                                    // Close keyboard
+                                                    ((InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(livename.getWindowToken(), 0);
+                                                }
+                                            }
+                                        }
+                                    });
+
+
                                     livefun();
                                 }
 
@@ -276,23 +299,34 @@ public class PersonalCookerFragment extends Fragment {
 
                     }
 
-                        else {
+
+                        if(report.isAnyPermissionPermanentlyDenied()){
                             Toast.makeText(getActivity(), "لا يمكنك عمل بث بدون الموافقة على هذه الصلاحيات ", Toast.LENGTH_SHORT).show();
+
+
                         }
+
 
 
 
                      //end of    /* ... */
                     }
 
+
+
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        // Toast.makeText(getContext(), "token", Toast.LENGTH_SHORT).show();
                         token.continuePermissionRequest();
-
-                        /* ... */
                     }
-                }).check();
+                }).
+                        withErrorListener(new PermissionRequestErrorListener() {
+                            @Override
+                            public void onError(DexterError error) {
+                                Toast.makeText(getActivity(), "Error occurred! ", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .onSameThread()
+                        .check();
 
 
             }
@@ -434,32 +468,13 @@ public class PersonalCookerFragment extends Fragment {
                     mAblePhoneLogin.setText(mobile);
                     mCountryCook.setText("الدولة :"+" "+countryName);
 
-                    if(region.isEmpty() ||region.matches("") ||region.matches("غير محدد")  ){
-                        mCityState.setVisibility(View.GONE);
-                        setMargins(mAblePhoneLogin,0,70,0,0);
-                        setMargins(mImageView2,0,70,0,0);
-                        setMargins(mCookPhone,0,70,0,0);
-
-
-                    }
-                    else {
-                        mCityState.setVisibility(View.GONE);
-
-                    }
-
                     // city
                     if(cityName.isEmpty() ||cityName.matches("") ||cityName.matches("غير محدد")  ){
                         mCityCook.setVisibility(View.GONE);
                         setMargins(mAblePhoneLogin,0,70,0,0);
                         setMargins(mImageView2,0,70,0,0);
                         setMargins(mCookPhone,0,70,0,0);
-
-
-
-
-
-
-                    }
+   }
                     else {
                         mCityCook.setText(  "المدينة : "+"  "+cityName);
 

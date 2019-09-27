@@ -323,6 +323,7 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
 
             Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
          startActivity(intent);
+         finish();
 
         }
     }
@@ -354,15 +355,28 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
 
 
 
+
             }
         }
         else{
 
             menu.findItem(R.id.action_notification).setVisible(false);
+            menu.findItem(R.id.action_createlive).setVisible(false);
+
+
+
+        }
+
+        if(typnumer.matches("cooker")||typnumer.matches("restaurant")){
             menu.findItem(R.id.action_createlive).setVisible(true);
 
 
         }
+
+
+
+
+
 
 
         //  final MenuItem alertMenuItem = menu.findItem(R.id.actionregister);

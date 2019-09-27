@@ -110,7 +110,7 @@
     <EditText
         android:id="@+id/eddesc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:ems="10"
         android:textSize="14sp"
         android:layout_gravity="right"
@@ -120,10 +120,10 @@
         android:hint="@string/write_hinit"
         android:layout_marginTop="8dp"
         android:textDirection="rtl"
-        android:inputType="text"
+        android:inputType="textMultiLine"
         android:lines="5"
         android:maxLines="5"
-        android:minLines="2"
+        android:minLines="1"
          />
 
 

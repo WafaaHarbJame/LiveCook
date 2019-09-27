@@ -21,6 +21,9 @@
         android:testOnly="false"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
+        <activity android:name=".Activity.TestPerActivity">
+
+        </activity>
         <activity
             android:name=".Activity.LoginPageActivity"
             android:label="@string/loginword" />

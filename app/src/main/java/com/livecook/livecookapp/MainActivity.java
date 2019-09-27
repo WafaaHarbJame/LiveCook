@@ -65,7 +65,9 @@ import com.google.gson.Gson;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.DexterError;
 import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.livecook.livecookapp.Activity.CookFilterrActivity;
 import com.livecook.livecookapp.Activity.LiveKotlenActivity;
@@ -424,11 +426,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else{
 
             menu.findItem(R.id.action_notification).setVisible(false);
-            menu.findItem(R.id.action_createlive).setVisible(true);
+            menu.findItem(R.id.action_createlive).setVisible(false
+            );
 
 
 
         }
+
+
+
+        if(typnumer.matches("cooker")||typnumer.matches("restaurant")){
+            if(saveLogin) {
+
+                menu.findItem(R.id.action_createlive).setVisible(true);
+
+            }
+        }
+
+
+
 
         //  final MenuItem alertMenuItem = menu.findItem(R.id.actionregister);
         // rootView = (FrameLayout) alertMenuItem.getActionView();
@@ -512,7 +528,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                     live_title = livename.getText().toString();
 
+                                   MainActivity.this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+                                    livename.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                                        @Override
+                                        public void onFocusChange(View v, boolean hasFocus) {
+                                            if (v == livename) {
+                                                if (hasFocus) {
+                                                    // Open keyboard
+                                                    ((InputMethodManager) MainActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(livename, InputMethodManager.SHOW_FORCED);
+                                                } else {
+                                                    // Close keyboard
+                                                    ((InputMethodManager)  MainActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(livename.getWindowToken(), 0);
+                                                }
+                                            }
+                                        }
+                                    });
                                     if (typnumer.matches("cooker")) {
                                         getCookerprofile(tokenfromlogin);
 
@@ -550,23 +581,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     }
 
-                    else {
+                    if(report.isAnyPermissionPermanentlyDenied()){
                         Toast.makeText(MainActivity.this, "لا يمكنك عمل بث بدون الموافقة على هذه الصلاحيات ", Toast.LENGTH_SHORT).show();
+
+
                     }
-
-
 
                     //end of    /* ... */
                 }
 
                 @Override
                 public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                    // Toast.makeText(getContext(), "token", Toast.LENGTH_SHORT).show();
                     token.continuePermissionRequest();
-
-                    /* ... */
                 }
-            }).check();
+            }).
+                    withErrorListener(new PermissionRequestErrorListener() {
+                        @Override
+                        public void onError(DexterError error) {
+                            Toast.makeText(MainActivity.this, "Error occurred! ", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .onSameThread()
+                    .check();
 
             return true;
         }
@@ -1247,12 +1283,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public void exitApp() {
-        if ((System.currentTimeMillis() - exitTime) > 2000) {
-            Toast.makeText(this, getString(R.string.press_again_to_exit), Toast.LENGTH_SHORT).show();
-            exitTime = System.currentTimeMillis();
-        } else {
+
+        if (homeFragment != null && homeFragment.isVisible()) {
             finish();
+            // add your code here
         }
+        else{
+            Intent intent=new Intent(MainActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
+
+
     }
 
 

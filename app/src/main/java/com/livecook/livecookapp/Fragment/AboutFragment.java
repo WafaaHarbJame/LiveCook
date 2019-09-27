@@ -14,6 +14,8 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +39,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.invoke.ConstantCallSite;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -115,11 +118,42 @@ public class AboutFragment extends Fragment {
 
 
                     if(text!=null){
-                        Typeface font =  ResourcesCompat.getFont(getActivity(), R.font.jannalt_regular);
+                        //Typeface font =  ResourcesCompat.getFont(getActivity(), R.font.jannalt_regular);
                         WebSettings webSettings = webView.getSettings();
-                        webSettings.setFixedFontFamily(String.valueOf(font));
-                        webView.loadDataWithBaseURL("",text,"text/html",
-                                null,"\"<html dir=\\\"rtl\\\" lang=\\\"\\\"><body>\" + outhtml + \"</body></html>\"");
+                        webSettings.setDefaultTextEncodingName("utf-8");
+                        //webSettings.setFixedFontFamily(String.valueOf(font));
+
+                         //webView.loadDataWithBaseURL("",text,"text/html",
+                              //  null,"\"<html dir=\\\"rtl\\\" lang=\\\"\\\"><body>\" + outhtml + \"</body></html>\"");
+
+                       // webView.loadDataWithBaseURL("",text,"text/html",
+                             //   null,"<html><head></head><body>\" +content  + \"</body></html>");
+                        Log.e("Text", text);
+
+                        String dataa = "<html><head></head><body>" +
+                                text  + "</body></html>";
+                        Log.e("Wafaa", dataa);
+                        //String header = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
+                      //  webView.loadData(header+dataa, "text/html", "UTF-8");
+
+                     webView.loadData(dataa, "text/html", null);
+
+                        String content =
+                                "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"+
+                                        "<html><head>"+
+                                        "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />"+
+                                        "</head><body>";
+
+                        content += text + "</body></html>";
+
+                        //webView.loadData(content, "text/html; charset=utf-8", "UTF-8");
+
+                      /*  webView.loadData(
+                                Base64.encodeToString(
+                                        text.getBytes(StandardCharsets.UTF_8),
+                                        Base64.DEFAULT), // encode in Base64 encoded
+                                "text/html; charset=utf-8", // utf-8 html content (personal recommendation)
+                                "base64");*/
 
 
                     }

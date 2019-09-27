@@ -115,7 +115,9 @@ public class SearchAllActivity extends AppCompatActivity implements AllFirebaseR
             @Override
             public boolean onQueryTextSubmit(String query) {
                 // filter recycler view when query submitted
-
+                allFirebaseResturantCookAdapter.getFilter().filter(query);
+                allFirebaseResturantCookAdapter.notifyDataSetChanged();
+                allswip.setRefreshing(false);
 
 
 
@@ -203,6 +205,15 @@ public class SearchAllActivity extends AppCompatActivity implements AllFirebaseR
         return super.onCreateOptionsMenu(menu);
     }
 
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item= menu.findItem(R.id.nav_home);
+        item.setVisible(false);
+        super.onPrepareOptionsMenu(menu);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -253,9 +264,8 @@ public class SearchAllActivity extends AppCompatActivity implements AllFirebaseR
     @Override
     public void onBackPressed() {
         hideKeyboardFrom(SearchAllActivity.this,searchView);
-
-
-
+        Intent intent=new Intent(SearchAllActivity.this,MainActivity.class);
+        startActivity(intent);
         finish();
     }
 }

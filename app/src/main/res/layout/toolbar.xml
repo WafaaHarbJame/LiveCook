@@ -19,6 +19,8 @@
         android:id="@+id/etSearch1"
         android:visibility="visible"
     android:layout_height="55dp"
+    android:layoutDirection="rtl"
+    android:textDirection="rtl"
     app:defaultQueryHint="البحث"
     android:queryHint="@string/serachhinit"
     android:theme="@style/WhiteCursorSearchView"
