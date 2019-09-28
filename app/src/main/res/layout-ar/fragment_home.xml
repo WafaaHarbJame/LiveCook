@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:layoutDirection="rtl"
+    android:textDirection="rtl"
+    android:orientation="vertical">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layoutDirection="rtl"
+        android:textDirection="rtl"
+        android:id="@+id/mmm"
+        android:layout_gravity="right"
+
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#13960A"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textDirection="rtl"
+                android:background="@color/tabbarcolor"
+                app:tabTextAppearance="@style/TabLayoutTextStyle"
+                app:tabTextColor="@color/gray"
+                app:tabIndicatorColor="@android:color/white"
+            android:layoutDirection="rtl"
+                app:tabSelectedTextColor="@color/white"
+                />
+        </com.google.android.material.appbar.AppBarLayout>
+
+       <!-- <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
+
+        <klogi.com.RtlViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"
+            android:layout_marginTop="40dp"
+
+            android:layout_height="match_parent"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>
