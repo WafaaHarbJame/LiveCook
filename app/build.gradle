@@ -56,9 +56,12 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.github.jrvansuita:PickImage:+'
 
-    implementation 'com.google.firebase:firebase-messaging:20.0.0'
-    implementation 'com.google.firebase:firebase-storage:19.0.0'
-    implementation 'com.firebaseui:firebase-ui-storage:0.6.0'
+
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+    implementation 'com.google.firebase:firebase-iid:19.0.1'
+    implementation 'com.google.firebase:firebase-messaging:19.0.1'
+    implementation 'android.arch.work:work-runtime:1.0.1'
+
     implementation 'com.kaopiz:kprogresshud:1.2.0'
     implementation 'com.google.firebase:firebase-auth:18.1.0'
     implementation 'com.github.takusemba:rtmppublisher:1.1.1'
