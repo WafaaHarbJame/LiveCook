@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config>
+        <device id="Nexus 5X" />
+        <device id="Nexus 7" />
+        <device id="pixel_3_xl" />
+        <device id="pixel_3" />
+        <device id="pixel_xl" />
+        <device id="pixel_2" />
+        <device id="pixel" />
+        <device id="Nexus 10" />
+      </config>
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Hz" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AvailableLibraryUpdateStorage">
+    <last-search-timestamp>1566009922847</last-search-timestamp>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b704f73b-61fc-45ee-96b3-f8a829a7157e" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="LiveCook" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="LiveCook" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/ChangePasswardActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2400">
+              <caret line="148" column="45" selection-start-line="148" selection-start-column="45" selection-end-line="148" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Interface" />
+        <option value="resourceFile" />
+        <option value="Class" />
+        <option value="layoutResourceFile_vertical" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>live</find>
+      <find>tool</find>
+      <find>exist</find>
+      <find>onBa</find>
+      <find>menu</find>
+      <find>home</find>
+      <find>ex</find>
+      <find>mainContainer</find>
+      <find>SearchAllFirebaseResturantCookAdapter</find>
+      <find>getFilter</find>
+      <find>onBackPressed</find>
+      <find>onBack</find>
+      <find>cooker</find>
+      <find>register</find>
+      <find>actionregister</find>
+      <find>action_createlive</find>
+      <find>Filter</find>
+      <find>JSONArray</find>
+      <find>getCooker</find>
+      <find>cookAdapter</find>
+      <find>getCo</find>
+      <find>getCountries</find>
+      <find>countrylist</find>
+      <find>fcm_token</find>
+      <find>mCountryname</find>
+      <find>data</find>
+      <find>getHeaders</find>
+      <find>JsonObjectRequest</find>
+      <find>changepassward1</find>
+      <find>changepassward</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\live\food app\LiveCook\app\src\main\java\com</dir>
+      <dir>D:\live\food app\LiveCook\app\src\main</dir>
+      <dir>D:\live\food app\LiveCook\app\src\main\res\layout</dir>
+    </dirStrings>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="D:\live\food app\livecook.jks" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/AllcookFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/CookPageActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/ResturantPageActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/register2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/gray_bacground.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_personal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/RegisterResturantActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_ondemand_video_green24dp.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/ResturantImagetopAdapter1forprofile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/NotificationAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/ResturantImagetopAdapter1.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/CookFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/toastmeaage.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/resturant_item_image_top_profile.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_personal_resurant.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/resetPassActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/ResetPassActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_reset_pass.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/AboutFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/PoliceFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_test_per.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/TestPerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/LiveResturantActivityy.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/LiveKotlenActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/PersonalResurantFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/PersonalCookerFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_contact.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_registercook.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register_resturant.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/AcoountSettingFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrowwhite.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_liveuser_activityy.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_acoount_setting.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/RegistercookActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search_all.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/SearchAllFirebaseResturantCookAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/SearchAllActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/SearchResturant.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/SearchActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/RegisterActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/LoginPageActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/AllFirebaseResturantCookAdaptersearch.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/SearchCookAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/SearchResturantAdapter.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LiveCook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LiveCook" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="LiveCook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LiveCook" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="LiveCook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LiveCook" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LiveCook" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExportApk.ApkPath" value="D:\live\food app\LiveCook\app\relese2" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="ExportApk.SignV1" value="true" />
+    <property name="ExportApk.SignV2" value="true" />
+    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="android.sdk.path" value="E:/Sdk" />
+    <property name="device.picker.selection" value="3300c75496b2a295" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout-ar" />
+    <property name="not.eligible.for.single.variant.sync" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.livecook.livecookapp.Activity" />
+    </key>
+    <key name="android.template.packageName">
+      <recent name="com.livecook.livecookapp.Activity" />
+    </key>
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.livecook.livecookapp.Adapter" />
+      <recent name="com.livecook.livecookapp.Fragment" />
+      <recent name="com.livecook.livecookapp.Model" />
+      <recent name="com.livecook.livecookapp.Api" />
+      <recent name="com.livecook.livecookapp.Activity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\live\food app\LiveCook\app\src\main\res\layout-ar" />
+      <recent name="D:\live\food app\LiveCook\app\src\main\res\drawable" />
+      <recent name="D:\live\food app\LiveCook\app\src\main\res\layout" />
+      <recent name="D:\live\food app\LiveCook\app\src\main\res\drawable-hdpi" />
+      <recent name="D:\live\food app\LiveCook\app\src\main\res\drawable-mdpi" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.livecook.livecookapp.Adapter" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b704f73b-61fc-45ee-96b3-f8a829a7157e" name="Default Changelist" comment="" />
+      <created>1563714255135</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563714255135</updated>
+    </task>
+    <task id="LOCAL-00001" summary="inital">
+      <created>1563903475371</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1563903475372</updated>
+    </task>
+    <task id="LOCAL-00002" summary="inital">
+      <created>1563914623548</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1563914623548</updated>
+    </task>
+    <task id="LOCAL-00003" summary="inital">
+      <created>1563919304905</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1563919304905</updated>
+    </task>
+    <task id="LOCAL-00004" summary="inital">
+      <created>1563919845696</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1563919845696</updated>
+    </task>
+    <task id="LOCAL-00005" summary="comment 2">
+      <created>1566016312837</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566016312837</updated>
+    </task>
+    <task id="LOCAL-00006" summary="comment 2">
+      <created>1566021506667</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1566021506667</updated>
+    </task>
+    <task id="LOCAL-00007" summary="comment 2">
+      <created>1566021544026</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1566021544026</updated>
+    </task>
+    <task id="LOCAL-00008" summary="comment 3">
+      <created>1566088697956</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1566088697956</updated>
+    </task>
+    <task id="LOCAL-00009" summary="comment 3">
+      <created>1567081766127</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1567081766127</updated>
+    </task>
+    <task id="LOCAL-00010" summary="comment 3">
+      <created>1567083847050</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1567083847050</updated>
+    </task>
+    <task id="LOCAL-00011" summary="comment 4">
+      <created>1567084017487</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1567084017487</updated>
+    </task>
+    <task id="LOCAL-00012" summary="comment 4">
+      <created>1567632895708</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1567632895708</updated>
+    </task>
+    <task id="LOCAL-00013" summary="comment 4">
+      <created>1567796578590</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1567796578622</updated>
+    </task>
+    <task id="LOCAL-00014" summary="comment 4">
+      <created>1567796609955</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1567796609955</updated>
+    </task>
+    <task id="LOCAL-00015" summary="comment 4">
+      <created>1567893665458</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1567893665458</updated>
+    </task>
+    <task id="LOCAL-00016" summary="comment 4">
+      <created>1567964131916</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1567964131916</updated>
+    </task>
+    <task id="LOCAL-00017" summary="comment 4">
+      <created>1567965992919</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1567965992919</updated>
+    </task>
+    <task id="LOCAL-00018" summary="comment 4">
+      <created>1568255691279</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1568255691279</updated>
+    </task>
+    <task id="LOCAL-00019" summary="comment 4">
+      <created>1568255736852</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1568255736852</updated>
+    </task>
+    <task id="LOCAL-00020" summary="comment 4">
+      <created>1568313277437</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1568313277437</updated>
+    </task>
+    <task id="LOCAL-00021" summary="comment 4">
+      <created>1568469839423</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1568469839423</updated>
+    </task>
+    <task id="LOCAL-00022" summary="comment 4">
+      <created>1568472729951</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1568472729951</updated>
+    </task>
+    <task id="LOCAL-00023" summary="comment 4">
+      <created>1568473350657</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1568473350657</updated>
+    </task>
+    <task id="LOCAL-00024" summary="comment 4">
+      <created>1568481527748</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1568481527748</updated>
+    </task>
+    <task id="LOCAL-00025" summary="comment 4">
+      <created>1568565824658</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1568565824688</updated>
+    </task>
+    <task id="LOCAL-00026" summary="comment 4">
+      <created>1569297654193</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1569297654193</updated>
+    </task>
+    <task id="LOCAL-00027" summary="comment 4">
+      <created>1569553880341</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1569553880341</updated>
+    </task>
+    <task id="LOCAL-00028" summary="comment 4">
+      <created>1569645019880</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1569645019880</updated>
+    </task>
+    <task id="LOCAL-00029" summary="comment 4">
+      <created>1569645052040</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1569645052040</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.78642714" visible="true" weight="0.22214764" />
+      <window_info id="Structure" order="1" sideWeight="0.50141644" side_tool="true" weight="0.19127516" />
+      <window_info id="Captures" order="2" sideWeight="0.21357286" side_tool="true" weight="0.17114094" />
+      <window_info id="Favorites" order="3" sideWeight="0.50141644" side_tool="true" weight="0.19127516" />
+      <window_info id="Build Variants" order="4" sideWeight="0.50396824" side_tool="true" weight="0.19127516" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Resources Explorer" order="7" sideWeight="0.49858356" weight="0.3295302" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.14022663" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.46458924" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.04249292" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.1713881" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.3286119" />
+      <window_info anchor="bottom" id="TODO" order="5" weight="0.3286119" />
+      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.49731544" visible="true" weight="0.14730878" />
+      <window_info active="true" anchor="bottom" id="Find" order="7" visible="true" weight="0.42634562" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4986577" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" weight="0.3286119" />
+      <window_info anchor="bottom" id="Analyze App Size" order="10" weight="0.44617563" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.67280453" />
+      <window_info anchor="right" id="Hierarchy" order="0" weight="0.3295302" />
+      <window_info anchor="right" id="StringPreview" order="1" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Preview" order="4" sideWeight="0.88538206" weight="0.3080537" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Event Log" order="6" sideWeight="0.114617944" side_tool="true" weight="0.3080537" />
+      <window_info anchor="right" id="Dimension Tools" order="7" sideWeight="0.8927039" weight="0.26912752" />
+      <window_info anchor="right" id="Gradle" order="8" sideWeight="0.14164306" weight="0.3295302" />
+      <window_info anchor="right" id="Device File Explorer" order="9" sideWeight="0.88412017" weight="0.3295302" />
+      <window_info anchor="right" id="Fabric" order="10" weight="0.3295302" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.78642714" visible="true" weight="0.19731544" />
+      <window_info id="Structure" order="1" sideWeight="0.50141644" side_tool="true" weight="0.19127516" />
+      <window_info id="Captures" order="2" sideWeight="0.21357286" side_tool="true" weight="0.17114094" />
+      <window_info id="Favorites" order="3" sideWeight="0.50141644" side_tool="true" weight="0.19127516" />
+      <window_info id="Build Variants" order="4" sideWeight="0.50396824" side_tool="true" weight="0.19127516" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Resources Explorer" order="7" sideWeight="0.49858356" weight="0.3295302" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.14022663" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.6558074" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.7592068" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.1713881" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.3286119" />
+      <window_info anchor="bottom" id="TODO" order="5" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Build" order="6" sideWeight="0.49731544" visible="true" weight="0.04249292" />
+      <window_info anchor="bottom" id="Find" order="7" visible="true" weight="0.27620396" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4986577" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" weight="0.3286119" />
+      <window_info anchor="bottom" id="Analyze App Size" order="10" weight="0.44617563" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.67280453" />
+      <window_info anchor="right" id="Hierarchy" order="0" weight="0.3295302" />
+      <window_info anchor="right" id="StringPreview" order="1" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Preview" order="4" sideWeight="0.9017544" weight="0.21946308" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Event Log" order="6" sideWeight="0.09824561" side_tool="true" weight="0.43825504" />
+      <window_info anchor="right" id="Dimension Tools" order="7" sideWeight="0.8927039" weight="0.26912752" />
+      <window_info anchor="right" id="Gradle" order="8" sideWeight="0.14164306" weight="0.3295302" />
+      <window_info anchor="right" id="Fabric" order="9" weight="0.3295302" />
+      <window_info anchor="right" id="Device File Explorer" order="10" sideWeight="0.88412017" weight="0.3295302" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/livecook-android" />
+    </ignored-roots>
+    <MESSAGE value="inital" />
+    <MESSAGE value="comment 2" />
+    <MESSAGE value="comment 3" />
+    <MESSAGE value="comment 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment 4" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/RegisterFragment.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/AboutFragment.java</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/MainActivity.java</url>
+          <line>463</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/MainActivity.java</url>
+          <line>1045</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/SearchResturantAdapter.java</url>
+          <line>378</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/TestPerActivity.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/resturant_item_image_top_profile.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_live_kotlen.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_live_resturant_activityy.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_registercook.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="219" column="36" selection-start-line="219" selection-start-column="36" selection-end-line="219" selection-end-column="36" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_resturant.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_back_black_24dp.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_back_black.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_arrowwhite.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="56" selection-start-line="1" selection-start-column="56" selection-end-line="1" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_live_user.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" selection-start-line="8" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_liveuser_activityy.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/LiveUserctivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_acoount_setting.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="69" column="48" lean-forward="true" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_all.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-ar/fragment_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="19" lean-forward="true" selection-end-line="60" selection-end-column="15" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="60" column="15" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/create_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="33" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/RegistercookActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="606" column="49" selection-start-line="606" selection-start-column="45" selection-end-line="606" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search_all.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/SearchAllFirebaseResturantCookAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="495" lean-forward="true" selection-start-line="495" selection-end-line="495" />
+          <folding>
+            <element signature="e#16247#16248#0" expanded="true" />
+            <element signature="e#16289#16290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/SearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="893" column="1" selection-start-line="893" selection-start-column="1" selection-end-line="893" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/MultipartActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/LoginPageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="1004" selection-start-line="1004" selection-end-line="1004" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="1044" column="20" selection-start-line="1044" selection-start-column="12" selection-end-line="1044" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/PersonalCookerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="271" selection-start-line="255" selection-start-column="35" selection-end-line="271" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/SearchResturant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16560">
+          <caret line="896" column="1" selection-start-line="896" selection-start-column="1" selection-end-line="902" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/SearchAllActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="129" column="57" selection-start-line="129" selection-start-column="51" selection-end-line="129" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/AllFirebaseResturantCookAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/AllFirebaseResturantCookLiveAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/SearchResturantAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="376" column="34" selection-start-line="376" selection-start-column="34" selection-end-line="376" selection-end-column="34" />
+          <folding>
+            <element signature="e#13828#13829#0" expanded="true" />
+            <element signature="e#13898#13899#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/SearchCookAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="417" selection-start-line="417" selection-end-line="417" />
+          <folding>
+            <element signature="e#15252#15253#0" expanded="true" />
+            <element signature="e#15322#15323#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Adapter/AllFirebaseResturantCookAdaptersearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="601" column="27" selection-start-line="601" selection-start-column="23" selection-end-line="601" selection-end-column="27" />
+          <folding>
+            <element signature="e#21478#21479#0" expanded="true" />
+            <element signature="e#21550#21551#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Model/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="android-dummy://D:/live/food app/LiveCook/app/Translations Editor">
+      <provider selected="true" editor-type-id="string-resource-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="142" selection-start-line="142" selection-end-line="147" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/CookFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cook_item_cooker_rest.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cook_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/CookPageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="72" column="27" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Fragment/AcoountSettingFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="964" column="25" selection-start-line="964" selection-start-column="8" selection-end-line="964" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/ChangePasswardActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="148" column="45" selection-start-line="148" selection-start-column="45" selection-end-line="148" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/livecook/livecookapp/Activity/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
