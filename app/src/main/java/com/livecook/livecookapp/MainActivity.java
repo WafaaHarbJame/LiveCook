@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String fc_token;
     SharedPreferences prefs;
     String tokenfromlogin;
+    
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     String tooken;
